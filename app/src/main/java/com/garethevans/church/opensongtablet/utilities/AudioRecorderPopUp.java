@@ -264,10 +264,12 @@ public class AudioRecorderPopUp {
         }
     }
     private void releaseMediaRecorder() {
-        try {
-            mediaRecorder.release();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (mediaRecorder!=null) {
+            try {
+                mediaRecorder.release();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         mediaRecorder = null;
     }
