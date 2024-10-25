@@ -68,6 +68,10 @@ public class NonOpenSongSQLiteHelper extends SQLiteOpenHelper {
     private void importDatabase() {
         // This copies in the version in the settings folder if it exists and isn't empty
         boolean copied;
+        if (appDB==null || userDB==null || appDBFile==null) {
+            getDatabaseUris();
+        }
+
         if (mainActivityInterface.getStorageAccess().uriTreeValid(userDB) && mainActivityInterface.getStorageAccess().uriExists(userDB) &&
             mainActivityInterface.getStorageAccess().getFileSizeFromUri(userDB)>0) {
             InputStream inputStream = mainActivityInterface.getStorageAccess().getInputStream(userDB);
