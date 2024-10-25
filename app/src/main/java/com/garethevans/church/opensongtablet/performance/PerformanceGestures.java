@@ -3,9 +3,11 @@ package com.garethevans.church.opensongtablet.performance;
 // The gestures used in the app
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.DocumentsContract;
 import android.util.Log;
 import android.view.View;
 
@@ -31,6 +33,7 @@ import com.garethevans.church.opensongtablet.stage.StageSectionAdapter;
 import com.garethevans.church.opensongtablet.utilities.SoundLevelBottomSheet;
 import com.garethevans.church.opensongtablet.utilities.TunerBottomSheet;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class PerformanceGestures {
@@ -595,6 +598,10 @@ public class PerformanceGestures {
                 audioRecorder();
                 break;
 
+            case "audioplayer":
+                audioPlayer();
+                break;
+
             // Exit
             case "exit":
                 onBackPressed();
@@ -1032,6 +1039,27 @@ public class PerformanceGestures {
     public void audioRecorder() {
         mainActivityInterface.setRequireAudioRecorder();
         mainActivityInterface.displayAudioRecorder();
+    }
+
+    // Show the audio player
+    public void audioPlayer() {
+        // Ask the user to select a file
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("*/*");
+        ArrayList<String> input = new ArrayList<>();
+        input.add("audio/*");
+        input.add("audio/3gp");
+        input.add("video/3gp");
+        input.add("video/mp4)");
+        intent.putExtra(Intent.EXTRA_MIME_TYPES, input);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI,
+                    mainActivityInterface.getStorageAccess().getUriForItem("Media","",""));
+        }
+        intent.addFlags(mainActivityInterface.getStorageAccess().getAddReadUriFlags());
+        mainActivityInterface.setWhattodo("audioplayer");
+        mainActivityInterface.selectFile(intent);
     }
 
     // Show the abc notation

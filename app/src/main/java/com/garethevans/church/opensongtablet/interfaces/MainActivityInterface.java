@@ -1,5 +1,6 @@
 package com.garethevans.church.opensongtablet.interfaces;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Handler;
@@ -274,6 +275,7 @@ public interface MainActivityInterface {
     void chordinatorResult(ImportOnlineFragment importOnlineFragment, String songText);
 
     // General tools
+    void selectFile(Intent intent);
     CustomAnimation getCustomAnimation();
     Transpose getTranspose();
     AlertChecks getAlertChecks();
@@ -342,5 +344,4 @@ public interface MainActivityInterface {
     void setRequireAudioRecorder();
     void removeAudioRecorderPopUp();
     void displayAudioRecorder();
-
 }

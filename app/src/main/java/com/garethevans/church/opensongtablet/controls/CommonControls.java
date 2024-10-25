@@ -178,6 +178,7 @@ public class CommonControls {
         addString("tuner",c.getString(R.string.tuner));
         addString("bible",c.getString(R.string.bible_verse));
         addString("audiorecorder",c.getString(R.string.audio_recorder));
+        addString("audioplayer",c.getString(R.string.audio_player));
 
         addString("","");
 

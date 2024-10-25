@@ -1,6 +1,7 @@
 package com.garethevans.church.opensongtablet;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.SearchManager;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -162,6 +163,7 @@ import com.garethevans.church.opensongtablet.sqlite.CommonSQL;
 import com.garethevans.church.opensongtablet.sqlite.NonOpenSongSQLiteHelper;
 import com.garethevans.church.opensongtablet.sqlite.SQLiteHelper;
 import com.garethevans.church.opensongtablet.tags.BulkTagAssignFragment;
+import com.garethevans.church.opensongtablet.utilities.AudioPlayerBottomSheet;
 import com.garethevans.church.opensongtablet.utilities.AudioRecorderPopUp;
 import com.garethevans.church.opensongtablet.utilities.DatabaseUtilitiesFragment;
 import com.garethevans.church.opensongtablet.utilities.ForumFragment;
@@ -275,6 +277,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
 
     // The audio recorder permissions
     private ActivityResultLauncher<String> audioPermissionLauncher;
+    private ActivityResultLauncher<Intent> selectFileLauncher;
     private boolean requireAudioRecorder = false;
     private AudioRecorderPopUp audioRecorderPopUp;
 
@@ -367,6 +370,30 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                 InformationBottomSheet informationBottomSheet = new InformationBottomSheet(getString(R.string.microphone),
                         getString(R.string.permissions_refused), getString(R.string.settings), "appPrefs");
                 informationBottomSheet.show(getMyFragmentManager(), "InformationBottomSheet");
+            }
+        });
+
+        // The file picker launcher
+        selectFileLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result.getResultCode() == Activity.RESULT_OK) {
+                try {
+                    Intent data = result.getData();
+                    if (data != null) {
+                        if (data.getData()!=null) {
+                            setImportUri(data.getData());
+                            if (whattodo.equals("audioplayer")) {
+                                whattodo="";
+                                AudioPlayerBottomSheet audioPlayerBottomSheet = new AudioPlayerBottomSheet();
+                                audioPlayerBottomSheet.show(getMyFragmentManager(), "audioPlayerBottomSheet");
+                            }
+                        } else {
+                            getShowToast().error();
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    getShowToast().error();
+                }
             }
         });
 
@@ -2829,6 +2856,13 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
     }
 
     // The getters for references to the helper classes also needed in fragments
+    @Override
+    public void selectFile(Intent intent) {
+        if (selectFileLauncher!=null) {
+            selectFileLauncher.launch(intent);
+        }
+    }
+
     @Override
     public StorageAccess getStorageAccess() {
         if (storageAccess == null) {
