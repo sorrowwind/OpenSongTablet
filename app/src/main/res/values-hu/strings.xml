@@ -42,6 +42,10 @@
     <string name="artist">Művész</string>
     <string name="ask">"Kérdezze minden alkalommal"</string>
     <string name="audio">Hang-</string>
+    <string name="audio_player">Audio lejátszó</string>
+    <string name="audio_player_info">Mentett hangfájlok lejátszása</string>
+    <string name="audio_recorder">Hangrögzítő</string>
+    <string name="audio_recorder_info">Hangjegyzeteket vagy ötleteket rögzíthet a mikrofon segítségével</string>
     <string name="audio_source">Hangforrás</string>
     <string name="author">"Szerző"</string>
     <string name="autohide_page_button">A főoldal gombjának automatikus elrejtése, ha nincs kibontva</string>
@@ -631,6 +635,7 @@
     <string name="opacity">Átlátszatlanság</string>
     <string name="open">"Megnyitás"</string>
     <string name="open_song_menu">"Nyílt dal menü"</string>
+    <string name="opensong_media">A hangfelvételek mentése az /OpenSong/Media/ mappába</string>
     <string name="optional">Választható</string>
     <string name="other">Más</string>
     <string name="other_options">Egyéb opciók</string>
@@ -723,6 +728,7 @@
     <string name="preso_alpha">Háttér homályossága</string>
     <string name="prev_next_autohide">Az előző/következő gombok automatikus elrejtése</string>
     <string name="prev_next_text">Használja a szöveg előző/következő gombjait</string>
+    <string name="preview">Előnézet</string>
     <string name="previous">Előző</string>
     <string name="print">Nyomtatás</string>
     <string name="processing">"Fájlok feldolgozása"</string>
@@ -748,6 +754,7 @@
     <string name="random_song_info">Válasszon ki egy véletlenszerű dalt a menüben jelenleg látható dalok közül</string>
     <string name="rate">"Értékeld ezt az alkalmazást"</string>
     <string name="rate_description">Kérjük, írjon véleményt</string>
+    <string name="record">Rekord</string>
     <string name="red">Piros</string>
     <string name="redo">Újra kifest</string>
     <string name="refrain">"Refrén"</string>

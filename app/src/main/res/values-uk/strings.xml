@@ -42,6 +42,10 @@
     <string name="artist">актор</string>
     <string name="ask">Уточнювати кожен раз</string>
     <string name="audio">Аудіо</string>
+    <string name="audio_player">Аудіоплеєр</string>
+    <string name="audio_player_info">Відтворення збережених аудіофайлів</string>
+    <string name="audio_recorder">Аудіозаписувач</string>
+    <string name="audio_recorder_info">Записуйте аудіозаписки чи ідеї за допомогою мікрофона</string>
     <string name="audio_source">Джерело звуку</string>
     <string name="author">Автор</string>
     <string name="autohide_page_button">Автоматичне приховання кнопки головної сторінки, якщо її не розгорнуто</string>
@@ -631,6 +635,7 @@
     <string name="opacity">Помутніння</string>
     <string name="open">Відкрити</string>
     <string name="open_song_menu">Відкрити меню пісні</string>
+    <string name="opensong_media">Аудіозаписи зберігаються в /OpenSong/Media/</string>
     <string name="optional">За бажанням</string>
     <string name="other">Iнший</string>
     <string name="other_options">Інші варіанти</string>
@@ -723,6 +728,7 @@
     <string name="preso_alpha">Прозорість фону</string>
     <string name="prev_next_autohide">Автоматично приховувати кнопки «попередній/наступний».</string>
     <string name="prev_next_text">Використовуйте текстові кнопки «попередній/наступний».</string>
+    <string name="preview">Попередній перегляд</string>
     <string name="previous">Попередній</string>
     <string name="print">Роздрукувати</string>
     <string name="processing">Файли обробляються</string>
@@ -748,6 +754,7 @@
     <string name="random_song_info">Виберіть випадкову пісню з тих, які зараз відображаються в меню</string>
     <string name="rate">Оцініть це додаток</string>
     <string name="rate_description">Будь ласка, залиште відгук</string>
+    <string name="record">запис</string>
     <string name="red">червоний</string>
     <string name="redo">Повторити</string>
     <string name="refrain">рефрен</string>

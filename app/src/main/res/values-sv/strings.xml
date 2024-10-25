@@ -42,6 +42,10 @@
     <string name="artist">Konstnär</string>
     <string name="ask">"Fråga varje gång"</string>
     <string name="audio">"Audio"</string>
+    <string name="audio_player">Ljudspelare</string>
+    <string name="audio_player_info">Spela sparade ljudfiler</string>
+    <string name="audio_recorder">Ljudinspelare</string>
+    <string name="audio_recorder_info">Spela in ljudanteckningar eller idéer med din mikrofon</string>
     <string name="audio_source">Ljudkälla</string>
     <string name="author">"Författare"</string>
     <string name="autohide_page_button">Dölj huvudsidesknappen automatiskt när den inte expanderas</string>
@@ -631,6 +635,7 @@
     <string name="opacity">Opacitet</string>
     <string name="open">"Öppen"</string>
     <string name="open_song_menu">"Öppna låtmenyn"</string>
+    <string name="opensong_media">Ljudinspelningar sparas till /OpenSong/Media/</string>
     <string name="optional">Frivillig</string>
     <string name="other">"Andra"</string>
     <string name="other_options">Andra alternativ</string>
@@ -723,6 +728,7 @@
     <string name="preso_alpha">"Bakgrundsopacitet"</string>
     <string name="prev_next_autohide">Dölj föregående/nästa knappar automatiskt</string>
     <string name="prev_next_text">Använd knapparna text föregående/nästa</string>
+    <string name="preview">Förhandsvisning</string>
     <string name="previous">Föregående</string>
     <string name="print">Skriva ut</string>
     <string name="processing">"Filerna behandlas"</string>
@@ -748,6 +754,7 @@
     <string name="random_song_info">Välj en slumpmässig låt bland de som för närvarande visas i menyn</string>
     <string name="rate">"Betygsätt denna app"</string>
     <string name="rate_description">Lämna en recension</string>
+    <string name="record">Spela in</string>
     <string name="red">Röd</string>
     <string name="redo">Göra om</string>
     <string name="refrain">"Avstå"</string>

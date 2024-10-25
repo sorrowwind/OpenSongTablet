@@ -42,6 +42,10 @@
     <string name="artist">Καλλιτέχνης</string>
     <string name="ask">"Ερώτηση κάθε φορά"</string>
     <string name="audio">"Ήχος"</string>
+    <string name="audio_player">Αναπαραγωγή ήχου</string>
+    <string name="audio_player_info">Αναπαραγωγή αποθηκευμένων αρχείων ήχου</string>
+    <string name="audio_recorder">Συσκευή εγγραφής ήχου</string>
+    <string name="audio_recorder_info">Ηχογραφήστε σημειώσεις ή ιδέες χρησιμοποιώντας το μικρόφωνό σας</string>
     <string name="audio_source">Πηγή ήχου</string>
     <string name="author">"Author"</string>
     <string name="autohide_page_button">Αυτόματη απόκρυψη του κουμπιού κύριας σελίδας όταν δεν είναι ανεπτυγμένο</string>
@@ -631,6 +635,7 @@
     <string name="opacity">Αδιαφάνεια</string>
     <string name="open">"Open"</string>
     <string name="open_song_menu">"Ανοίξτε το μενού του τραγουδιού"</string>
+    <string name="opensong_media">Οι ηχογραφήσεις αποθηκεύονται στο /OpenSong/Media/</string>
     <string name="optional">Προαιρετικός</string>
     <string name="other">"Άλλα"</string>
     <string name="other_options">Αλλες επιλογές</string>
@@ -723,6 +728,7 @@
     <string name="preso_alpha">"Background opacity"</string>
     <string name="prev_next_autohide">Αυτόματη απόκρυψη κουμπιών προηγούμενου / επόμενου</string>
     <string name="prev_next_text">Χρησιμοποιήστε τα κουμπιά κειμένου προηγούμενο / επόμενο</string>
+    <string name="preview">Πρεμιέρα</string>
     <string name="previous">Previous</string>
     <string name="print">Τυπώνω</string>
     <string name="processing">"Τα αρχεία που υποβάλλονται σε επεξεργασία"</string>
@@ -748,6 +754,7 @@
     <string name="random_song_info">Επιλέξτε ένα τυχαίο τραγούδι από αυτά που εμφανίζονται αυτήν τη στιγμή στο μενού</string>
     <string name="rate">"Αξιολόγησε την εφαρμογή"</string>
     <string name="rate_description">Αφήστε μια κριτική</string>
+    <string name="record">Ρεκόρ</string>
     <string name="red">το κόκκινο</string>
     <string name="redo">Ξανακάνω</string>
     <string name="refrain">"Επωδός"</string>

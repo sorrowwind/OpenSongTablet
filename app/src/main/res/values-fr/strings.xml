@@ -42,6 +42,10 @@
     <string name="artist">Artiste</string>
     <string name="ask">"Demandez à chaque fois"</string>
     <string name="audio">Médias</string>
+    <string name="audio_player">Lecteur audio</string>
+    <string name="audio_player_info">Lire des fichiers audio enregistrés</string>
+    <string name="audio_recorder">Enregistreur audio</string>
+    <string name="audio_recorder_info">Enregistrez des notes audio ou des idées à l\'aide de votre microphone</string>
     <string name="audio_source">Source audio</string>
     <string name="author">"Auteur"</string>
     <string name="autohide_page_button">Masquer automatiquement le bouton de la page principale lorsqu’il n’est pas développé</string>
@@ -631,6 +635,7 @@
     <string name="opacity">Opacité</string>
     <string name="open">"Ouvrir"</string>
     <string name="open_song_menu">"Ouvrir le menu de la chanson"</string>
+    <string name="opensong_media">Les enregistrements audio sont enregistrés dans /OpenSong/Media/</string>
     <string name="optional">Optionnel</string>
     <string name="other">Autre</string>
     <string name="other_options">Autres options</string>
@@ -723,6 +728,7 @@
     <string name="preso_alpha">Opacité du fond</string>
     <string name="prev_next_autohide">Masquer automatiquement les boutons précédent/suivant</string>
     <string name="prev_next_text">Utiliser les boutons textuels précédent/suivant</string>
+    <string name="preview">Aperçu</string>
     <string name="previous">Précédent</string>
     <string name="print">Imprimer</string>
     <string name="processing">"Les fichiers sont en cours de traitement"</string>
@@ -748,6 +754,7 @@
     <string name="random_song_info">Sélectionnez une chanson au hasard parmi celles actuellement affichées dans le menu</string>
     <string name="rate">"Notez cette application"</string>
     <string name="rate_description">Merci de laisser un avis</string>
+    <string name="record">Enregistrer</string>
     <string name="red">Rouge</string>
     <string name="redo">Refaire</string>
     <string name="refrain">"Refrain"</string>

@@ -42,6 +42,10 @@
     <string name="artist">艺术家</string>
     <string name="ask">"要求每个时间"</string>
     <string name="audio">音频</string>
+    <string name="audio_player">音频播放器</string>
+    <string name="audio_player_info">播放保存的音频文件</string>
+    <string name="audio_recorder">录音机</string>
+    <string name="audio_recorder_info">使用麦克风录制音频笔记或想法</string>
     <string name="audio_source">音源</string>
     <string name="author">"作者"</string>
     <string name="autohide_page_button">未展开时自动隐藏主页按钮</string>
@@ -631,6 +635,7 @@
     <string name="opacity">不透明度</string>
     <string name="open">"打开"</string>
     <string name="open_song_menu">"打开菜单歌"</string>
+    <string name="opensong_media">录音保存到 /OpenSong/Media/</string>
     <string name="optional">选修的</string>
     <string name="other">"其他"</string>
     <string name="other_options">其他选项</string>
@@ -723,6 +728,7 @@
     <string name="preso_alpha">背景透明度</string>
     <string name="prev_next_autohide">自动隐藏上一个/下一个按钮</string>
     <string name="prev_next_text">使用文本上一个/下一个按钮</string>
+    <string name="preview">预览</string>
     <string name="previous">上一页</string>
     <string name="print">打印</string>
     <string name="processing">"文件正在处理中"</string>
@@ -748,6 +754,7 @@
     <string name="random_song_info">从菜单中当前显示的歌曲中选择一首随机歌曲</string>
     <string name="rate">"为这个应用软件评分"</string>
     <string name="rate_description">请留下评论</string>
+    <string name="record">记录</string>
     <string name="red">红色的</string>
     <string name="redo">重做</string>
     <string name="refrain">"副歌"</string>

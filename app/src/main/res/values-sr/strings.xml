@@ -42,6 +42,10 @@
     <string name="artist">Umetnik</string>
     <string name="ask">Pitaj svaki put</string>
     <string name="audio">Audio</string>
+    <string name="audio_player">Audio plejer</string>
+    <string name="audio_player_info">Igrajte sačuvane audio fajlove</string>
+    <string name="audio_recorder">Audio rekorder</string>
+    <string name="audio_recorder_info">Snimanje audio beleške ili ideje pomoću mikrofona</string>
     <string name="audio_source">Audio izvor</string>
     <string name="author">Autor</string>
     <string name="autohide_page_button">Automatski sakrij glavno dugme stranice kada nije razvijeno</string>
@@ -631,6 +635,7 @@
     <string name="opacity">Neprozirnost</string>
     <string name="open">Otvoriti</string>
     <string name="open_song_menu">Otvoriti pesma meni</string>
+    <string name="opensong_media">Audio snimci se čuvaju na OpenSongMedia</string>
     <string name="optional">Opciono</string>
     <string name="other">Drugo</string>
     <string name="other_options">Druge opcije</string>
@@ -723,6 +728,7 @@
     <string name="preso_alpha">Neprozirnost pozadine</string>
     <string name="prev_next_autohide">Automatsko sakrivanje prethodnog/sledećeg dugmeta</string>
     <string name="prev_next_text">Koristite dugmad za prethodni / sledeći tekst</string>
+    <string name="preview">Pregled</string>
     <string name="previous">Prethodno</string>
     <string name="print">Print</string>
     <string name="processing">Datoteke se obrađuju</string>
@@ -748,6 +754,7 @@
     <string name="random_song_info">Izaberite nasumičnu pesmu od onih koje su trenutno prikazane u meniju</string>
     <string name="rate">Ocenite ovu aplikaciju</string>
     <string name="rate_description">Molimo ostavite recenziju</string>
+    <string name="record">Zapis</string>
     <string name="red">Crveni</string>
     <string name="redo">Ponovi</string>
     <string name="refrain">Refren</string>

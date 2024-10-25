@@ -42,6 +42,10 @@
     <string name="artist">Umělec</string>
     <string name="ask">"Zeptejte se pokaždé,"</string>
     <string name="audio">Audio</string>
+    <string name="audio_player">Audio přehrávač</string>
+    <string name="audio_player_info">Přehrávejte uložené zvukové soubory</string>
+    <string name="audio_recorder">Zvukový záznamník</string>
+    <string name="audio_recorder_info">Nahrajte zvukové poznámky nebo nápady pomocí mikrofonu</string>
     <string name="audio_source">Zdroj zvuku</string>
     <string name="author">"Autor"</string>
     <string name="autohide_page_button">Automaticky skrýt tlačítko hlavní stránky, když není rozbalené</string>
@@ -631,6 +635,7 @@
     <string name="opacity">Neprůhlednost</string>
     <string name="open">"Otevřít"</string>
     <string name="open_song_menu">"Otevřete menu píseň"</string>
+    <string name="opensong_media">Zvukové nahrávky se ukládají do /OpenSong/Media/</string>
     <string name="optional">Volitelný</string>
     <string name="other">Ostatní</string>
     <string name="other_options">Jiné možnosti</string>
@@ -723,6 +728,7 @@
     <string name="preso_alpha">Pozadí neprůhlednost</string>
     <string name="prev_next_autohide">Automaticky skrýt předchozí / další tlačítka</string>
     <string name="prev_next_text">Použijte tlačítka text předchozí / další</string>
+    <string name="preview">Náhled</string>
     <string name="previous">Předchozí</string>
     <string name="print">Tisk</string>
     <string name="processing">"Soubory jsou zpracovávány"</string>
@@ -748,6 +754,7 @@
     <string name="random_song_info">Vyberte náhodnou skladbu z aktuálně zobrazených v nabídce</string>
     <string name="rate">"Ohodnoťte tuto aplikaci"</string>
     <string name="rate_description">Zanechte prosím recenzi</string>
+    <string name="record">Záznam</string>
     <string name="red">Červené</string>
     <string name="redo">Předělat</string>
     <string name="refrain">"Refrén"</string>

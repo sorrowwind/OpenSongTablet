@@ -42,6 +42,10 @@
     <string name="artist">Artista</string>
     <string name="ask">"Pida a cada tiempo"</string>
     <string name="audio">Audio-</string>
+    <string name="audio_player">reproductor de audio</string>
+    <string name="audio_player_info">Reproducir archivos de audio guardados</string>
+    <string name="audio_recorder">grabadora de audio</string>
+    <string name="audio_recorder_info">Graba notas de audio o ideas usando tu micrófono</string>
     <string name="audio_source">Fuente de audio</string>
     <string name="author">"Autor"</string>
     <string name="autohide_page_button">Ocultar automáticamente el botón de la página principal cuando no está expandido</string>
@@ -631,6 +635,7 @@
     <string name="opacity">Opacidad</string>
     <string name="open">"Abrir"</string>
     <string name="open_song_menu">"Menú canción abierto"</string>
+    <string name="opensong_media">Las grabaciones de audio se guardan en /OpenSong/Media/</string>
     <string name="optional">Opcional</string>
     <string name="other">Nu lain</string>
     <string name="other_options">Otras opciones</string>
@@ -723,6 +728,7 @@
     <string name="preso_alpha">Opacidad de fondo</string>
     <string name="prev_next_autohide">Ocultar automáticamente los botones anterior/siguiente</string>
     <string name="prev_next_text">Utilice los botones de texto anterior/siguiente</string>
+    <string name="preview">Avance</string>
     <string name="previous">Anterior</string>
     <string name="print">Impresión</string>
     <string name="processing">"Los archivos están siendo procesados"</string>
@@ -748,6 +754,7 @@
     <string name="random_song_info">Seleccione una canción aleatoria de las que se muestran actualmente en el menú</string>
     <string name="rate">"Califica esta aplicación"</string>
     <string name="rate_description">Por favor deja una reseña</string>
+    <string name="record">Registro</string>
     <string name="red">Rojo</string>
     <string name="redo">Rehacer</string>
     <string name="refrain">"Estribillo"</string>

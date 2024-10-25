@@ -42,6 +42,10 @@
     <string name="artist">Kunstenaar</string>
     <string name="ask">"Vra elke keer"</string>
     <string name="audio">Audio</string>
+    <string name="audio_player">Oudiospeler</string>
+    <string name="audio_player_info">Speel gestoorde oudiolêers</string>
+    <string name="audio_recorder">Oudio-opnemer</string>
+    <string name="audio_recorder_info">Neem oudio-notas of idees op met jou mikrofoon</string>
     <string name="audio_source">Oudio bron</string>
     <string name="author">"Skrywer"</string>
     <string name="autohide_page_button">Versteek die hoofbladsy-knoppie outomaties wanneer dit nie uitgebrei is nie</string>
@@ -631,6 +635,7 @@
     <string name="opacity">Ondeursigtigheid</string>
     <string name="open">"Oop"</string>
     <string name="open_song_menu">"Oop lied spyskaart"</string>
+    <string name="opensong_media">Oudio-opnames word gestoor na /OpenSong/Media/</string>
     <string name="optional">Opsioneel</string>
     <string name="other">Ander</string>
     <string name="other_options">Ander opsies</string>
@@ -723,6 +728,7 @@
     <string name="preso_alpha">Agtergrond ondeursigtigheid</string>
     <string name="prev_next_autohide">Versteek vorige / volgende knoppies outomaties</string>
     <string name="prev_next_text">Gebruik teks vorige / volgende knoppies</string>
+    <string name="preview">Voorskou</string>
     <string name="previous">Vorige</string>
     <string name="print">Druk</string>
     <string name="processing">"Lêers word verwerk"</string>
@@ -748,6 +754,7 @@
     <string name="random_song_info">Kies \'n ewekansige liedjie uit dié wat tans in die spyskaart gewys word</string>
     <string name="rate">"Gradeer hierdie inligting"</string>
     <string name="rate_description">Laat asseblief \'n resensie</string>
+    <string name="record">Rekord</string>
     <string name="red">Rooi</string>
     <string name="redo">Oordoen</string>
     <string name="refrain">Weerhou</string>

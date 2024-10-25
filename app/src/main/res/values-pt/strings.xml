@@ -42,6 +42,10 @@
     <string name="artist">Artista</string>
     <string name="ask">"Peça a cada vez"</string>
     <string name="audio">Auditivo</string>
+    <string name="audio_player">Reprodutor de áudio</string>
+    <string name="audio_player_info">Reproduzir arquivos de áudio salvos</string>
+    <string name="audio_recorder">Gravador de áudio</string>
+    <string name="audio_recorder_info">Grave notas de áudio ou ideias usando seu microfone</string>
     <string name="audio_source">Fonte de áudio</string>
     <string name="author">"Autor"</string>
     <string name="autohide_page_button">Ocultar automaticamente o botão da página principal quando não for expandido</string>
@@ -631,6 +635,7 @@
     <string name="opacity">Opacidade</string>
     <string name="open">"Abrir"</string>
     <string name="open_song_menu">"Abra o menu música"</string>
+    <string name="opensong_media">As gravações de áudio são salvas em /OpenSong/Media/</string>
     <string name="optional">Opcional</string>
     <string name="other">"De outros"</string>
     <string name="other_options">Outras opções</string>
@@ -723,6 +728,7 @@
     <string name="preso_alpha">Opacidade fundo</string>
     <string name="prev_next_autohide">Ocultar automaticamente os botões anterior/seguinte</string>
     <string name="prev_next_text">Use os botões de texto anterior/seguinte</string>
+    <string name="preview">Visualização</string>
     <string name="previous">Anterior</string>
     <string name="print">Imprimir</string>
     <string name="processing">"Arquivos estão sendo processados"</string>
@@ -748,6 +754,7 @@
     <string name="random_song_info">Selecione uma música aleatória daquelas mostradas atualmente no menu</string>
     <string name="rate">"Avalie este aplicativo"</string>
     <string name="rate_description">Por favor, deixe um comentário</string>
+    <string name="record">Registro</string>
     <string name="red">Vermelho</string>
     <string name="redo">Refazer</string>
     <string name="refrain">"Refrão"</string>

@@ -46,6 +46,10 @@
     <string name="artist">Artist</string>
     <string name="ask">Ask each time</string>
     <string name="audio">Audio</string>
+    <string name="audio_player">Audio player</string>
+    <string name="audio_player_info">Play saved audio files</string>
+    <string name="audio_recorder">Audio recorder</string>
+    <string name="audio_recorder_info">Record audio notes or ideas using your microphone</string>
     <string name="audio_source">Audio source</string>
     <string name="author">Author</string>
     <string name="autohide_page_button">Autohide the main page button when not expanded</string>
@@ -798,6 +802,7 @@
     <string name="open">Open</string>
     <string name="open_song_menu">Open song menu</string>
     <string name="opensong" translatable="false">OpenSong</string>
+    <string name="opensong_media">Audio recordings are saved to /OpenSong/Media/</string>
     <string name="optional">Optional</string>
     <string name="other">Other</string>
     <string name="other_options">Other options</string>
@@ -896,6 +901,7 @@
     <string name="preso_alpha">Background opacity</string>
     <string name="prev_next_autohide">Autohide previous / next buttons</string>
     <string name="prev_next_text">Use text previous / next buttons</string>
+    <string name="preview">Preview</string>
     <string name="previous">Previous</string>
     <string name="print">Print</string>
     <string name="processing">Files are being processed</string>
@@ -921,6 +927,7 @@
     <string name="random_song_info">Select a random song from those currently shown in the menu</string>
     <string name="rate">Rate this app</string>
     <string name="rate_description">Please leave a review</string>
+    <string name="record">Record</string>
     <string name="red">Red</string>
     <string name="redo">Redo</string>
     <string name="refrain">Refrain</string>
@@ -1273,6 +1280,7 @@
     <string name="website_address" translatable="false">https://www.opensongapp.com</string>
     <string name="website_aeros" translatable="false">https://www.opensongapp.com/user-manual/utilities/aeros</string>
     <string name="website_app_mode" translatable="false">https://www.opensongapp.com/user-manual/app-mode</string>
+    <string name="website_audio_recorder" translatable="false">https://www.opensongapp.com/user-manual/utilities/audio-recorder</string>
     <string name="website_autoscroll" translatable="false">https://www.opensongapp.com/user-manual/songs/song-actions/autoscroll</string>
     <string name="website_backup" translatable="false">https://www.opensongapp.com/user-manual/songs/opensongapp-backup</string>
     <string name="website_beatbuddy" translatable="false">https://www.opensongapp.com/user-manual/utilities/beatbuddy/options</string>

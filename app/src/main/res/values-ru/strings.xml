@@ -42,6 +42,10 @@
     <string name="artist">Исполнитель</string>
     <string name="ask">"Спрашивать каждый раз"</string>
     <string name="audio">Аудио</string>
+    <string name="audio_player">Аудиоплеер</string>
+    <string name="audio_player_info">Воспроизведение сохраненных аудиофайлов</string>
+    <string name="audio_recorder">Аудио рекордер</string>
+    <string name="audio_recorder_info">Записывайте аудиозаметки или идеи с помощью микрофона.</string>
     <string name="audio_source">Источник звука</string>
     <string name="author">"Автор"</string>
     <string name="autohide_page_button">Автоматическое отображение кнопки главной страницы, если она не развернута</string>
@@ -631,6 +635,7 @@
     <string name="opacity">Непрозрачность</string>
     <string name="open">Открыть</string>
     <string name="open_song_menu">Открыть меню песни</string>
+    <string name="opensong_media">Аудиозаписи сохраняются в /OpenSong/Media/.</string>
     <string name="optional">Опционально</string>
     <string name="other">Другой</string>
     <string name="other_options">Другие настройки</string>
@@ -723,6 +728,7 @@
     <string name="preso_alpha">Прозрачность фона</string>
     <string name="prev_next_autohide">Автоматически скрывать кнопки предыдущий/следующий</string>
     <string name="prev_next_text">Использовать текстовые кнопки предыдущий/следующий</string>
+    <string name="preview">Предварительный просмотр</string>
     <string name="previous">Назначить кнопку Назад</string>
     <string name="print">Печать</string>
     <string name="processing">Файлы обрабатываются</string>
@@ -748,6 +754,7 @@
     <string name="random_song_info">Выбрать случайную песню из тех, которые сейчас отображаются в меню</string>
     <string name="rate">Оцените это приложение</string>
     <string name="rate_description">Пожалуйста, оставьте отзыв о приложении</string>
+    <string name="record">Записывать</string>
     <string name="red">Красный</string>
     <string name="redo">Повторить</string>
     <string name="refrain">Рефрен</string>

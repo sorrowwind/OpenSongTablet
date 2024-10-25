@@ -42,6 +42,10 @@
     <string name="artist">Artista</string>
     <string name="ask">"Chiedi ogni volta"</string>
     <string name="audio">Audio</string>
+    <string name="audio_player">Lettore audio</string>
+    <string name="audio_player_info">Riproduci file audio salvati</string>
+    <string name="audio_recorder">Registratore audio</string>
+    <string name="audio_recorder_info">Registra note audio o idee utilizzando il microfono</string>
     <string name="audio_source">Sorgente Audio</string>
     <string name="author">"Autore"</string>
     <string name="autohide_page_button">Nascondi automaticamente il pulsante della pagina principale quando non è espanso</string>
@@ -631,6 +635,7 @@
     <string name="opacity">Opacità</string>
     <string name="open">"Aperto"</string>
     <string name="open_song_menu">"Aprire il menu canzone"</string>
+    <string name="opensong_media">Le registrazioni audio vengono salvate in /OpenSong/Media/</string>
     <string name="optional">Opzionale</string>
     <string name="other">"Altro"</string>
     <string name="other_options">Altre opzioni</string>
@@ -723,6 +728,7 @@
     <string name="preso_alpha">Sfondo opacità</string>
     <string name="prev_next_autohide">Nascondi automaticamente i pulsanti precedente/successivo</string>
     <string name="prev_next_text">Usa i pulsanti di testo precedente / successivo</string>
+    <string name="preview">Anteprima</string>
     <string name="previous">Indietro</string>
     <string name="print">Stampa</string>
     <string name="processing">"I file sono in fase di elaborazione"</string>
@@ -748,6 +754,7 @@
     <string name="random_song_info">Seleziona un brano casuale tra quelli attualmente mostrati nel menu</string>
     <string name="rate">"Valuta questa applicazione"</string>
     <string name="rate_description">Si prega di lasciare una recensione</string>
+    <string name="record">Documentazione</string>
     <string name="red">Rosso</string>
     <string name="redo">Rifare</string>
     <string name="refrain">"Ritornello"</string>

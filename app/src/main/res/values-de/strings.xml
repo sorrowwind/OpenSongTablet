@@ -42,6 +42,10 @@
     <string name="artist">Künstler</string>
     <string name="ask">"Jedes Mal nachfragen"</string>
     <string name="audio">Audio</string>
+    <string name="audio_player">Audioplayer</string>
+    <string name="audio_player_info">Spielen Sie gespeicherte Audiodateien ab</string>
+    <string name="audio_recorder">Audiorecorder</string>
+    <string name="audio_recorder_info">Nehmen Sie Audionotizen oder Ideen mit Ihrem Mikrofon auf</string>
     <string name="audio_source">Audio quelle</string>
     <string name="author">"Autor"</string>
     <string name="autohide_page_button">Schaltfläche \"Hauptseite\" automatisch ausblenden, wenn sie nicht erweitert ist</string>
@@ -631,6 +635,7 @@
     <string name="opacity">Opazität</string>
     <string name="open">"Öffnen"</string>
     <string name="open_song_menu">"Song-Menü öffnen"</string>
+    <string name="opensong_media">Audioaufnahmen werden unter /OpenSong/Media/ gespeichert.</string>
     <string name="optional">Optional</string>
     <string name="other">"Sonstiges"</string>
     <string name="other_options">Andere Optionen</string>
@@ -723,6 +728,7 @@
     <string name="preso_alpha">Hintergrund Deckkraft</string>
     <string name="prev_next_autohide">Vorherige / Nächste Schaltflächen automatisch ausblenden</string>
     <string name="prev_next_text">Verwenden Sie die Text-Zurück-/Weiter-Schaltflächen</string>
+    <string name="preview">Vorschau</string>
     <string name="previous">Zurück</string>
     <string name="print">Drucken</string>
     <string name="processing">"Dateien werden verarbeitet"</string>
@@ -748,6 +754,7 @@
     <string name="random_song_info">Wählen Sie einen zufälligen Song aus den derzeit im Menü angezeigten aus</string>
     <string name="rate">"Diese App bewerten"</string>
     <string name="rate_description">Bitte hinterlassen Sie eine Bewertung</string>
+    <string name="record">Aufzeichnen</string>
     <string name="red">Rot</string>
     <string name="redo">Noch einmal machen</string>
     <string name="refrain">"Refrain"</string>

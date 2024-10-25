@@ -42,6 +42,10 @@
     <string name="artist">කලාකරු</string>
     <string name="ask">සෑම අවස්ථාවකදීම අසන්න</string>
     <string name="audio">ශ්රව්ය උපකරණ</string>
+    <string name="audio_player">ශ්රව්ය වාදකය</string>
+    <string name="audio_player_info">සුරකින ලද ශ්‍රව්‍ය ගොනු වාදනය කරන්න</string>
+    <string name="audio_recorder">ශ්රව්ය පටිගත කරන්නා</string>
+    <string name="audio_recorder_info">ඔබගේ මයික්‍රෆෝනය භාවිතයෙන් ශ්‍රව්‍ය සටහන් හෝ අදහස් පටිගත කරන්න</string>
     <string name="audio_source">ශ්රව්ය මූලාශ්රය</string>
     <string name="author">කර්තෘ</string>
     <string name="autohide_page_button">පුළුල් නොවන විට ප්‍රධාන පිටු බොත්තම ස්වයංක්‍රීයව සඟවන්න</string>
@@ -631,6 +635,7 @@
     <string name="opacity">පාරාන්ධතාව</string>
     <string name="open">විවෘත</string>
     <string name="open_song_menu">ගීත මෙනුව විවෘත කරන්න</string>
+    <string name="opensong_media">ශ්‍රව්‍ය පටිගත කිරීම් /OpenSong/Media/ වෙත සුරකිනු ලැබේ</string>
     <string name="optional">විකල්ප</string>
     <string name="other">අනික්</string>
     <string name="other_options">වෙනත් විකල්ප</string>
@@ -723,6 +728,7 @@
     <string name="preso_alpha">පසුබිම් පාරාන්ධතාව</string>
     <string name="prev_next_autohide">පෙර / ඊළඟ බොත්තම් ස්වයංක්‍රීයව සඟවන්න</string>
     <string name="prev_next_text">පෙළ පෙර / ඊළඟ බොත්තම් භාවිතා කරන්න</string>
+    <string name="preview">පෙරදසුන</string>
     <string name="previous">කලින්</string>
     <string name="print">මුද්‍රණය කරන්න</string>
     <string name="processing">ගොනු සැකසෙමින් පවතී</string>
@@ -748,6 +754,7 @@
     <string name="random_song_info">මෙනුවේ දැනට පෙන්වන ඒවායින් අහඹු ගීතයක් තෝරන්න</string>
     <string name="rate">මෙම යෙදුම අගයන්න</string>
     <string name="rate_description">කරුණාකර සමාලෝචනයක් තබන්න</string>
+    <string name="record">වාර්තා කරන්න</string>
     <string name="red">රතු</string>
     <string name="redo">නැවත කරන්න</string>
     <string name="refrain">වැළකී සිටින්න</string>

@@ -42,6 +42,10 @@
     <string name="artist">アーティスト</string>
     <string name="ask">"毎回確認して下さい"</string>
     <string name="audio">オーディオ</string>
+    <string name="audio_player">オーディオプレーヤー</string>
+    <string name="audio_player_info">保存したオーディオファイルを再生する</string>
+    <string name="audio_recorder">オーディオレコーダー</string>
+    <string name="audio_recorder_info">マイクを使用して音声メモやアイデアを録音する</string>
     <string name="audio_source">オーディオソース</string>
     <string name="author">"作成者"</string>
     <string name="autohide_page_button">展開されていないメインページボタンを自動的に非表示にする</string>
@@ -631,6 +635,7 @@
     <string name="opacity">不透明度</string>
     <string name="open">"位置打开"</string>
     <string name="open_song_menu">"オープンソングメニュー"</string>
+    <string name="opensong_media">オーディオ録音は /OpenSong/Media/ に保存されます。</string>
     <string name="optional">オプション</string>
     <string name="other">"その他"</string>
     <string name="other_options">他のオプション</string>
@@ -723,6 +728,7 @@
     <string name="preso_alpha">背景の不透明度</string>
     <string name="prev_next_autohide">前/次のボタンを自動的に隠す</string>
     <string name="prev_next_text">テキストの前/次のボタンを使用する</string>
+    <string name="preview">プレビュー</string>
     <string name="previous">"「前」ボタンを設定する"</string>
     <string name="print">印刷する</string>
     <string name="processing">"ファイルが処理されています"</string>
@@ -748,6 +754,7 @@
     <string name="random_song_info">メニューに現在表示されている曲からランダムに曲を選択します</string>
     <string name="rate">"このアプリを評価"</string>
     <string name="rate_description">レビューを残してください</string>
+    <string name="record">記録</string>
     <string name="red">赤</string>
     <string name="redo">やり直す</string>
     <string name="refrain">"控える"</string>
