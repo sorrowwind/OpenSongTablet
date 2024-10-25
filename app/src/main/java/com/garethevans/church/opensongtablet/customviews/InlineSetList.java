@@ -76,27 +76,32 @@ public class InlineSetList extends RecyclerView {
     // Change the preference to use the inlineSet
     public void setInlineSet(boolean showInline) {
         this.showInline = showInline;
-        mainActivityInterface.getPreferences().setMyPreferenceBoolean("inlineSet", showInline);
-        if (showInline && mainActivityInterface.getCurrentSet().getCurrentSetSize()<=0) {
-            mainActivityInterface.getShowToast().doIt(no_set_string);
+        if (mainActivityInterface!=null) {
+            mainActivityInterface.getPreferences().setMyPreferenceBoolean("inlineSet", showInline);
+            if (showInline && mainActivityInterface.getCurrentSet().getCurrentSetSize() <= 0) {
+                mainActivityInterface.getShowToast().doIt(no_set_string);
+            }
+            mainActivityInterface.getMainHandler().postDelayed(() -> {
+                toggling = true;
+                reloadSong = false;
+                forceReload = false;
+                checkVisibility();
+                mainActivityInterface.getMainHandler().post(() -> setVisibility(showInline ? View.VISIBLE : View.GONE));
+            }, 1000);
         }
-        mainActivityInterface.getMainHandler().postDelayed(() -> {
-            toggling = true;
-            reloadSong = false;
-            forceReload = false;
-            checkVisibility();
-            mainActivityInterface.getMainHandler().post(() -> setVisibility(showInline ? View.VISIBLE:View.GONE));
-        },1000);
     }
 
     // Adjust the inline text size
     private void adjustTextSize() {
         // Base the text size on the width of the inline set
         // Minimum size is 12, Maximum is 20
-        if (mainActivityInterface.getMode().equals(mode_presenter_string)) {
-            textSize = mainActivityInterface.getPreferences().getMyPreferenceFloat("inlineSetTextSizePresenter",12f);
-        } else {
-            textSize = mainActivityInterface.getPreferences().getMyPreferenceFloat("inlineSetTextSize",12f);
+        if (mainActivityInterface!=null) {
+
+            if (mainActivityInterface.getMode().equals(mode_presenter_string)) {
+                textSize = mainActivityInterface.getPreferences().getMyPreferenceFloat("inlineSetTextSizePresenter", 12f);
+            } else {
+                textSize = mainActivityInterface.getPreferences().getMyPreferenceFloat("inlineSetTextSize", 12f);
+            }
         }
     }
 
@@ -108,7 +113,7 @@ public class InlineSetList extends RecyclerView {
 
     // Check the user preferences and mode for inline set display
     private boolean needInline() {
-        if (getContext()!=null) {
+        if (getContext()!=null && mainActivityInterface!=null) {
             return (!mainActivityInterface.getMode().equals(mode_presenter_string) && showInline) ||
                     (mainActivityInterface.getMode().equals(mode_presenter_string) && showInlinePresenter);
         } else {
@@ -118,36 +123,40 @@ public class InlineSetList extends RecyclerView {
 
     // If we rotate the device, the inline set needs redrawn to calculate the sixe
     public void orientationChanged(int orientation) {
-        int[] metrics = mainActivityInterface.getDisplayMetrics();
-        int portraitWidth = Math.min(metrics[0], metrics[1]);
-        int landscapeWidth = Math.max(metrics[0], metrics[1]);
-        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-            width = (int) (mainActivityInterface.getPreferences().getMyPreferenceFloat("inlineSetWidth", 0.2f) * portraitWidth);
-        } else {
-            width = (int) (mainActivityInterface.getPreferences().getMyPreferenceFloat("inlineSetWidth", 0.2f) * landscapeWidth);
+        if (mainActivityInterface!=null) {
+            int[] metrics = mainActivityInterface.getDisplayMetrics();
+            int portraitWidth = Math.min(metrics[0], metrics[1]);
+            int landscapeWidth = Math.max(metrics[0], metrics[1]);
+            if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+                width = (int) (mainActivityInterface.getPreferences().getMyPreferenceFloat("inlineSetWidth", 0.2f) * portraitWidth);
+            } else {
+                width = (int) (mainActivityInterface.getPreferences().getMyPreferenceFloat("inlineSetWidth", 0.2f) * landscapeWidth);
+            }
+            checkVisibility();
         }
-        checkVisibility();
     }
 
 
     // Scroll to an item
     private void scrollToItem(int position) {
-        this.post(() -> {
-            if (position > -1 &&
-                    position < mainActivityInterface.getCurrentSet().getCurrentSetSize()) {
-                // Scroll to that item
-                llm.scrollToPositionWithOffset(position, 0);
-            } else if (position == -1 &&
-                    mainActivityInterface.getCurrentSet().getCurrentSetSize() > 0) {
-                // Scroll to the top
-                llm.scrollToPositionWithOffset(0, 0);
-            }
-        });
+        if (mainActivityInterface!=null) {
+            this.post(() -> {
+                if (position > -1 &&
+                        position < mainActivityInterface.getCurrentSet().getCurrentSetSize()) {
+                    // Scroll to that item
+                    llm.scrollToPositionWithOffset(position, 0);
+                } else if (position == -1 &&
+                        mainActivityInterface.getCurrentSet().getCurrentSetSize() > 0) {
+                    // Scroll to the top
+                    llm.scrollToPositionWithOffset(0, 0);
+                }
+            });
+        }
     }
 
     // Get the inline set width (or 0 if no set required)
     public int getInlineSetWidth() {
-        if (showInline && mainActivityInterface.getCurrentSet().getCurrentSetSize() > 0) {
+        if (showInline && mainActivityInterface!=null && mainActivityInterface.getCurrentSet().getCurrentSetSize() > 0) {
             return width;
         } else {
             return 0;
@@ -160,44 +169,48 @@ public class InlineSetList extends RecyclerView {
         // Change the current value and save
         toggling = true;
         setInlineSet(!showInline);
-        mainActivityInterface.getMainHandler().postDelayed(() -> {
-            toggling = true;
-            reloadSong = true;
-            forceReload = true;
-            checkVisibility();
-        },500);
+        if (mainActivityInterface!=null) {
+            mainActivityInterface.getMainHandler().postDelayed(() -> {
+                toggling = true;
+                reloadSong = true;
+                forceReload = true;
+                checkVisibility();
+            }, 500);
+        }
     }
 
     // Check if the inline set is required (Visible) or not (Gone)
     public void checkVisibility() {
         // Check if a reload is required
         // Do this check after a delay (allow the view to be drawn)
-        mainActivityInterface.getMainHandler().postDelayed(() -> {
-            checkReload();
-            if (toggling) {
-                reloadSong = true;
-                toggling = false;
-            }
-
-            // Load the song if the song view is wider or narrower than it should be
-            int screenWidth = mainActivityInterface.getDisplayMetrics()[0];
-            int songWidth = mainActivityInterface.getSongWidth();
-
-            boolean wrongSize = songWidth!=0 && screenWidth-songWidth-width!=0;
-
-            if ((reloadSong && wrongSize) || forceReload) {
-                if (mainActivityInterface.getCurrentSet().getIndexSongInSet() == -1) {
-                    // Load the song
-                    mainActivityInterface.doSongLoad(mainActivityInterface.getSong().getFolder(),
-                            mainActivityInterface.getSong().getFilename(), false);
-                } else {
-                    // Load from the set
-                    mainActivityInterface.loadSongFromSet(mainActivityInterface.getCurrentSet().getIndexSongInSet());
+        if (mainActivityInterface!=null) {
+            mainActivityInterface.getMainHandler().postDelayed(() -> {
+                checkReload();
+                if (toggling) {
+                    reloadSong = true;
+                    toggling = false;
                 }
-                mainActivityInterface.getMainHandler().postDelayed(() -> forceReload = false,1000);
-            }
-            reloadSong = false;
-        },100);
+
+                // Load the song if the song view is wider or narrower than it should be
+                int screenWidth = mainActivityInterface.getDisplayMetrics()[0];
+                int songWidth = mainActivityInterface.getSongWidth();
+
+                boolean wrongSize = songWidth != 0 && screenWidth - songWidth - width != 0;
+
+                if ((reloadSong && wrongSize) || forceReload) {
+                    if (mainActivityInterface.getCurrentSet().getIndexSongInSet() == -1) {
+                        // Load the song
+                        mainActivityInterface.doSongLoad(mainActivityInterface.getSong().getFolder(),
+                                mainActivityInterface.getSong().getFilename(), false);
+                    } else {
+                        // Load from the set
+                        mainActivityInterface.loadSongFromSet(mainActivityInterface.getCurrentSet().getIndexSongInSet());
+                    }
+                    mainActivityInterface.getMainHandler().postDelayed(() -> forceReload = false, 1000);
+                }
+                reloadSong = false;
+            }, 100);
+        }
     }
 
     // Check if we are forcing reload, otherwise the same song won't load again
@@ -217,104 +230,122 @@ public class InlineSetList extends RecyclerView {
     // Will reload be required?
     public void checkReload() {
         reloadSong = false;
-        if (mainActivityInterface.getCurrentSet().getCurrentSetSize()>0 && needInline()) {
-            if (getVisibility() == View.GONE) {
-                // This will require a reload of the song to resize it
-                reloadSong = true;
-                mainActivityInterface.getMainHandler().post(() -> {
-                    ViewGroup.LayoutParams lp = getLayoutParams();
-                    lp.width = width;
-                    setLayoutParams(lp);
-                    setVisibility(View.VISIBLE);
-                    setLayoutParams(lp);
-                });
-            }
-        } else if (mainActivityInterface.getCurrentSet().getCurrentSetSize()==0) {
-            if (getVisibility() == View.VISIBLE) {
-                // This will require a reload of the song to resize it
-                reloadSong = true;
-                mainActivityInterface.getMainHandler().post(() -> setVisibility(View.GONE));
+        if (mainActivityInterface!=null) {
+            if (mainActivityInterface.getCurrentSet().getCurrentSetSize() > 0 && needInline()) {
+                if (getVisibility() == View.GONE) {
+                    // This will require a reload of the song to resize it
+                    reloadSong = true;
+                    mainActivityInterface.getMainHandler().post(() -> {
+                        ViewGroup.LayoutParams lp = getLayoutParams();
+                        lp.width = width;
+                        setLayoutParams(lp);
+                        setVisibility(View.VISIBLE);
+                        setLayoutParams(lp);
+                    });
+                }
+            } else if (mainActivityInterface.getCurrentSet().getCurrentSetSize() == 0) {
+                if (getVisibility() == View.VISIBLE) {
+                    // This will require a reload of the song to resize it
+                    reloadSong = true;
+                    mainActivityInterface.getMainHandler().post(() -> setVisibility(View.GONE));
+                }
             }
         }
     }
 
     // Called when we need to clear/reset the inline set
     public void notifyToClearInlineSet(int from, int count) {
-        if (inlineSetListAdapter!=null) {
-            mainActivityInterface.getMainHandler().post(() -> inlineSetListAdapter.notifyItemRangeRemoved(from,count));
+        if (mainActivityInterface!=null) {
+            if (inlineSetListAdapter != null) {
+                mainActivityInterface.getMainHandler().post(() -> inlineSetListAdapter.notifyItemRangeRemoved(from, count));
+            }
+            checkVisibility();
         }
-        checkVisibility();
     }
 
     // Called when the set has been parsed (might be empty)
     public void notifyToInsertAllInlineSet() {
-        if (inlineSetListAdapter!=null && mainActivityInterface.getCurrentSet().getCurrentSetSize()>0) {
-            mainActivityInterface.getMainHandler().post(() -> inlineSetListAdapter.notifyItemRangeInserted(0,mainActivityInterface.getCurrentSet().getCurrentSetSize()));
+        if (mainActivityInterface!=null) {
+            if (inlineSetListAdapter != null && mainActivityInterface.getCurrentSet().getCurrentSetSize() > 0) {
+                mainActivityInterface.getMainHandler().post(() -> inlineSetListAdapter.notifyItemRangeInserted(0, mainActivityInterface.getCurrentSet().getCurrentSetSize()));
+            }
+            checkVisibility();
         }
-        checkVisibility();
     }
 
     // Refresh the entire set
     public void notifyInlineSetUpdated() {
-        mainActivityInterface.getMainHandler().post(() -> inlineSetListAdapter.notifyItemRangeChanged(0, mainActivityInterface.getCurrentSet().getCurrentSetSize()));
+        if (mainActivityInterface!=null) {
+            mainActivityInterface.getMainHandler().post(() -> inlineSetListAdapter.notifyItemRangeChanged(0, mainActivityInterface.getCurrentSet().getCurrentSetSize()));
+        }
     }
 
     // Insert a value at the end of the set
     public void notifyInlineSetInserted() {
-        if (mainActivityInterface.getCurrentSet().getCurrentSetSize()>0) {
-            mainActivityInterface.getMainHandler().post(() -> inlineSetListAdapter.notifyItemInserted(mainActivityInterface.getCurrentSet().getCurrentSetSize() - 1));
+        if (mainActivityInterface!=null) {
+            if (mainActivityInterface.getCurrentSet().getCurrentSetSize() > 0) {
+                mainActivityInterface.getMainHandler().post(() -> inlineSetListAdapter.notifyItemInserted(mainActivityInterface.getCurrentSet().getCurrentSetSize() - 1));
+            }
+            checkVisibility();
         }
-        checkVisibility();
     }
 
     // Add an item at a specific location (restoring previously deleted)
     public void notifyInlineSetInserted(int position) {
-        mainActivityInterface.getMainHandler().post(() -> {
-            // Notify this item
-            inlineSetListAdapter.notifyItemInserted(position);
-            // Update the items after this as they need renumbered
-            inlineSetListAdapter.notifyItemRangeChanged(position,mainActivityInterface.getCurrentSet().getCurrentSetSize(), new String[]{updateNumber});
-        });
-        checkVisibility();
+        if (mainActivityInterface!=null) {
+            mainActivityInterface.getMainHandler().post(() -> {
+                // Notify this item
+                inlineSetListAdapter.notifyItemInserted(position);
+                // Update the items after this as they need renumbered
+                inlineSetListAdapter.notifyItemRangeChanged(position, mainActivityInterface.getCurrentSet().getCurrentSetSize(), new String[]{updateNumber});
+            });
+            checkVisibility();
+        }
     }
 
     // Remove an item at a specific location
     public void notifyInlineSetRemoved(int position) {
-        if (mainActivityInterface.getCurrentSet().getCurrentSetSize()>position) {
-            mainActivityInterface.getMainHandler().post(() -> {
-                // Notify the item that was removed
-                inlineSetListAdapter.notifyItemRemoved(position);
-                // Update the items after this
-                inlineSetListAdapter.notifyItemRangeChanged(position,mainActivityInterface.getCurrentSet().getCurrentSetSize(), new String[]{updateNumber});
-            });
+        if (mainActivityInterface!=null) {
+            if (mainActivityInterface.getCurrentSet().getCurrentSetSize() > position) {
+                mainActivityInterface.getMainHandler().post(() -> {
+                    // Notify the item that was removed
+                    inlineSetListAdapter.notifyItemRemoved(position);
+                    // Update the items after this
+                    inlineSetListAdapter.notifyItemRangeChanged(position, mainActivityInterface.getCurrentSet().getCurrentSetSize(), new String[]{updateNumber});
+                });
+            }
+            checkVisibility();
         }
-        checkVisibility();
     }
 
     // Swap the position of an item
     public void notifyInlineSetMove(int from, int to) {
-        mainActivityInterface.getMainHandler().post(() -> {
-            inlineSetListAdapter.notifyItemMoved(from, to);
-            // Update the numbers
-            inlineSetListAdapter.notifyItemChanged(from, updateNumber);
-            inlineSetListAdapter.notifyItemChanged(to, updateNumber);
-        });
-        checkVisibility();
+        if (mainActivityInterface!=null) {
+            mainActivityInterface.getMainHandler().post(() -> {
+                inlineSetListAdapter.notifyItemMoved(from, to);
+                // Update the numbers
+                inlineSetListAdapter.notifyItemChanged(from, updateNumber);
+                inlineSetListAdapter.notifyItemChanged(to, updateNumber);
+            });
+            checkVisibility();
+        }
     }
 
     // Change an item
     public void notifyInlineSetChanged(int position) {
-        mainActivityInterface.getMainHandler().post(() -> inlineSetListAdapter.notifyItemChanged(position,updateNumber));
+        if (mainActivityInterface!=null) {
+            mainActivityInterface.getMainHandler().post(() -> inlineSetListAdapter.notifyItemChanged(position, updateNumber));
+        }
     }
     // Update a range of items
     public void notifyInlineSetRangeChanged(int from, int count) {
-        if (inlineSetListAdapter!=null) {
+        if (inlineSetListAdapter!=null && mainActivityInterface!=null) {
             mainActivityInterface.getMainHandler().post(() -> inlineSetListAdapter.notifyItemRangeChanged(from,count));
         }
     }
     // Check the the highlighting of set item (index of song in set and the previously selected item)
     public void notifyInlineSetHighlight() {
-        if (inlineSetListAdapter!=null) {
+        if (inlineSetListAdapter!=null && mainActivityInterface!=null) {
             mainActivityInterface.getMainHandler().post(() -> {
                 if (mainActivityInterface.getCurrentSet().getPrevIndexSongInSet()>-1) {
                     inlineSetListAdapter.notifyItemChanged(mainActivityInterface.getCurrentSet().getPrevIndexSongInSet(), highlightItem);
@@ -326,7 +357,9 @@ public class InlineSetList extends RecyclerView {
     }
     // Scroll to the item (called after loading)
     public void notifyInlineSetScrollToItem() {
-        scrollToItem(mainActivityInterface.getCurrentSet().getIndexSongInSet());
+        if (mainActivityInterface != null) {
+            scrollToItem(mainActivityInterface.getCurrentSet().getIndexSongInSet());
+        }
     }
 
 
@@ -344,47 +377,53 @@ public class InlineSetList extends RecyclerView {
 
         @Override
         public int getItemCount() {
-            return mainActivityInterface.getCurrentSet().getCurrentSetSize();
+            if (mainActivityInterface!=null) {
+                return mainActivityInterface.getCurrentSet().getCurrentSetSize();
+            } else {
+                return 0;
+            }
         }
 
         @Override
         public void onBindViewHolder(@NonNull InlineSetItemViewHolder holder, int position, @NonNull List<Object> payloads) {
             position = holder.getAbsoluteAdapterPosition();
-            if (payloads.isEmpty()) {
-                super.onBindViewHolder(holder, position, payloads);
-            } else {
-                // Compare each Object in the payloads to the PAYLOAD you provided to notifyItemChanged
-                for (Object payload : payloads) {
-                    if (payload.equals(updateNumber)) {
-                        SetItemInfo si = mainActivityInterface.getCurrentSet().getSetItemInfo(position);
-                        si.songitem = position+1;
+            if (mainActivityInterface!=null) {
+                if (payloads.isEmpty()) {
+                    super.onBindViewHolder(holder, position, payloads);
+                } else {
+                    // Compare each Object in the payloads to the PAYLOAD you provided to notifyItemChanged
+                    for (Object payload : payloads) {
+                        if (payload.equals(updateNumber)) {
+                            SetItemInfo si = mainActivityInterface.getCurrentSet().getSetItemInfo(position);
+                            si.songitem = position + 1;
 
-                        String textsn = si.songtitle;
-                        String textfn = si.songfilename;
+                            String textsn = si.songtitle;
+                            String textfn = si.songfilename;
 
-                        // If this is a variation, we can prettify the output (remove the reference to the original folder)
-                        if (mainActivityInterface.getVariations().getIsNormalOrKeyVariation(si.songfolder,si.songfilename)) {
-                            textfn = "*" + textfn.substring(textfn.lastIndexOf("_")).replace("_","");
-                            textsn = textfn;
+                            // If this is a variation, we can prettify the output (remove the reference to the original folder)
+                            if (mainActivityInterface.getVariations().getIsNormalOrKeyVariation(si.songfolder, si.songfilename)) {
+                                textfn = "*" + textfn.substring(textfn.lastIndexOf("_")).replace("_", "");
+                                textsn = textfn;
+                            }
+
+                            textsn = (position + 1) + ". " + textsn;
+                            textfn = (position + 1) + ". " + textfn;
+
+                            if (si.songkey != null && !si.songkey.isEmpty()) {
+                                textsn = textsn + " (" + si.songkey + ")";
+                                textfn = textfn + " (" + si.songkey + ")";
+                            }
+                            holder.vSongTitle.setText(textsn);
+                            holder.vSongFilename.setText(textfn);
                         }
 
-                        textsn = (position+1) + ". " + textsn;
-                        textfn = (position+1) + ". " + textfn;
-
-                        if (si.songkey != null && !si.songkey.isEmpty()) {
-                            textsn = textsn + " (" + si.songkey + ")";
-                            textfn = textfn + " (" + si.songkey + ")";
-                        }
-                        holder.vSongTitle.setText(textsn);
-                        holder.vSongFilename.setText(textfn);
-                    }
-
-                    if (payload.equals(highlightItem) || payload.equals(updateNumber)) {
-                        // We want to update the highlight colour to on/off
-                        if (position == mainActivityInterface.getCurrentSet().getIndexSongInSet()) {
-                            setColor(holder, onColor);
-                        } else {
-                            setColor(holder, offColor);
+                        if (payload.equals(highlightItem) || payload.equals(updateNumber)) {
+                            // We want to update the highlight colour to on/off
+                            if (position == mainActivityInterface.getCurrentSet().getIndexSongInSet()) {
+                                setColor(holder, onColor);
+                            } else {
+                                setColor(holder, offColor);
+                            }
                         }
                     }
                 }
@@ -401,38 +440,40 @@ public class InlineSetList extends RecyclerView {
 
         @Override
         public void onBindViewHolder(@NonNull InlineSetItemViewHolder setitemViewHolder, int position) {
-            position = setitemViewHolder.getAbsoluteAdapterPosition();
-            SetItemInfo si = mainActivityInterface.getCurrentSet().getSetItemInfo(position);
-            if (position == mainActivityInterface.getCurrentSet().getIndexSongInSet()) {
-                setColor(setitemViewHolder, onColor);
-            } else {
-                setColor(setitemViewHolder, offColor);
+            if (mainActivityInterface != null) {
+                position = setitemViewHolder.getAbsoluteAdapterPosition();
+                SetItemInfo si = mainActivityInterface.getCurrentSet().getSetItemInfo(position);
+                if (position == mainActivityInterface.getCurrentSet().getIndexSongInSet()) {
+                    setColor(setitemViewHolder, onColor);
+                } else {
+                    setColor(setitemViewHolder, offColor);
+                }
+
+                si.songitem = position + 1;
+
+                String textsn = si.songtitle;
+                String textfn = si.songfilename;
+
+                // If this is a variation, we can prettify the output (remove the reference to the original folder)
+                if (mainActivityInterface.getVariations().getIsNormalOrKeyVariation(si.songfolder, si.songfilename)) {
+                    textfn = "*" + textfn.substring(textfn.lastIndexOf("_")).replace("_", "");
+                    textsn = textfn;
+                }
+
+                textsn = (position + 1) + ". " + textsn;
+                textfn = (position + 1) + ". " + textfn;
+
+                if (si.songkey != null && !si.songkey.isEmpty()) {
+                    textsn = textsn + " (" + si.songkey + ")";
+                    textfn = textfn + " (" + si.songkey + ")";
+                }
+                setitemViewHolder.vSongTitle.setTextSize(textSize);
+                setitemViewHolder.vSongTitle.setText(textsn);
+                setitemViewHolder.vSongFilename.setTextSize(textSize);
+                setitemViewHolder.vSongFilename.setText(textfn);
+                setitemViewHolder.vSongTitle.setVisibility(useTitle ? View.VISIBLE : View.GONE);
+                setitemViewHolder.vSongFilename.setVisibility(useTitle ? View.GONE : View.VISIBLE);
             }
-
-            si.songitem = position+1;
-
-            String textsn = si.songtitle;
-            String textfn = si.songfilename;
-
-            // If this is a variation, we can prettify the output (remove the reference to the original folder)
-            if (mainActivityInterface.getVariations().getIsNormalOrKeyVariation(si.songfolder,si.songfilename)) {
-                textfn = "*" + textfn.substring(textfn.lastIndexOf("_")).replace("_","");
-                textsn = textfn;
-            }
-
-            textsn = (position+1) + ". " + textsn;
-            textfn = (position+1) + ". " + textfn;
-
-            if (si.songkey != null && !si.songkey.isEmpty()) {
-                textsn = textsn + " (" + si.songkey + ")";
-                textfn = textfn + " (" + si.songkey + ")";
-            }
-            setitemViewHolder.vSongTitle.setTextSize(textSize);
-            setitemViewHolder.vSongTitle.setText(textsn);
-            setitemViewHolder.vSongFilename.setTextSize(textSize);
-            setitemViewHolder.vSongFilename.setText(textfn);
-            setitemViewHolder.vSongTitle.setVisibility(useTitle ? View.VISIBLE:View.GONE);
-            setitemViewHolder.vSongFilename.setVisibility(useTitle ? View.GONE:View.VISIBLE);
         }
 
         @NonNull
@@ -470,10 +511,14 @@ public class InlineSetList extends RecyclerView {
             vSongFolder.setVisibility(View.GONE);
             v.setOnClickListener((view) -> {
                 // Load the song and that sends the updates to the setMenuFragment and inlineSetList
-                mainActivityInterface.getThreadPoolExecutor().execute(() -> mainActivityInterface.loadSongFromSet(getAbsoluteAdapterPosition()));
+                if (mainActivityInterface!=null) {
+                    mainActivityInterface.getThreadPoolExecutor().execute(() -> mainActivityInterface.loadSongFromSet(getAbsoluteAdapterPosition()));
+                    }
             });
             v.setOnLongClickListener(v1 -> {
-                scrollToItem(mainActivityInterface.getCurrentSet().getIndexSongInSet());
+                if (mainActivityInterface!=null) {
+                    scrollToItem(mainActivityInterface.getCurrentSet().getIndexSongInSet());
+                }
                 return true;
             });
         }
