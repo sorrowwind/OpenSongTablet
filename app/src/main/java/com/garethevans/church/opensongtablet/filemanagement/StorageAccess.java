@@ -2552,7 +2552,7 @@ public class StorageAccess {
 
         // If the subfolder isn't null or empty, get that reference, creating if need be
         if (subfolder!=null && !subfolder.isEmpty()) {
-            fdsf = new File(fd,subfolder);
+            fdsf = new File(fdf,subfolder);
             if (!fdsf.exists()) {
                 Log.d(TAG,"Create subfolder:" + fdsf.mkdir());
             }
@@ -2562,7 +2562,7 @@ public class StorageAccess {
 
         // If the filename isn't null or empty, get that reference.  Don't create as the receiver will
         if (fdsf!=null && filename!=null && !filename.isEmpty()) {
-            return new File(fdf, filename);
+            return new File(fdsf, filename);
         } else if (fdsf != null) {
             return fdsf;
         } else if (folder!=null && subfolder!=null && filename!=null && !filename.isEmpty()) {
