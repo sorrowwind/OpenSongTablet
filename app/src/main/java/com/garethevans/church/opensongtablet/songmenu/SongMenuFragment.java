@@ -316,7 +316,7 @@ public class SongMenuFragment extends Fragment implements SongListAdapter.Adapte
                             // Clear the saved search folder and hide the filter as the folder doesn't exist
                             setSongListSearchByFolderValue("");
                             setSongListSearchByFolder(false);
-                            showHideRows(myView.filters.folderSearch,false);
+                            showHideRows(myView.filters.folderLayout,false);
                             myView.filters.folderSearch.setText("");
                         }
                     }
