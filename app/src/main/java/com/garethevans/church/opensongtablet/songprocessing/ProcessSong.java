@@ -3960,15 +3960,13 @@ public class ProcessSong {
 
         if (mainActivityInterface.getStorageAccess().uriExists(pdfUri)) {
             int totalPages;
-            ParcelFileDescriptor parcelFileDescriptor = mainActivityInterface.getProcessSong().getPDFParcelFileDescriptor(pdfUri);
-            PdfRenderer pdfRenderer = mainActivityInterface.getProcessSong().getPDFRenderer(parcelFileDescriptor);
+            ParcelFileDescriptor parcelFileDescriptor = getPDFParcelFileDescriptor(pdfUri);
+            PdfRenderer pdfRenderer = getPDFRenderer(parcelFileDescriptor);
             if (pdfRenderer != null) {
                 totalPages = pdfRenderer.getPageCount();
             } else {
                 totalPages = 0;
             }
-
-
 
             if (pdfRenderer != null) {
                 for (int x = 0; x < totalPages; x++) {
@@ -3982,7 +3980,9 @@ public class ProcessSong {
                     Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
                     page.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
 
-                    Glide.with(c).load(bitmap).override(width,height).into(imageView);
+                    imageView.setImageBitmap(bitmap);
+                    // Removed Glide option as it was asynchronous and didn't always draw in time
+                    //Glide.with(c).load(bitmap).override(width,height).into(imageView);
                     imageViews.add(imageView);
 
                     page.close();
