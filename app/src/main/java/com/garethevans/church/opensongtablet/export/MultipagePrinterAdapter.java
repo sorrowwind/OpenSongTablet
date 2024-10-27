@@ -1,6 +1,8 @@
 package com.garethevans.church.opensongtablet.export;
 
 import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,11 +14,15 @@ import android.print.PrintDocumentAdapter;
 import android.print.PrintDocumentInfo;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.garethevans.church.opensongtablet.R;
 import com.garethevans.church.opensongtablet.interfaces.MainActivityInterface;
 import com.garethevans.church.opensongtablet.songprocessing.Song;
 
@@ -41,12 +47,14 @@ public class MultipagePrinterAdapter extends PrintDocumentAdapter {
     private ExportFragment exportFragment;
     private LayoutResultCallback layoutResultCallback;
     private int currentSetItem;
+    private final Context c;
 
     // THIS IS USED TO MAKE MULTIPAGE PDF FILES FROM SETS WITH THE SONGS IN ONE PDF
 
     public MultipagePrinterAdapter(Activity activity) {
         mainActivityInterface = (MainActivityInterface) activity;
         sectionViewsPDF = new ArrayList<>();
+        c = activity;
     }
 
     public void updateSetList(ExportFragment exportFragment, String setName, String setList, String setEntries, String setKeys) {
@@ -122,27 +130,75 @@ public class MultipagePrinterAdapter extends PrintDocumentAdapter {
     }
 
     public void createOnTheFlySections(Song thisSong,boolean theSetList) {
-        // If we don't have any sections in the song, change the double line breaks into sections
-        if (!thisSong.getLyrics().contains("\n[")) {
-            String[] lines = thisSong.getLyrics().split("\n");
-            StringBuilder stringBuilder = new StringBuilder();
-            for (String line:lines) {
-                if (line.trim().isEmpty()) {
-                    stringBuilder.append("[]\n");
+        if (thisSong!=null) {
+
+            if (mainActivityInterface.getStorageAccess().isIMGorPDF(thisSong)) {
+                sectionViewsPDF = new ArrayList<>();
+                exportFragment.resetSectionViews();
+                Uri thisUri = mainActivityInterface.getStorageAccess().
+                        getUriForItem("Songs",thisSong.getFolder(),thisSong.getFilename());
+
+                if (mainActivityInterface.getStorageAccess().filenameIsImage(thisSong.getFilename())) {
+                    // If this is an image file, add an image view
+                    ImageView imageView = new ImageView(c);
+                    imageView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                    Bitmap bitmap = mainActivityInterface.getProcessSong().getSongBitmap(thisSong.getFolder(),thisSong.getFilename());
+                    imageView.setImageBitmap(bitmap);
+                    sectionViewsPDF.add(imageView);
+                    prepareLayoutListenerForPDFViews(theSetList);
+                    // Add the image and this will trigger the VTO
+                    exportFragment.getHiddenSections().addView(sectionViewsPDF.get(0));
+                } else if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                    ArrayList<ImageView> pdfImages = mainActivityInterface.getProcessSong().getPDFAsImageViews(c,thisUri);
+                    sectionViewsPDF.addAll(pdfImages);
+                    prepareLayoutListenerForPDFViews(theSetList);
+                    // Now add the pages and trigger the VTO
+                    for (View view:sectionViewsPDF) {
+                        view.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                        Log.d(TAG,"view size:"+view.getMeasuredWidth()+"x"+view.getMeasuredHeight());
+                        exportFragment.getHiddenSections().addView(view);
+                    }
                 } else {
-                    stringBuilder.append(line).append("\n");
+                    // Not allowed PDFs
+                    TextView textView = new TextView(c);
+                    textView.setText(c.getString(R.string.not_allowed));
+                    exportFragment.getHiddenSections().addView(new TextView(c));
+                }
+            } else {
+                if (thisSong.getLyrics() == null) {
+                    thisSong.setLyrics("");
+                }
+                // If we don't have any sections in the song, change the double line breaks into sections
+                if (!thisSong.getLyrics().contains("\n[")) {
+                    String[] lines = thisSong.getLyrics().split("\n");
+                    StringBuilder stringBuilder = new StringBuilder();
+                    for (String line : lines) {
+                        if (line.trim().isEmpty()) {
+                            stringBuilder.append("[]\n");
+                        } else {
+                            stringBuilder.append(line).append("\n");
+                        }
+                    }
+                    thisSong.setLyrics(stringBuilder.toString());
+                }
+
+                // Create the content for the section views.
+                sectionViewsPDF = mainActivityInterface.getProcessSong().
+                        setSongInLayout(thisSong, true, false);
+
+                exportFragment.resetSectionViews();
+                prepareLayoutListenerForPDFViews(theSetList);
+
+                // Add the section views and this will trigger the VTO
+                for (int x = 0; x < sectionViewsPDF.size(); x++) {
+                    exportFragment.getHiddenSections().addView(sectionViewsPDF.get(x));
                 }
             }
-            thisSong.setLyrics(stringBuilder.toString());
         }
+    }
 
-        // Create the content for the section views.
-        sectionViewsPDF = mainActivityInterface.getProcessSong().
-                setSongInLayout(thisSong,true, false);
-
-        exportFragment.resetSectionViews();
-
-        // Now we have the views, add them to the temp layout and set up a view tree listener to measure
+    private void prepareLayoutListenerForPDFViews(boolean theSetList) {
+        // Prepare the view listener for after the views have been drawn
         ViewTreeObserver sectionsVTO = exportFragment.getHiddenSections().getViewTreeObserver();
         sectionsVTO.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
@@ -150,9 +206,9 @@ public class MultipagePrinterAdapter extends PrintDocumentAdapter {
                 // The views are ready so lets measure them after clearing this listener
 
                 // If all the views are there, we can start measuring
-                if (exportFragment.getHiddenSections().getChildCount()==sectionViewsPDF.size()) {
+                if (exportFragment.getHiddenSections().getChildCount() == sectionViewsPDF.size()) {
                     exportFragment.getHiddenSections().getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                    for (int x=0; x<exportFragment.getHiddenSections().getChildCount(); x++) {
+                    for (int x = 0; x < exportFragment.getHiddenSections().getChildCount(); x++) {
                         View view = exportFragment.getHiddenSections().getChildAt(x);
                         int width = view.getMeasuredWidth();
                         int height = view.getMeasuredHeight();
@@ -167,8 +223,8 @@ public class MultipagePrinterAdapter extends PrintDocumentAdapter {
                     listen.setValue(true);
 
                     mainActivityInterface.getMakePDF().addCurrentItemToPDF(exportFragment.getSectionViews(),
-                            exportFragment.getSectionWidths(),exportFragment.getSectionHeights(),
-                            exportFragment.getHeaderLayout(),headerLayoutWidth,
+                            exportFragment.getSectionWidths(), exportFragment.getSectionHeights(),
+                            exportFragment.getHeaderLayout(), headerLayoutWidth,
                             headerLayoutHeight);
 
                     if (theSetList) {
@@ -184,13 +240,7 @@ public class MultipagePrinterAdapter extends PrintDocumentAdapter {
                 }
             }
         });
-
-        // Add the section views and this will trigger the VTO
-        for (int x=0; x<sectionViewsPDF.size(); x++) {
-            exportFragment.getHiddenSections().addView(sectionViewsPDF.get(x));
-        }
     }
-
     private void getSongOrPrintIfDone() {
         if (!mainActivityInterface.getPreferences().getMyPreferenceBoolean("exportSetSongs",true) ||
                 currentSetItem>=setItemEntries.size()) {
