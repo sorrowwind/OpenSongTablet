@@ -149,6 +149,7 @@ import com.garethevans.church.opensongtablet.songmenu.SongListBuildIndex;
 import com.garethevans.church.opensongtablet.songmenu.SongMenuFragment;
 import com.garethevans.church.opensongtablet.songmenu.ViewPagerAdapter;
 import com.garethevans.church.opensongtablet.songprocessing.ConvertChoPro;
+import com.garethevans.church.opensongtablet.songprocessing.ConvertJustChords;
 import com.garethevans.church.opensongtablet.songprocessing.ConvertOnSong;
 import com.garethevans.church.opensongtablet.songprocessing.ConvertTextSong;
 import com.garethevans.church.opensongtablet.songprocessing.ConvertWord;
@@ -224,6 +225,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
     private ChordDisplayProcessing chordDisplayProcessing;
     private CommonControls commonControls;
     private CommonSQL commonSQL;
+    private ConvertJustChords convertJustChords;
     private ConvertChoPro convertChoPro;
     private ConvertOnSong convertOnSong;
     private ConvertTextSong convertTextSong;
@@ -816,6 +818,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
         // Converting song formats and processing song content
         chordDisplayProcessing = getChordDisplayProcessing();
         chordDirectory = getChordDirectory();
+        convertJustChords = getConvertJustChords();
         convertChoPro = getConvertChoPro();
         convertOnSong = getConvertOnSong();
         convertTextSong = getConvertTextSong();
@@ -2935,6 +2938,13 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
         return convertChoPro;
     }
 
+    @Override
+    public ConvertJustChords getConvertJustChords() {
+        if (convertJustChords == null) {
+            convertJustChords = new ConvertJustChords(this);
+        }
+        return convertJustChords;
+    }
     @Override
     public ConvertOnSong getConvertOnSong() {
         if (convertOnSong == null) {

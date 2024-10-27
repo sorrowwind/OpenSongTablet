@@ -149,6 +149,10 @@ public class PrepareFormats {
         return uri;
     }
 
+    public String getSongAsJustChords(Song thisSong) {
+        // This converts an OpenSong file into a JustChords file
+        return mainActivityInterface.getConvertJustChords().convertOpenSongToJustChords(thisSong);
+    }
     public String getSongAsOnSong(Song thisSong) {
         // This converts an OpenSong file into a OnSong file
 
