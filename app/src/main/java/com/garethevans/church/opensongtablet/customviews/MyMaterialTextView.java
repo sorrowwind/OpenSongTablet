@@ -12,6 +12,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -240,5 +241,9 @@ public class MyMaterialTextView extends LinearLayout {
             textView.setEllipsize(TextUtils.TruncateAt.END);
             hintView.setEllipsize(TextUtils.TruncateAt.END);
         }
+    }
+
+    public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
+        checkBox.setOnCheckedChangeListener(onCheckedChangeListener);
     }
 }
