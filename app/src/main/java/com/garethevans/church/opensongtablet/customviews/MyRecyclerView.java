@@ -290,6 +290,10 @@ public class MyRecyclerView extends RecyclerView  implements RecyclerView.Smooth
         }
     }
 
+    public void setScrolledToBottom(boolean scrolledToBottom) {
+        this.scrolledToBottom = scrolledToBottom;
+    }
+
     public void setGestureDetector(GestureDetector gestureDetector) {
         this.gestureDetector = gestureDetector;
     }

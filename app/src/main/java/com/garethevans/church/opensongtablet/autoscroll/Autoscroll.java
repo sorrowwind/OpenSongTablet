@@ -523,8 +523,10 @@ public class Autoscroll {
     private void endAutoscroll() {
         if (usingZoomLayout && myZoomLayout!=null) {
             myZoomLayout.checkScrollPosition();
+            myZoomLayout.setScrolledToBottom(true);
         } else if (myRecyclerView!=null) {
             myRecyclerView.checkScrollPosition();
+            myRecyclerView.setScrolledToBottom(true);
         }
 
         // Called at normal end.  Doesn't reset activated

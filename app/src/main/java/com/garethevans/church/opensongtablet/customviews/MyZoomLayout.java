@@ -309,6 +309,10 @@ public class MyZoomLayout extends FrameLayout {
         return scrolledToBottom;
     }
 
+    public void setScrolledToBottom(boolean scrolledToBottom) {
+        this.scrolledToBottom = scrolledToBottom;
+    }
+
     public void checkScrollPosition() {
         Log.d(TAG,"getScrollPos():"+getScrollPos());
         scrolledToBottom = getScrollPos()>=maxScrollY;
