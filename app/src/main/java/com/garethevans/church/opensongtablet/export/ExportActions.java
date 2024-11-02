@@ -8,6 +8,7 @@ import android.util.Log;
 import com.garethevans.church.opensongtablet.R;
 import com.garethevans.church.opensongtablet.interfaces.MainActivityInterface;
 import com.garethevans.church.opensongtablet.songprocessing.Song;
+import com.google.gson.Gson;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -389,4 +390,16 @@ public class ExportActions {
         }
     }
 
+    public void songXMLToJsong() {
+        Gson gson = new Gson();
+
+        String jsonString = gson.toJson(mainActivityInterface.getSong());
+
+        //transform a java object to json
+        Log.d(TAG,"jsonString:" + jsonString);
+
+        //Transform a json to java object
+        Song songObject = gson.fromJson(jsonString, Song.class);
+        Log.d(TAG,"song.getFilename():"+ songObject.getFilename());
+    }
 }

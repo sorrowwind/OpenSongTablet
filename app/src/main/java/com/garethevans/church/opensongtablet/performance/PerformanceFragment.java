@@ -1316,6 +1316,9 @@ public class PerformanceFragment extends Fragment {
     @SuppressWarnings("ConstantConditions")
     private void dealWithStuffAfterReady(boolean callEndProcessing) {
 
+        // TODO JSON TEST
+        //mainActivityInterface.getExportActions().songXMLToJsong();
+
         if (callEndProcessing) {
             endProcessing();
         }
