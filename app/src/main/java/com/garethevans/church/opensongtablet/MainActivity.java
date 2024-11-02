@@ -464,11 +464,15 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                 rebooted = false;
             }
 
+            // Make sure the song title is there
+            updateToolbar(null);
+
             // Did we receive an intent (user clicked on an openable file)?
             fileOpenIntent = getIntent();
             onNewIntent(fileOpenIntent);
 
             mainLooper.post(() -> {
+
                 setContentView(myView.getRoot());
 
                 // Set up the helpers
@@ -723,6 +727,9 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                     } else if (importFilename.toLowerCase(Locale.ROOT).endsWith(".backup")) {
                         // OnSong backup file
                         dealingWithIntent = deeplink_onsong;
+                    } else if (importFilename.toLowerCase(Locale.ROOT).endsWith(".ossb")) {
+                        // OpenSongApp set bundle
+                        dealingWithIntent = deeplink_import_file;
                     } else if (getStorageAccess().isSpecificFileExtension("imageorpdf", importFilename) ||
                             getStorageAccess().isSpecificFileExtension("chordpro", importFilename) ||
                             getStorageAccess().isSpecificFileExtension("text", importFilename) ||
@@ -4387,8 +4394,11 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
+        // GE - remove view states as these should be recreated anyway
+        // Start with a new bundle and only store relevant variables
+        outState.clear();
+        outState = new Bundle();
         outState.putBoolean("bootUpCompleted", bootUpCompleted);
-        //outState.putInt(KEY_GENERATED_VIEW_ID, ViewCompat.generateViewId());
         if (songListBuildIndex!=null) {
             outState.putBoolean("indexComplete", songListBuildIndex.getIndexComplete());
         } else {
@@ -4405,6 +4415,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
             outState.putStringArrayList("discoveredEndpoints", nearbyConnections.getDiscoveredEndpoints());
             outState.putStringArrayList("connectedEndpoints", nearbyConnections.getConnectedEndpoints());
         }
+
         super.onSaveInstanceState(outState);
     }
 
@@ -4416,8 +4427,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
+        }
 
-        } else if (bootUpCompleted) {
+        Log.d(TAG,"bootUpCompleted:"+bootUpCompleted);
+        if (bootUpCompleted) {
             // Just check the actionbar and navigation work
             // Set up the action bar
             setupActionbar();
@@ -4438,6 +4451,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                 metronome.initialiseMetronome();
             }
         }
+
         try {
             // If the user changed language, the strings need updated
             prepareStrings();

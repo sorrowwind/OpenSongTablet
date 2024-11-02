@@ -113,10 +113,12 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/cutoutRelativeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <!-- This bit draws a background for cutouts if required -->
             <View
+                android:id="@+id/cutoutView"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/colorAltPrimary" />
@@ -131,7 +133,6 @@
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager"
-            android:saveEnabled="false"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
