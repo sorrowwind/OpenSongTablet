@@ -95,6 +95,7 @@ import com.garethevans.church.opensongtablet.customviews.MyToolbar;
 import com.garethevans.church.opensongtablet.databinding.ActivityBinding;
 import com.garethevans.church.opensongtablet.drummer.Drummer;
 import com.garethevans.church.opensongtablet.export.ExportActions;
+import com.garethevans.church.opensongtablet.export.OpenSongSetBundle;
 import com.garethevans.church.opensongtablet.export.PrepareFormats;
 import com.garethevans.church.opensongtablet.filemanagement.LoadSong;
 import com.garethevans.church.opensongtablet.filemanagement.SaveSong;
@@ -113,6 +114,8 @@ import com.garethevans.church.opensongtablet.interfaces.MainActivityInterface;
 import com.garethevans.church.opensongtablet.interfaces.NearbyInterface;
 import com.garethevans.church.opensongtablet.interfaces.NearbyReturnActionsInterface;
 import com.garethevans.church.opensongtablet.interfaces.SwipeDrawingInterface;
+import com.garethevans.church.opensongtablet.justchords.ConvertJustChords;
+import com.garethevans.church.opensongtablet.justchords.JustChordsObject;
 import com.garethevans.church.opensongtablet.links.LinksFragment;
 import com.garethevans.church.opensongtablet.metronome.Metronome;
 import com.garethevans.church.opensongtablet.midi.Midi;
@@ -149,7 +152,6 @@ import com.garethevans.church.opensongtablet.songmenu.SongListBuildIndex;
 import com.garethevans.church.opensongtablet.songmenu.SongMenuFragment;
 import com.garethevans.church.opensongtablet.songmenu.ViewPagerAdapter;
 import com.garethevans.church.opensongtablet.songprocessing.ConvertChoPro;
-import com.garethevans.church.opensongtablet.songprocessing.ConvertJustChords;
 import com.garethevans.church.opensongtablet.songprocessing.ConvertOnSong;
 import com.garethevans.church.opensongtablet.songprocessing.ConvertTextSong;
 import com.garethevans.church.opensongtablet.songprocessing.ConvertWord;
@@ -249,6 +251,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
     private NearbyConnections nearbyConnections;
     private NonOpenSongSQLiteHelper nonOpenSongSQLiteHelper;
     private OCR ocr;
+    private OpenSongSetBundle openSongSetBundle;
     private Pad pad;
     private PageButtons pageButtons;
     private PedalActions pedalActions;
@@ -332,7 +335,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
 
     private String deeplink_import_osb = "", deeplink_sets_backup_restore = "", deeplink_onsong = "",
             deeplink_import_file = "", unknown = "", mainfoldername = "MAIN", deeplink_page_buttons = "",
-            website_menu_set = "", website_menu_song = "", exit_confirm = "",
+            website_menu_set = "", website_menu_song = "", exit_confirm = "", deeplink_set_bundle = "",
             error = "", deeplink_presenter = "", deeplink_performance = "", extra_settings = "",
             action_button_info = "", song_sections = "", logo_info = "", blank_screen_info = "",
             black_screen_info = "", project_panic = "", song_title = "", long_press = "", edit_song = "",
@@ -528,7 +531,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
             e.printStackTrace(pw);
 
             // Write a crash log file
-            storageAccess.updateCrashLog(sw.toString());
+            getStorageAccess().updateCrashLog(sw.toString());
 
             // Switch off hardware acceleration if crash happens to try to alleviate the issue
             // Decided for now to leave this off
@@ -626,6 +629,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
             deeplink_sets_backup_restore = getString(R.string.deeplink_sets_backup_restore);
             deeplink_onsong = getString(R.string.deeplink_onsong);
             deeplink_import_file = getString(R.string.deeplink_import_file);
+            deeplink_set_bundle = getString(R.string.deeplink_set_bundle);
             deeplink_edit = getString(R.string.deeplink_edit);
             unknown = getString(R.string.unknown);
             mainfoldername = getString(R.string.mainfoldername);
@@ -686,104 +690,37 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
 
     @Override
     public void dealWithIntent(int navigationId) {
-        if (storageAccess == null) {
-            storageAccess = new StorageAccess(this);
-        }
         getThreadPoolExecutor().execute(() -> {
-            if (!preferences.getMyPreferenceBoolean("intentAlreadyDealtWith",false) &&
-                fileOpenIntent != null && fileOpenIntent.getData() != null && storageAccess.getFileSizeFromUri(fileOpenIntent.getData())>0) {
-            preferences.setMyPreferenceBoolean("intentAlreadyDealtWith",true);
-            importUri = fileOpenIntent.getData();
-            getMainHandler().post(() -> navController.popBackStack(navigationId, false));
+            if (!preferences.getMyPreferenceBoolean("intentAlreadyDealtWith", false) &&
+                    fileOpenIntent != null && fileOpenIntent.getData() != null && getStorageAccess().getFileSizeFromUri(fileOpenIntent.getData()) > 0) {
+                preferences.setMyPreferenceBoolean("intentAlreadyDealtWith", true);
+                importUri = fileOpenIntent.getData();
+                getMainHandler().post(() -> navController.popBackStack(navigationId, false));
 
-            // We need to copy this file to our temp storage for now to have later permission
-            InputStream inputStream;
-            try {
-                inputStream = getContentResolver().openInputStream(importUri);
-                importFilename = storageAccess.getFileNameFromUri(importUri);
-                if (inputStream != null) {
-                    File tempFile = getStorageAccess().getAppSpecificFile("Import","",importFilename);
-                    //File tempFile = new File(getExternalFilesDir("Import"), importFilename);
-                    FileOutputStream outputStream = new FileOutputStream(tempFile);
-                    storageAccess.updateFileActivityLog(TAG + " dealWithIntent CopyFile " + importUri + " to " + tempFile);
-                    storageAccess.copyFile(inputStream, outputStream);
-                    importUri = Uri.fromFile(tempFile);
-                    String dealingWithIntent;
-                    if (importFilename.toLowerCase(Locale.ROOT).endsWith(".osb")) {
-                        // OpenSongApp backup file
-                        dealingWithIntent = deeplink_import_osb;
-                    } else if (importFilename.toLowerCase(Locale.ROOT).endsWith(".osbs")) {
-                        // OpenSongApp sets backup file
-                        setWhattodo("intentlaunch");
-                        dealingWithIntent = deeplink_sets_backup_restore;
-                    } else if (importFilename.toLowerCase(Locale.ROOT).endsWith(".ost")) {
-                        // OpenSong song
-                        setWhattodo("intentlaunch");
-                        dealingWithIntent = deeplink_import_file;
-                    } else if (importFilename.toLowerCase(Locale.ROOT).endsWith(".osts")) {
-                        // OpenSong set
-                        setWhattodo("intentlaunch");
-                        dealingWithIntent = deeplink_import_file;
-                    } else if (importFilename.toLowerCase(Locale.ROOT).endsWith(".backup")) {
-                        // OnSong backup file
-                        dealingWithIntent = deeplink_onsong;
-                    } else if (importFilename.toLowerCase(Locale.ROOT).endsWith(".ossb")) {
-                        // OpenSongApp set bundle
-                        dealingWithIntent = deeplink_import_file;
-                    } else if (getStorageAccess().isSpecificFileExtension("imageorpdf", importFilename) ||
-                            getStorageAccess().isSpecificFileExtension("chordpro", importFilename) ||
-                            getStorageAccess().isSpecificFileExtension("text", importFilename) ||
-                            getStorageAccess().isSpecificFileExtension("onsong", importFilename)) {
-                        // Set, song, pdf or image files are initially sent to the import file
-                        dealingWithIntent = deeplink_import_file;
-                    } else {
-                        // Might be an opensong file (with no extension)
-                        // If the file size is small enough (<200kB), read it as text and look for </song> and </lyrics> or </set> and </slide_groups>
-                        boolean isOpenSong = false;
-                        boolean isOpenSongSet = false;
-                        String content = "";
-                        inputStream = getContentResolver().openInputStream(importUri);
-                        if (!importFilename.contains(".") && getStorageAccess().getFileSizeFromUri(importUri)<200) {
-                            content = getStorageAccess().readTextFileToString(inputStream);
-                        }
-                        if (content!=null && content.contains("</song>") && content.contains("</lyrics>")) {
-                            isOpenSong = true;
-                        }
-                        if (content!=null && content.contains("</set>") && content.contains("</slide_groups>")) {
-                            isOpenSongSet = true;
-                        }
-                        if (isOpenSong || isOpenSongSet) {
-                            setWhattodo("intentlaunch");
-                            dealingWithIntent = deeplink_import_file;
-                        } else {
-                            // Can't handle the file, so delete it
-                            if (showToast != null) {
-                                showToast.doIt(unknown);
-                            }
-                            if (tempFile.delete()) {
-                                Log.d(TAG, tempFile + " has been deleted");
-                            }
-                            setWhattodo("");
-                            dealingWithIntent = "";
-                        }
+                // We need to copy this file to our temp storage for now to have later permission
+                InputStream inputStream;
+                try {
+                    inputStream = getContentResolver().openInputStream(importUri);
+                    importFilename = getStorageAccess().getFileNameFromUri(importUri);
+                    if (inputStream != null) {
+                        File tempFile = getStorageAccess().getAppSpecificFile("Import", "", importFilename);
+                        FileOutputStream outputStream = new FileOutputStream(tempFile);
+                        getStorageAccess().updateFileActivityLog(TAG + " dealWithIntent CopyFile " + importUri + " to " + tempFile);
+                        getStorageAccess().copyFile(inputStream, outputStream);
+                        importUri = Uri.fromFile(tempFile);
+                        openFragmentBasedOnFileImport();
                     }
-                    if (dealingWithIntent != null && !dealingWithIntent.isEmpty()) {
-                        getMainHandler().post(() -> navigateToFragment(dealingWithIntent, 0));
-                        // Reset the flag to allow dealing with a new intent as we have handled this one
-                        preferences.setMyPreferenceBoolean("intentAlreadyDealtWith",false);
-                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
+            }
+            // Try to clear the intent
+            fileOpenIntent = null;
+            try {
+                getIntent().setData(null);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-        // Try to clear the intent
-        fileOpenIntent = null;
-        try {
-            getIntent().setData(null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         });
     }
@@ -1366,7 +1303,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                         }
                     }
                     myView.myToolbar.setNavigationOnClickListener(view -> {
-                        Log.d(TAG,"items:"+navHostFragment.getChildFragmentManager().getBackStackEntryCount());
                         int aboutToGoTo = -1;
                         if (navController.getPreviousBackStackEntry()!=null) {
                             aboutToGoTo = navController.getPreviousBackStackEntry().getDestination().getId();
@@ -1383,7 +1319,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                                         navController.getCurrentDestination()!=null &&
                                         navController.getCurrentDestination().getId()!=R.id.performanceFragment &&
                                         navController.getCurrentDestination().getId()==R.id.presenterFragment)) {
-                            Log.d(TAG,"do navHome()");
                             navHome();
                         } else {
                             navController.navigateUp();
@@ -1456,10 +1391,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                         progressText = " " + progressView.getText().toString();
                     }
                 }
-                if (showToast != null) {
-                    showToast.doIt(indexing_string + progressText);
-                    hideActionButton(false);
-                }
+
+                getShowToast().doIt(indexing_string + progressText);
+                hideActionButton(false);
+
             } else {
                 runOnUiThread(() -> {
                     try {
@@ -1508,10 +1443,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                         String newSongText = processSong.getXML(song);
                         // Save the song.  This also calls lollipopCreateFile with 'true' to deleting old
                         getStorageAccess().updateFileActivityLog(TAG + " updateFragment doStringWriteToFile Songs/" + song.getFolder() + "/" + song.getFilename() + " with: " + newSongText);
-                        if (storageAccess.doStringWriteToFile("Songs", song.getFolder(), song.getFilename(), newSongText)) {
+                        if (getStorageAccess().doStringWriteToFile("Songs", song.getFolder(), song.getFilename(), newSongText)) {
                             navigateToFragment(null, R.id.editSongFragment);
                         } else {
-                            showToast.doIt(error);
+                            getShowToast().doIt(error);
                         }
                     }
                     break;
@@ -1523,17 +1458,14 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                         if (setMenuFragment!=null) {
                             // Firstly hide the set
                             setMenuFragment.changeVisibility(false);
-                            Log.d(TAG,"set size before:"+getCurrentSet().getCurrentSetSize());
                             // Sort or shuffle the set as required
                             if (fragName.equals("sortSet")) {
                                 getSetActions().sortSet();
                             } else if (fragName.equals("shuffleSet")) {
                                 getSetActions().shuffleSet();
                             } else {
-                                Log.d(TAG,"just updating");
                                 getCurrentSet().loadCurrentSet();
                             }
-                            Log.d(TAG,"set size after:"+getCurrentSet().getCurrentSetSize());
 
                             // Show the set
                             setMenuFragment.changeVisibility(true);
@@ -2152,7 +2084,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                                     startActivity(new Intent("android.settings.CAST_SETTINGS"));
                                 }
                             } catch (Exception e3) {
-                                showToast.doIt(error);
+                                getShowToast().doIt(error);
                             }
                         }
                     }
@@ -2327,8 +2259,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
         getThreadPoolExecutor().execute(() -> {
             try {
                 mainLooper.post(() -> {
-                    if (showToast != null && search_index_start != null) {
-                        showToast.doIt(search_index_start);
+                    if (search_index_start != null) {
+                        getShowToast().doIt(search_index_start);
                     }
                 });
                 if (songListBuildIndex != null && songMenuFragment != null && songMenuFragment.getProgressText() != null) {
@@ -2352,8 +2284,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                         songListBuildIndex.setIndexRequired(false);
                         songListBuildIndex.setIndexComplete(true);
                     }
-                    if (showToast != null && search_index_end != null) {
-                        showToast.doIt(search_index_end);
+                    if (search_index_end != null) {
+                        getShowToast().doIt(search_index_end);
                     }
                     updateSongMenu(song);
                     updateFragment("set_updateKeys", null, null);
@@ -2412,9 +2344,9 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
             // If sent called from another fragment the fragName and callingFragment are used to run an update listener
             songListBuildIndex.setIndexComplete(false);
             // Get all of the files as an array list
-            ArrayList<String> songIds = storageAccess.listSongs(false);
+            ArrayList<String> songIds = getStorageAccess().listSongs(false);
             // Write this to text file
-            storageAccess.writeSongIDFile(songIds);
+            getStorageAccess().writeSongIDFile(songIds);
             // Try to create the basic databases
             sqLiteHelper.resetDatabase();
             nonOpenSongSQLiteHelper.initialise();
@@ -2502,7 +2434,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                     setMenuFragment.scrollToItem();
                     break;
                 case "highlight":
-                    Log.d(TAG,"highlight called");
                     setMenuFragment.updateHighlight();
                     break;
                 case "clear":
@@ -2882,6 +2813,105 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
     }
 
     @Override
+    public void openFragmentBasedOnFileImport() {
+        if (importUri!=null && importFilename != null && !importFilename.isEmpty()) {
+            String dealingWithIntent = null;
+            if (importFilename.toLowerCase(Locale.ROOT).endsWith(".osb")) {
+                // OpenSongApp backup file
+                dealingWithIntent = deeplink_import_osb;
+            } else if (importFilename.toLowerCase(Locale.ROOT).endsWith(".osbs")) {
+                // OpenSongApp sets backup file
+                setWhattodo("restoresets");
+                dealingWithIntent = deeplink_sets_backup_restore;
+            } else if (importFilename.toLowerCase(Locale.ROOT).endsWith(".ost")) {
+                // OpenSong song
+                setWhattodo("intentlaunch");
+                dealingWithIntent = deeplink_import_file;
+            } else if (importFilename.toLowerCase(Locale.ROOT).endsWith(".osts")) {
+                // OpenSong set
+                setWhattodo("importset");
+                dealingWithIntent = deeplink_import_file;
+            } else if (importFilename.toLowerCase(Locale.ROOT).endsWith(".backup")) {
+                // OnSong backup file
+                dealingWithIntent = deeplink_onsong;
+            } else if (importFilename.toLowerCase(Locale.ROOT).endsWith(".ossb")) {
+                // OpenSongApp set bundle
+                setWhattodo("ossb");
+                dealingWithIntent = deeplink_set_bundle;
+            } else if (importFilename.toLowerCase(Locale.ROOT).endsWith(".justchords")) {
+                // TODO - we need to decide if it is a single song or a set
+                JustChordsObject justChordsObject = getConvertJustChords().getJustChordsObjectFromImportUri();
+                if (justChordsObject!=null && justChordsObject.getSongs()!=null) {
+                    if (justChordsObject.getSongs().length > 1) {
+                        // This is a set/bundle
+                        setWhattodo("justchordsset");
+                        dealingWithIntent = deeplink_set_bundle;
+                    } else if (justChordsObject.getSongs().length == 1) {
+                        // This is a song file
+                        setWhattodo("justchordssong");
+                        dealingWithIntent = deeplink_import_file;
+                    }
+                } else {
+                    dealingWithIntent = "";
+                    setWhattodo("");
+                }
+            } else if (getStorageAccess().isSpecificFileExtension("imageorpdf", importFilename) ||
+                    getStorageAccess().isSpecificFileExtension("chordpro", importFilename) ||
+                    getStorageAccess().isSpecificFileExtension("text", importFilename) ||
+                    getStorageAccess().isSpecificFileExtension("onsong", importFilename) ||
+                    importFilename.toLowerCase(Locale.ROOT).endsWith(".docx")) {
+                setWhattodo("");
+                // Set, song, pdf or image files are initially sent to the import file
+                dealingWithIntent = deeplink_import_file;
+            } else {
+                // Might be an opensong file (with no extension)
+                // If the file size is small enough (<200kB), read it as text and look for </song> and </lyrics> or </set> and </slide_groups>
+                boolean isOpenSong = false;
+                boolean isOpenSongSet = false;
+                String content = "";
+                try {
+                    InputStream inputStream = getContentResolver().openInputStream(importUri);
+                    if (!importFilename.contains(".") && getStorageAccess().getFileSizeFromUri(importUri) < 200) {
+                        content = getStorageAccess().readTextFileToString(inputStream);
+                    }
+                    if (content != null && content.contains("</song>") && content.contains("</lyrics>")) {
+                        isOpenSong = true;
+                    }
+                    if (content != null && content.contains("</set>") && content.contains("</slide_groups>")) {
+                        isOpenSongSet = true;
+                    }
+                    if (isOpenSongSet) {
+                        setWhattodo("importset");
+                    } else if (isOpenSong) {
+                        setWhattodo("importsong");
+                    }
+                    if (isOpenSong || isOpenSongSet) {
+                        dealingWithIntent = deeplink_import_file;
+                    } else {
+                        // Can't handle the file, so delete it
+                        File tempFileFolder = getStorageAccess().getAppSpecificFile("Import","","");
+                        getStorageAccess().emptyFileFolder(tempFileFolder);
+                        setWhattodo("");
+                        dealingWithIntent = "";
+                        getShowToast().doIt(unknown);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (dealingWithIntent != null && !dealingWithIntent.isEmpty()) {
+                String deeplink = dealingWithIntent;
+                getMainHandler().post(() -> navigateToFragment(deeplink, 0));
+                // Reset the flag to allow dealing with a new intent as we have handled this one
+                preferences.setMyPreferenceBoolean("intentAlreadyDealtWith", false);
+            }
+        } else {
+            setWhattodo("");
+            getShowToast().doIt(unknown);
+        }
+    }
+
+    @Override
     public Preferences getPreferences() {
         if (preferences == null) {
             preferences = new Preferences(this);
@@ -3130,17 +3160,17 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                 Song quickSong = null;
 
                 // Get the key of the song from the file
-                if (storageAccess.isSpecificFileExtension("imageorpdf",setFilename)) {
+                if (getStorageAccess().isSpecificFileExtension("imageorpdf",setFilename)) {
                     // This is a pdf, we query the persistent database
                     originalKey = nonOpenSongSQLiteHelper.getKey(setFolder,setFilename);
                 } else if (isNormalVariation) {
-                    if (storageAccess.uriExists(setUri)) {
+                    if (getStorageAccess().uriExists(setUri)) {
                         // We are a variation and the file already exists.
                         // We can get the key from the variation file
                         quickSong = new Song();
                         quickSong.setFolder(setFolder);
                         quickSong.setFilename(setFilename);
-                    } else if (storageAccess.uriExists(originalUri)) {
+                    } else if (getStorageAccess().uriExists(originalUri)) {
                         // The variation file doesn't exist yet
                         // We can get the original file
                         quickSong = new Song();
@@ -3190,7 +3220,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                         if (quickSong == null) {
                             // This was a straightforward song (i.e. not a standard variation)
                             // Get the song object from the database
-                            if (storageAccess.isSpecificFileExtension("imageorpdf", setFilename)) {
+                            if (getStorageAccess().isSpecificFileExtension("imageorpdf", setFilename)) {
                                 quickSong = nonOpenSongSQLiteHelper.getSpecificSong(originalFolder, originalFilename);
                             } else {
                                 quickSong = sqLiteHelper.getSpecificSong(originalFolder, originalFilename);
@@ -3287,7 +3317,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
             switch (what) {
                 case "deleteSong":
                     getStorageAccess().updateFileActivityLog(TAG + " confirmedAction deleteFile Songs/" + song.getFolder() + "/" + song.getFilename());
-                    result = storageAccess.doDeleteFile("Songs",
+                    result = getStorageAccess().doDeleteFile("Songs",
                             song.getFolder(), song.getFilename());
                     // Now remove from the SQL database
                     if (song.getFiletype()!=null && (song.getFiletype().equals("PDF") || song.getFiletype().equals("IMG"))) {
@@ -3309,11 +3339,11 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                 case "deleteItem":
                     // Folder and subfolder are passed in the arguments.  Blank arguments.get(2) /filenames mean folders
                     getStorageAccess().updateFileActivityLog(TAG + " confirmedAction deleteFile " + arguments.get(0) + "/" + arguments.get(1) + "/" + arguments.get(2));
-                    result = storageAccess.doDeleteFile(arguments.get(0), arguments.get(1), arguments.get(2));
+                    result = getStorageAccess().doDeleteFile(arguments.get(0), arguments.get(1), arguments.get(2));
                     if (arguments.get(2)!=null && arguments.get(2).isEmpty() && arguments.get(0)!=null && arguments.get(0).equals("Songs") &&
                             (arguments.get(1)==null || arguments.get(1).isEmpty())) {
                         // Emptying the entire songs foler, so need to recreate it on finish.
-                        storageAccess.createFolder("Songs", "", "", false);
+                        getStorageAccess().createFolder("Songs", "", "", false);
                     }
                     //Rebuild the song index
                     updateSongMenu(fragName, callingFragment, arguments); // Passing the fragment allows an update to be sent to the calling fragment
@@ -3372,7 +3402,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                     // This is only called if we are editing a previously saved set
                     String xml = getSetActions().createSetXML();
                     String setString = getSetActions().getSetAsPreferenceString();
-                    result = storageAccess.doStringWriteToFile("Sets", "", currentSet.getSetCurrentLastName(), xml);
+                    result = getStorageAccess().doStringWriteToFile("Sets", "", currentSet.getSetCurrentLastName(), xml);
                     if (result) {
                         // Update the last edited version (current set already has this)
                         currentSet.setSetCurrentBeforeEdits(setString);
@@ -3398,7 +3428,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                 case "renameSet":
                 case "onlineSongOverwrite":
                 case "importSetIntent":
-                    // We are renaming a set    or
+                    // We are renaming a set or
                     // We extracted an online song, but one with the same name exists already
                     updateFragment(fragName, callingFragment, null);
                     allowToast = false;
@@ -3459,11 +3489,11 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
 
 
             }
-            if (allowToast && result && showToast != null && getResources() != null) {
+            if (allowToast && result && getResources() != null) {
                 // Don't show toast for exit, but other successful actions
-                showToast.doIt(success);
-            } else if (allowToast && showToast != null && getResources() != null) {
-                showToast.doIt(error);
+                getShowToast().doIt(success);
+            } else if (allowToast && getResources() != null) {
+                getShowToast().doIt(error);
             }
         }
     }
@@ -3548,10 +3578,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
     @Override
     public void fullIndex() {
         if (songListBuildIndex.getIndexRequired()) {
-            if (showToast == null) {
-                showToast = new ShowToast(this, myView.getRoot());
-            }
-            showToast.doIt(search_index_start);
+            getShowToast().doIt(search_index_start);
             getThreadPoolExecutor().execute(() -> {
                 String outcome = songListBuildIndex.fullIndex(songMenuFragment.getProgressText());
                 if (songMenuFragment != null && !songMenuFragment.isDetached()) {
@@ -3562,8 +3589,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                     }
                 }
                 mainLooper.post(() -> {
-                    if (showToast != null && outcome!=null && !outcome.isEmpty()) {
-                        showToast.doIt(outcome.trim());
+                    if (outcome!=null && !outcome.isEmpty()) {
+                        getShowToast().doIt(outcome.trim());
                     }
                     updateFragment("set_updateKeys", null, null);
                 });
@@ -3573,15 +3600,15 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
 
     @Override
     public void quickSongMenuBuild() {
-        if (storageAccess!=null && sqLiteHelper!=null && nonOpenSongSQLiteHelper!=null) {
+        if (getStorageAccess()!=null && sqLiteHelper!=null && nonOpenSongSQLiteHelper!=null) {
             ArrayList<String> songIds = new ArrayList<>();
             try {
-                songIds = storageAccess.listSongs(false);
+                songIds = getStorageAccess().listSongs(false);
             } catch (Exception e) {
                 e.printStackTrace();
             }
             // Write a crude text file (line separated) with the song Ids (folder/file)
-            storageAccess.writeSongIDFile(songIds);
+            getStorageAccess().writeSongIDFile(songIds);
 
             // Non persistent, created from storage at boot (to keep updated) used to references ALL files
             if (songListBuildIndex.getFullIndexRequired()) {
@@ -3707,9 +3734,15 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
 
     @Override
     public ShowToast getShowToast() {
+        // Remove any existing toasts
+        if (showToast!=null) {
+            showToast.kill();
+        }
+        // Check we have a toast helper
         if (showToast == null) {
             showToast = new ShowToast(this, myView.getRoot());
         }
+        // Sent the helper reference
         return showToast;
     }
 
@@ -3761,6 +3794,14 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
             setActions = new SetActions(this);
         }
         return setActions;
+    }
+
+    @Override
+    public OpenSongSetBundle getOpenSongSetBundle() {
+        if (openSongSetBundle==null) {
+            openSongSetBundle = new OpenSongSetBundle(this);
+        }
+        return openSongSetBundle;
     }
 
     @Override
@@ -4078,7 +4119,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                 }
             } catch (ActivityNotFoundException nf) {
                 // No suitable application to open the document
-                showToast.doIt(no_suitable_application);
+                getShowToast().doIt(no_suitable_application);
                 nf.printStackTrace();
 
             } catch (Exception e) {
@@ -4502,12 +4543,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                 Log.d(TAG, "Deleted temp import file " + file + ":" + file.delete());
             }
         }
-
-        if (showToast != null) {
-            showToast.kill();
-            showToast = null;
-        }
-
+        getShowToast().kill();
         super.onStop();
     }
 
@@ -4524,9 +4560,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
         }
 
         // Clear any toasts
-        if (showToast != null) {
-            showToast.kill();
-        }
+        getShowToast().kill();
 
         // Turn off nearby
         if (nearbyConnections!=null) {

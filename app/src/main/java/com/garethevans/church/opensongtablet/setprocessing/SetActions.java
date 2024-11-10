@@ -62,6 +62,8 @@ public class SetActions {
     }
 
     // Convert between the currentSet string in preferences and the arrayLists
+    // The currentSet can be the actual mainActivityInterface.getCurrentSet()
+    // Or a temporary currentSet object used for preview parsing
 
 
     // Called from the BootFragment on first boot and when clearing, sorting or on loading new set in
@@ -342,8 +344,8 @@ public class SetActions {
         parseCurrentSet();
 
         // Now build the modified set string for comparision for saving
-        String setCurrent = getSetAsPreferenceString();
-        mainActivityInterface.getCurrentSet().setSetCurrent(setCurrent);
+        String mySetCurrent = getSetAsPreferenceString();
+        mainActivityInterface.getCurrentSet().setSetCurrent(mySetCurrent);
         indexSongInSet(mainActivityInterface.getSong());
 
         mainActivityInterface.notifyToInsertAllInlineSet();
@@ -757,7 +759,6 @@ public class SetActions {
             // Pass each uri to the set extraction function and let it populate the arrays
             extractSetFile(setToLoad, false);
         }
-
         // Now we have the entire set contents, save it to our preferences
         saveTheSet();
 
@@ -1289,8 +1290,10 @@ public class SetActions {
     }
 
     private void removeCacheItemsFromDB(String folder) {
+        Log.d(TAG,"removeCacheItemsFromDB:"+folder);
         ArrayList<String> filesInFolder = mainActivityInterface.getStorageAccess().listFilesInFolder(folder, "_cache");
         for (String filename:filesInFolder) {
+            Log.d(TAG,"removing: "+folder+"/"+filename);
             mainActivityInterface.getSQLiteHelper().deleteSong(customLocStart+folder, filename);
         }
 
@@ -1298,6 +1301,10 @@ public class SetActions {
         mainActivityInterface.getStorageAccess().wipeFolder(folder, "_cache");
 
         if (folder.equals(folderVariations)) {
+            // Delete the Variations/_cache folder for now
+            Uri variationscachefolder = mainActivityInterface.getStorageAccess().getUriForItem(folderVariations,cache,"");
+            mainActivityInterface.getStorageAccess().deleteFile(variationscachefolder);
+
             // Also clear the non-cache folder
             ArrayList<String> filesInNonCacheFolder = mainActivityInterface.getStorageAccess().listFilesInFolder(folder, "");
             for (String filename:filesInNonCacheFolder) {
@@ -1306,6 +1313,9 @@ public class SetActions {
 
             // Now empty the actual folder
             mainActivityInterface.getStorageAccess().wipeFolder(folder, "");
+
+            // Now recreate the _cache folder
+            mainActivityInterface.getStorageAccess().createFolder(folder,"",cache,false);
         }
     }
 

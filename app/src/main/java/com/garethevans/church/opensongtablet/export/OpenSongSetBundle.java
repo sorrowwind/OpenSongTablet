@@ -7,6 +7,8 @@ import android.util.Log;
 import com.garethevans.church.opensongtablet.R;
 import com.garethevans.church.opensongtablet.customviews.MyMaterialTextView;
 import com.garethevans.church.opensongtablet.interfaces.MainActivityInterface;
+import com.garethevans.church.opensongtablet.setprocessing.ImportSetBundleSetFragment;
+import com.garethevans.church.opensongtablet.setprocessing.ImportSetBundleSongFragment;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -28,24 +30,29 @@ public class OpenSongSetBundle {
     // The OpenSongSetBundle will be a zip file with the .ossb extension
 
     private final String TAG = "OpenSongSetBundle";
-    private MainActivityInterface mainActivityInterface;
-    private final String bundleExtension = ".ossb", setExtension = ".osts", songExtension = ".ost",
-    processing_string;
+    private final MainActivityInterface mainActivityInterface;
+    private final String bundleExtension = ".ossb", setExtension = ".osts";
+    private final String processing_string;
     private Uri bundleUri;
-    private boolean error = false;
     private boolean alive = true;
     private MyMaterialTextView progressText;
     private ZipEntry ze;
     private File setBundleFolder, justChordsBundleFolder, setFile;
-    private ArrayList<File> songFiles, songFolders;
-    private Uri setBundleUri, justChordsBundleUri;
+    private Uri setBundleUri;
+    private File[] extractedFiles;
+    private ImportSetBundleSetFragment importSetBundleSetFragment;
+    private ImportSetBundleSongFragment importSetBundleSongFragment;
+    private String setCurrent_backup="", setCurrentBeforeEdits_backup="", setCurrentLastName_backup="";
+    private boolean importSuccess;
 
-
-    public OpenSongSetBundle(Context c, MyMaterialTextView progressText) {
+    public OpenSongSetBundle(Context c) {
         mainActivityInterface = (MainActivityInterface) c;
-        this.progressText = progressText;
         processing_string = c.getString(R.string.processing);
         prepareSetBundleFolder();
+    }
+
+    public void setProgressText(MyMaterialTextView progressText) {
+        this.progressText = progressText;
     }
 
     public void zipFiles(String bundleFilename, ArrayList<Uri> uris, boolean ossb) {
@@ -64,8 +71,6 @@ public class OpenSongSetBundle {
 
         if (ossb) {
             setBundleUri = bundleUri;
-        } else {
-            justChordsBundleUri = bundleUri;
         }
 
         OutputStream outputStream;
@@ -75,9 +80,7 @@ public class OpenSongSetBundle {
             zipOutputStream = new ZipOutputStream(outputStream);
         } catch (Exception e) {
             e.printStackTrace();
-            error = true;
         }
-        ZipEntry ze;
 
         // Now deal with the files
         for (Uri uri : uris) {
@@ -106,7 +109,6 @@ public class OpenSongSetBundle {
                         zipOutputStream.closeEntry();
                     } catch (Exception e) {
                         e.printStackTrace();
-                        error = true;
                     }
                 }
 
@@ -124,83 +126,97 @@ public class OpenSongSetBundle {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            error = true;
         }
     }
 
-    public void unzipFiles() {
+    @SuppressWarnings("IOStreamConstructor")
+    public void unzipFiles(Uri uri, String folder, String subfolder) {
         // Take the importUri and unzip the files in it
         // All songs will end with .osts, .ost, .pdf or (less likely) image files
         // The set will contain the correct location of the songs (subfolders)
+
+        // Read in the set file to the current set
+        mainActivityInterface.getSetActions().clearCurrentSet();
 
         // Extract the files to our app storage location and deal with them from there
         prepareSetBundleFolder();
         alive = true;
 
-        InputStream inputStream = mainActivityInterface.getStorageAccess().getInputStream(mainActivityInterface.getImportUri());
-        ZipInputStream zipInputStream = new ZipInputStream(new BufferedInputStream(inputStream));
+        if (mainActivityInterface.getWhattodo().equals("justchordsset")) {
+            mainActivityInterface.getConvertJustChords().createSongsFromImportedSet();
 
-        // Simply extract every file from the zip file
-        try {
+        } else {
             byte[] buffer = new byte[1024];
-            while ((ze = zipInputStream.getNextEntry()) != null) {
-                if (!ze.isDirectory()) {
-                    File zeFile = new File(ze.getName());
-                    OutputStream outputStream = new FileOutputStream(zeFile);
-                    int count;
-                    try {
-                        if (alive) {
+            mainActivityInterface.getStorageAccess().emptyFileFolder(
+                    mainActivityInterface.getStorageAccess().getAppSpecificFile(folder, subfolder, ""));
+            InputStream inputStream = mainActivityInterface.getStorageAccess().getInputStream(uri);
+            ZipInputStream zipInputStream = new ZipInputStream(new BufferedInputStream(inputStream));
+            try {
+                while ((ze = zipInputStream.getNextEntry()) != null) {
+                    File extractedFile = mainActivityInterface.getStorageAccess().getAppSpecificFile(folder, subfolder, ze.getName());
+                    if (extractedFile != null) {
+                        OutputStream outputStream = new FileOutputStream(extractedFile);
+                        // Write the file
+                        int count;
+                        try {
                             while ((count = zipInputStream.read(buffer)) != -1) {
                                 outputStream.write(buffer, 0, count);
                             }
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    } finally {
-                        try {
-                            outputStream.close();
                         } catch (Exception e) {
                             e.printStackTrace();
-                            error = true;
+                        } finally {
+                            try {
+                                outputStream.close();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
 
-        // Now get a note of the files
-        songFiles = new ArrayList<>();
-        songFolders = new ArrayList<>();
-        setFile = null;
+        // List the files we have extracted into this folder
+        File extractedFolder = mainActivityInterface.getStorageAccess().getAppSpecificFile(folder,subfolder,"");
+        extractedFiles = null;
+        if (extractedFolder!=null && extractedFolder.exists()) {
+            extractedFiles = extractedFolder.listFiles();
+        }
 
-        Uri setFileUri = Uri.fromFile(setFile);
-        mainActivityInterface.getSetActions().extractSetFile(setFileUri,true);
+        setFile = findSetFile();
 
-        File[] files = setBundleFolder.listFiles();
-        if (files!=null) {
-            for (File file : files) {
+        if (setFile!=null) {
+            // Update the set name of the set tab
+            if (importSetBundleSetFragment!=null) {
+                importSetBundleSetFragment.setSetName(getSetFileName());
+            }
+
+            // Read in the set file to the current set
+            mainActivityInterface.getSetActions().extractSetFile(Uri.fromFile(setFile), false);
+        }
+
+    }
+
+    public File findSetFile() {
+        if (extractedFiles != null) {
+            for (File file:extractedFiles) {
                 if (file.getName().endsWith(setExtension)) {
-                    setFile = file;
-                    Log.d(TAG, "setFile:" + setFile.getName());
-                } else if (file.getName().endsWith(songExtension) ||
-                        mainActivityInterface.getStorageAccess().isIMGorPDF(file.getName())) {
-                    songFiles.add(file);
-                    Log.d(TAG, "songFile:" + file.getName());
+                    return file;
                 }
             }
         }
+        return null;
+    }
 
-        if (setFile!=null) {
-            // Let's clear our current set
-            mainActivityInterface.getCurrentSet().initialiseTheSet();
-            mainActivityInterface.getCurrentSet().setSetCurrent("");
-            mainActivityInterface.getCurrentSet().setSetCurrentBeforeEdits("");
-            mainActivityInterface.getCurrentSet().setSetCurrentLastName("");
-
-            mainActivityInterface.getSetActions().extractSetFile(setFileUri,false);
-        }
+    public File getSetFile() {
+        return setFile;
+    }
+    public String getSetFileName() {
+        return setFile.getName().replace(setExtension,"").
+                replace(mainActivityInterface.getConvertJustChords().getExtension(),"").
+                replace(bundleExtension,"");
     }
 
     private void prepareSetBundleFolder() {
@@ -230,12 +246,74 @@ public class OpenSongSetBundle {
         return setBundleUri;
     }
 
-    public Uri getJustChordsBundleUri() {
-        return justChordsBundleUri;
+    public void setImportFragments(ImportSetBundleSetFragment importSetBundleSetFragment,
+                                   ImportSetBundleSongFragment importSetBundleSongFragment) {
+        this.importSetBundleSetFragment = importSetBundleSetFragment;
+        this.importSetBundleSongFragment = importSetBundleSongFragment;
+    }
+
+    public void setImportSetBundleSetFragment(ImportSetBundleSetFragment importSetBundleSetFragment) {
+        this.importSetBundleSetFragment = importSetBundleSetFragment;
+    }
+
+    public void setImportSetBundleSongFragment(ImportSetBundleSongFragment importSetBundleSongFragment) {
+        this.importSetBundleSongFragment = importSetBundleSongFragment;
+    }
+
+    public void resetVariables() {
+        bundleUri = null;
+        alive = false;
+        progressText = null;
+        ze = null;
+        setBundleFolder = null;
+        justChordsBundleFolder = null;
+        setFile = null;
+        extractedFiles = null;
+        importSetBundleSongFragment = null;
+        importSetBundleSetFragment = null;
+        prepareSetBundleFolder();
+        importSuccess = false;
+    }
+
+    public void getBackupOfCurrentSet() {
+        // Store a backup of the currentSet preferences
+        setCurrent_backup = mainActivityInterface.getPreferences().getMyPreferenceString("setCurrent","");
+        setCurrentBeforeEdits_backup = mainActivityInterface.getPreferences().getMyPreferenceString("setCurrentBeforeEdits","");
+        setCurrentLastName_backup = mainActivityInterface.getPreferences().getMyPreferenceString("setCurrentLastName","");
+    }
+
+    public void updateActualCurrentSet() {
+        if (importSuccess) {
+            mainActivityInterface.getCurrentSet().updateCurrentSetPreferences();
+            mainActivityInterface.getSetActions().saveTheSet();
+        } else {
+            // Restore the backup
+            mainActivityInterface.getPreferences().setMyPreferenceString("setCurrent", setCurrent_backup);
+            mainActivityInterface.getPreferences().setMyPreferenceString("setCurrentBeforeEdits", setCurrentBeforeEdits_backup);
+            mainActivityInterface.getPreferences().setMyPreferenceString("setCurrentLastName", setCurrentLastName_backup);
+        }
+        mainActivityInterface.getSetActions().parseCurrentSet();
+    }
+
+    public File getItemFile(String folder, String filename) {
+        String actualFilename = folder + mainActivityInterface.getSetActions().getSetCategorySeparator() + filename;
+        for (File file:extractedFiles) {
+            if (file.getName().startsWith(actualFilename)) {
+                return file;
+            }
+        }
+        return null;
     }
 
     public void destroy() {
         alive = false;
     }
 
+    public boolean getAlive() {
+        return alive;
+    }
+
+    public void setAlive(boolean alive) {
+        this.alive = alive;
+    }
 }

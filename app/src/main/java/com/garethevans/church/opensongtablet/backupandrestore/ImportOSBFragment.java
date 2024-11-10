@@ -425,7 +425,7 @@ public class ImportOSBFragment extends Fragment {
             // Now deal with the zip entries
             stringBuilder = new StringBuilder();
             try {
-                byte[] buffer = new byte[8192];
+                byte[] buffer = new byte[1024];
                 while ((ze = zipInputStream.getNextEntry()) != null) {
                     item ++;
                     if (!ze.isDirectory()) {

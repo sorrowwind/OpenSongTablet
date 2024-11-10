@@ -92,6 +92,7 @@ public class SetManageAdapter extends RecyclerView.Adapter<SetManageViewHolder> 
             });
         });
     }
+
     @NonNull
     @Override
     public SetManageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -110,8 +111,6 @@ public class SetManageAdapter extends RecyclerView.Adapter<SetManageViewHolder> 
         // Get the values for this view
         if (position<foundSets.size()) {
             FoundSet foundSet = foundSets.get(position);
-
-            // Set filename
 
             // Decide if this value is selected (only available/visible when loading set)
             holder.checkBox.setChecked(foundSet.getChecked());
@@ -149,11 +148,14 @@ public class SetManageAdapter extends RecyclerView.Adapter<SetManageViewHolder> 
                         e.printStackTrace();
                     }
                 }
-                mainActivityInterface.updateFragment("setSelectedSetItem", setManageFragment, checkedItems);
+                if (setManageFragment!=null) {
+                    mainActivityInterface.updateFragment("setSelectedSetItem", setManageFragment, checkedItems);
+                }
             });
 
-            mainActivityInterface.updateFragment("setSelectedSetItem", setManageFragment, checkedItems);
-
+            if (setManageFragment!=null) {
+                mainActivityInterface.updateFragment("setSelectedSetItem", setManageFragment, checkedItems);
+            }
             holder.itemName.setText(foundSet.getTag());
             holder.modifiedDate.setText(foundSet.getLastModifiedString());
         }

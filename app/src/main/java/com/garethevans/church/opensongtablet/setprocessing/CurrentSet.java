@@ -272,7 +272,7 @@ public class CurrentSet {
 
             // Deal with the save button
             if (changedOrEmpty.isEmpty()) {
-                saveButtonView.post(() -> saveButtonView.setVisibility(View.INVISIBLE));
+                saveButtonView.post(() -> saveButtonView.setVisibility(View.GONE));
             } else {
                 saveButtonView.post(() -> saveButtonView.setVisibility(View.VISIBLE));
             }

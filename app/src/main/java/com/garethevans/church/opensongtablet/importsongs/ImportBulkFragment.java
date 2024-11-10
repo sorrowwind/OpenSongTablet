@@ -20,6 +20,8 @@ import androidx.fragment.app.Fragment;
 import com.garethevans.church.opensongtablet.R;
 import com.garethevans.church.opensongtablet.databinding.SettingsImportBulkBinding;
 import com.garethevans.church.opensongtablet.interfaces.MainActivityInterface;
+import com.garethevans.church.opensongtablet.justchords.JustChordsObject;
+import com.garethevans.church.opensongtablet.justchords.JustChordsSongObject;
 import com.garethevans.church.opensongtablet.songprocessing.Song;
 
 import java.io.InputStream;
@@ -207,14 +209,14 @@ public class ImportBulkFragment extends Fragment {
                     boolean imageorpdf = mainActivityInterface.getStorageAccess().isSpecificFileExtension("imageorpdf", filename);
                     boolean onsong = mainActivityInterface.getStorageAccess().isSpecificFileExtension("onsong", filename);
                     boolean word = mainActivityInterface.getStorageAccess().isSpecificFileExtension("docx", filename);
-
+                    boolean justchords = mainActivityInterface.getStorageAccess().isSpecificFileExtension("justchords",filename);
                     boolean goodsong = true;
                     String newFilename = null;
                     if (filename.contains(".")) {
                         newFilename = filename.substring(0, filename.lastIndexOf("."));
                     }
 
-                    if (text || chordpro || onsong) {
+                    if (text || chordpro || onsong || justchords) {
                         inputStream = mainActivityInterface.getStorageAccess().getInputStream(fileUri);
                         content = mainActivityInterface.getStorageAccess().readTextFileToString(inputStream);
                         newSong.setFiletype("XML");
@@ -249,7 +251,24 @@ public class ImportBulkFragment extends Fragment {
                         content = mainActivityInterface.getConvertWord().convertDocxToText(fileUri, filename);
                         newSong.setLyrics(content);
                         newSong.setTitle(newFilename);
+                    } else if (justchords) {
+                        // Don't use the current song object after we deal with it here
+                        goodsong = false;
+                        // Decide if this is a single song or a set
+                        updateProgress(x + 1, total, filename, success_string);
+                        JustChordsObject justChordsObject = mainActivityInterface.getConvertJustChords().getJustChordsObjectFromUri(fileUri);
+                        if (justChordsObject != null && justChordsObject.getSongs() != null) {
+                            if (justChordsObject.getSongs().length==1) {
+                                // It's a single song
+                                importJustChordsFile(justChordsObject.getSongs()[0]);
 
+                            } else if (justChordsObject.getSongs().length>1) {
+                                // It's a set, so import one at a time
+                                for (JustChordsSongObject justChordsSongObject: justChordsObject.getSongs()) {
+                                    importJustChordsFile(justChordsSongObject);
+                                }
+                            }
+                        }
                     } else {
                         updateProgress(x, total, filename, unknown_string);
                         goodsong = false;
@@ -324,6 +343,23 @@ public class ImportBulkFragment extends Fragment {
         });
     }
 
+    private void importJustChordsFile(JustChordsSongObject justChordsSongObject) {
+        if (justChordsSongObject!=null) {
+            Song jcImport = mainActivityInterface.getConvertJustChords().getOpenSongFromJustChordsSong(justChordsSongObject);
+            jcImport.setFolder(imported_string);
+            // Create the new uri/file for writing
+            Uri newUri = mainActivityInterface.getStorageAccess().getUriForItem("Songs", imported_string, jcImport.getFilename());
+            mainActivityInterface.getStorageAccess().lollipopCreateFileForOutputStream(true, newUri, null, "Songs", imported_string, jcImport.getFilename());
+            // Write the song
+            OutputStream outputStream = mainActivityInterface.getStorageAccess().getOutputStream(newUri);
+            boolean jcSuccess = mainActivityInterface.getStorageAccess().writeFileFromString(mainActivityInterface.getProcessSong().getXML(jcImport), outputStream);
+            if (jcSuccess) {
+                // Add the song to the database
+                mainActivityInterface.getSQLiteHelper().createSong(imported_string, jcImport.getFilename());
+                mainActivityInterface.getSQLiteHelper().updateSong(jcImport);
+            }
+        }
+    }
     private void updateProgress(int item, int total, String filename, String progress) {
         if (myView!=null) {
             String message = item + "/" + total + ". " + filename + ": " + progress;

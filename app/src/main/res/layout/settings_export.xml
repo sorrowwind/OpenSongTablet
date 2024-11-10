@@ -112,7 +112,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <com.google.android.material.textview.MaterialTextView
                     style="@style/largeText"
@@ -138,7 +138,7 @@
                     android:hint="@string/justchords_file_info"
                     app:showCheckBox="true"
                     android:layout_marginBottom="16dp"
-                    android:visibility="gone"/>
+                    android:visibility="visible"/>
                 <TableRow style="@style/DividerLine"
                     android:layout_marginTop="16dp"/>
 
@@ -218,7 +218,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <com.garethevans.church.opensongtablet.customviews.MyMaterialTextView
                     android:id="@+id/currentFormat"
@@ -291,8 +291,7 @@
                     android:text="@string/justchords"
                     android:hint="@string/justchords_file_info"
                     app:showCheckBox="true"
-                    android:layout_marginBottom="16dp"
-                    android:visibility="gone"/>
+                    android:layout_marginBottom="16dp" />
 
                 <com.garethevans.church.opensongtablet.customviews.MyMaterialTextView
                     android:id="@+id/onSong"

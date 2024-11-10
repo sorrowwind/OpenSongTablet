@@ -28,8 +28,8 @@ public class SetActionsFragment extends Fragment {
     private SettingsSetsBinding myView;
     @SuppressWarnings({"unused","FieldCanBeLocal"})
     private final String TAG = "SetActionsFragment";
-    private String set_manage_string="", set_new_string="", deeplink_sets_manage_string="",
-            file_type_string="", unknown_string="", deeplink_browse_host_files="";
+    private String set_manage_string="", set_new_string="",
+            deeplink_browse_host_files="";
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -62,10 +62,7 @@ public class SetActionsFragment extends Fragment {
         if (getContext()!=null) {
             set_manage_string = getString(R.string.set_manage);
             set_new_string = getString(R.string.set_new);
-            deeplink_sets_manage_string = getString(R.string.deeplink_sets_manage);
             deeplink_browse_host_files = getString(R.string.deeplink_browse_host_files);
-            file_type_string = getString(R.string.file_type);
-            unknown_string = getString(R.string.unknown);
         }
     }
 
@@ -78,18 +75,9 @@ public class SetActionsFragment extends Fragment {
 
                     if (data != null) {
                         Uri contentUri = data.getData();
-                        String importFilename = mainActivityInterface.getStorageAccess().getFileNameFromUri(contentUri);
-                        if (importFilename.endsWith(".osts") || !importFilename.contains(".") || !importFilename.endsWith(".xml")) {
-                            // Keep a record of the uri
-                            mainActivityInterface.setImportUri(contentUri);
-                            mainActivityInterface.setImportFilename(importFilename);
-
-                            // Now go the to manage set fragment
-                            mainActivityInterface.setWhattodo("importset");
-                            mainActivityInterface.navigateToFragment(deeplink_sets_manage_string, 0);
-                        } else {
-                            mainActivityInterface.getShowToast().doIt(file_type_string+" "+unknown_string);
-                        }
+                        mainActivityInterface.setImportUri(contentUri);
+                        mainActivityInterface.setImportFilename(mainActivityInterface.getStorageAccess().getFileNameFromUri(contentUri));
+                        mainActivityInterface.openFragmentBasedOnFileImport();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -141,19 +129,11 @@ public class SetActionsFragment extends Fragment {
             });
             myView.restoreSets.setOnClickListener(v -> {
                 mainActivityInterface.setWhattodo("restoresets");
-                mainActivityInterface.navigateToFragment(null, R.id.backupRestoreSetsFragment);
+                openFileIntent("Backups");
             });
             myView.importSet.setOnClickListener(v -> {
-                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-                intent.setType("*/*");
-                String[] mimetypes = {"text/xml", "application/octet-stream"};
-                intent.putExtra(Intent.EXTRA_MIME_TYPES, mimetypes);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI,
-                            mainActivityInterface.getStorageAccess().getUriForItem("Import","",""));
-                }
-                intent.addFlags(mainActivityInterface.getStorageAccess().getAddReadUriFlags());
-                activityResultLauncher.launch(intent);
+                mainActivityInterface.setWhattodo("importset");
+                openFileIntent("Import");
             });
             myView.browseHost.setOnClickListener(v -> {
                 mainActivityInterface.setWhattodo("browsesets");
@@ -164,5 +144,18 @@ public class SetActionsFragment extends Fragment {
                 mainActivityInterface.navigateToFragment(deeplink_browse_host_files, 0);
             });
         }
+    }
+
+    private void openFileIntent(String where) {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.setType("*/*");
+        String[] mimetypes = {"text/xml", "application/octet-stream"};
+        intent.putExtra(Intent.EXTRA_MIME_TYPES, mimetypes);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI,
+                    mainActivityInterface.getStorageAccess().getUriForItem(where,"",""));
+        }
+        intent.addFlags(mainActivityInterface.getStorageAccess().getAddReadUriFlags());
+        activityResultLauncher.launch(intent);
     }
 }

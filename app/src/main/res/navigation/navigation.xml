@@ -840,6 +840,9 @@
                 <action
                     android:id="@+id/action_setActionsFragment_to_browseHostFilesFragment"
                     app:destination="@id/browseHostFilesFragment" />
+                <action
+                    android:id="@+id/action_setActionsFragment_to_importSetBundleFragment"
+                    app:destination="@id/importSetBundleFragment" />
 
             </fragment>
             <fragment
@@ -851,6 +854,17 @@
                     android:id="@+id/deepLinkSetsManage"
                     app:uri="@string/deeplink_sets_manage" />
                 </fragment>
+
+            <fragment
+                android:id="@+id/importSetBundleFragment"
+                android:name="com.garethevans.church.opensongtablet.setprocessing.ImportSetBundleFragment"
+                android:label="ImportSetBundleFragment"
+                tools:layout="@layout/settings_set_import_bundle">
+                <deepLink
+                    android:id="@+id/deepLinkSetBundle"
+                    app:uri="@string/deeplink_set_bundle" />
+            </fragment>
+
 
             <fragment
                 android:id="@+id/browseHostFilesFragment"

@@ -1,14 +1,11 @@
 package com.garethevans.church.opensongtablet.setprocessing;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.provider.DocumentsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +13,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CheckBox;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -47,11 +42,10 @@ public class BackupRestoreSetsFragment extends Fragment {
     private ArrayList<String> chosenSets;
     private String backupFilename;
     private Uri backupUri;
-    private ActivityResultLauncher<Intent> activityResultLauncher;
     private final String setSeparator = "__";
     private final String TAG = "BackupRestoreSets";
     private String restore_sets_string="", website_set_restore_string="", backup_string="",
-            website_set_backup_string="", unknown_string="", backup_sets_string="",
+            website_set_backup_string="", backup_sets_string="",
             import_basic_string="", mainfoldername_string="", backup_info_string="",
             toolBarTitle="", files_restored_string="", error_string="";
     private String webAddress, errorFiles="";
@@ -89,15 +83,12 @@ public class BackupRestoreSetsFragment extends Fragment {
         if (mainActivityInterface.getWhattodo().equals("restoresets")) {
             toolBarTitle = restore_sets_string;
             webAddress = website_set_restore_string;
-            setupFileChooserListener();
-            initialiseLauncher();
-            openFilePicker();
-        } else if (mainActivityInterface.getWhattodo().equals("intentlaunch")) {
-            toolBarTitle = restore_sets_string;
-            webAddress = website_set_restore_string;
             backupUri = mainActivityInterface.getImportUri();
             myView.backupName.setText(mainActivityInterface.getImportFilename());
+            myView.backupName.setFocusable(false);
+            myView.backupName.setFocusableInTouchMode(false);
             setupViews();
+
         } else {
             // Set up views
             setupViews();
@@ -114,7 +105,6 @@ public class BackupRestoreSetsFragment extends Fragment {
             restore_sets_string = getString(R.string.restore_sets);
             website_set_restore_string = getString(R.string.website_set_restore);
             website_set_backup_string = getString(R.string.website_set_backup);
-            unknown_string = getString(R.string.unknown);
             backup_sets_string = getString(R.string.backup_sets);
             backup_string = getString(R.string.backup);
             import_basic_string = getString(R.string.import_basic);
@@ -123,50 +113,6 @@ public class BackupRestoreSetsFragment extends Fragment {
             files_restored_string = getString(R.string.files_restored);
             error_string = getString(R.string.error);
         }
-    }
-
-    private void initialiseLauncher () {
-        // Initialise the launcher if we are importing/restoring
-        activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-            if (result.getResultCode() == Activity.RESULT_OK) {
-                try {
-                    Intent data = result.getData();
-                    if (data != null) {
-                        backupUri = data.getData();
-                        String importFilename = mainActivityInterface.getStorageAccess().getFileNameFromUri(backupUri);
-                        if (importFilename.endsWith(".osbs")) {
-                            myView.backupName.setText(importFilename);
-                            setupViews();
-                        } else {
-                            myView.backupName.setText(unknown_string);
-                            myView.createBackupFAB.setEnabled(false);
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    private void setupFileChooserListener() {
-        myView.backupName.setFocusable(false);
-        myView.backupName.setFocusableInTouchMode(false);
-        myView.backupName.setOnClickListener(v -> openFilePicker());
-    }
-
-    private void openFilePicker() {
-        // Open the file picker and when the user has picked a file, deal with it
-        Intent loadIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-        Uri uri = mainActivityInterface.getStorageAccess().
-                getUriForItem("Backups","",null);
-        loadIntent.setDataAndType(uri,"application/*");
-        loadIntent.putExtra("android.content.extra.SHOW_ADVANCED", true);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            loadIntent.putExtra(DocumentsContract.EXTRA_INITIAL_URI,
-                    mainActivityInterface.getStorageAccess().getUriForItem("Backups","",""));
-        }
-        activityResultLauncher.launch(loadIntent);
     }
 
     private void setupViews() {

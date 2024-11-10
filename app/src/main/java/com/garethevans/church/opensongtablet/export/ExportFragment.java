@@ -44,7 +44,7 @@ public class ExportFragment extends Fragment {
     private SettingsExportBinding myView;
     private MainActivityInterface mainActivityInterface;
     private final String TAG = "ExportFragment";
-    private ArrayList<Uri> uris, urisSetBundle, urisJustChordsBundle;
+    private ArrayList<Uri> uris, urisSetBundle;
     private ArrayList<String> mimeTypes, setNames;
     private ArrayList<View> sectionViewsPDF = new ArrayList<>(), sectionViewsScreenshot = new ArrayList<>();
     private ArrayList<Integer> sectionViewWidthsPDF = new ArrayList<>(), sectionViewHeightsPDF = new ArrayList<>();
@@ -70,7 +70,6 @@ public class ExportFragment extends Fragment {
             custom1_string="", custom2_string="", pdf_print_string="";
     private StringBuilder combinedSetText;
     private String currentSongFolder, currentSongFile;
-    private OpenSongSetBundle openSongSetBundleHelper;
 
     @Override
     public void onResume() {
@@ -141,7 +140,6 @@ public class ExportFragment extends Fragment {
 
         uris = new ArrayList<>();
         urisSetBundle = new ArrayList<>();
-        urisJustChordsBundle = new ArrayList<>();
         mimeTypes = new ArrayList<>();
 
         // Some options are hidden by default and only visible if we have a proper OpenSong song
@@ -165,9 +163,7 @@ public class ExportFragment extends Fragment {
                 }
             }
         }));
-        myView.maxPDFScaling.addOnChangeListener((slider, value, fromUser) -> {
-            updatePDFMaxScaling((int)value);
-        });
+        myView.maxPDFScaling.addOnChangeListener((slider, value, fromUser) -> updatePDFMaxScaling((int)value));
 
         myView.exportTextAsMessage.setOnCheckedChangeListener((compoundButton, b) -> mainActivityInterface.getPreferences().setMyPreferenceBoolean("exportTextAsMessage",b));
         myView.nestedScrollView.setExtendedFabToAnimate(myView.shareButton);
@@ -214,7 +210,7 @@ public class ExportFragment extends Fragment {
         myView.openSongAppSet.setCheckBox(mainActivityInterface.getPreferences().getMyPreferenceBoolean("exportOpenSongAppSet",false));
         myView.openSongSet.setCheckBox(mainActivityInterface.getPreferences().getMyPreferenceBoolean("exportOpenSongSet",false));
         myView.textSet.setCheckBox(mainActivityInterface.getPreferences().getMyPreferenceBoolean("exportOpenSongTextSet",false));
-        myView.setPNG.setCheckBox(false);
+        myView.setPNG.setCheckBox(mainActivityInterface.getPreferences().getMyPreferenceBoolean("exportSetPNG",false));
 
         // Set the defaults for song export
         myView.currentFormat.setCheckBox(mainActivityInterface.getPreferences().getMyPreferenceBoolean("exportCurrentFormat",false));
@@ -256,6 +252,8 @@ public class ExportFragment extends Fragment {
         });
 
         // Set the listeners for preferences
+        myView.setBundle.setOnCheckedChangeListener(new MyCheckChanged("exportSetBundle"));
+        myView.justChordsBundle.setOnCheckedChangeListener(new MyCheckChanged("exportSetBundleJustChords"));
         myView.setPDF.setOnCheckedChangeListener(new MyCheckChanged("exportSetPDF"));
         myView.openSongAppSet.setOnCheckedChangeListener(new MyCheckChanged("exportOpenSongAppSet"));
         myView.openSongSet.setOnCheckedChangeListener(new MyCheckChanged("exportOpenSongSet"));
@@ -266,6 +264,7 @@ public class ExportFragment extends Fragment {
         myView.image.setOnCheckedChangeListener(new MyCheckChanged("exportPNG"));
         myView.openSongApp.setOnCheckedChangeListener(new MyCheckChanged("exportOpenSongApp"));
         myView.openSong.setOnCheckedChangeListener(new MyCheckChanged("exportDesktop"));
+        myView.justChords.setOnCheckedChangeListener(new MyCheckChanged("exportJustChords"));
         myView.onSong.setOnCheckedChangeListener(new MyCheckChanged("exportOnSong"));
         myView.chordPro.setOnCheckedChangeListener(new MyCheckChanged("exportChordPro"));
         myView.text.setOnCheckedChangeListener(new MyCheckChanged("exportText"));
@@ -280,6 +279,7 @@ public class ExportFragment extends Fragment {
         if (mainActivityInterface.getWhattodo().startsWith("exportset:")) {
             webAddress = website_export_set_string;
 
+            myView.setOptionsLayout.setVisibility(View.VISIBLE);
             myView.setExportInfo.setVisibility(View.VISIBLE);
             myView.currentFormat.setVisibility(View.VISIBLE);
             myView.openSong.setVisibility(View.GONE);
@@ -299,8 +299,10 @@ public class ExportFragment extends Fragment {
         } else {
             // Hide the options based on the song format
             webAddress = website_export_song_string;
+            myView.setOptionsLayout.setVisibility(View.GONE);
             myView.setExportInfo.setVisibility(View.GONE);
             myView.currentFormat.setVisibility(View.GONE);
+            myView.merged.setVisibility(View.GONE);
 
             if (mainActivityInterface.getSong()!=null &&
                     mainActivityInterface.getSong().getFiletype()!=null &&
@@ -426,9 +428,9 @@ public class ExportFragment extends Fragment {
         // Set bundles
         openSongSetBundle = myView.setBundle.isChecked();
         justChordsSetBundle = myView.justChordsBundle.isChecked();
-        if ((openSongSetBundle || justChordsSetBundle) && getContext()!=null) {
+        if (openSongSetBundle && getContext() != null) {
             // Initialise the helper
-            openSongSetBundleHelper = new OpenSongSetBundle(getContext(),myView.progressText);
+            mainActivityInterface.getOpenSongSetBundle().setProgressText(myView.progressText);
         }
 
         // Sets (separate files)
@@ -439,7 +441,7 @@ public class ExportFragment extends Fragment {
         includeSongs = myView.includeSongs.getChecked();
         setPNG = myView.setPNG.isChecked();
 
-        if (!myView.includeSongs.getChecked()) {
+        if (setContent == null || myView.includeSongs.getChecked()) {
             // Songs (separate files)
             pdf = myView.pdf.isChecked();
             image = myView.image.isChecked();
@@ -485,8 +487,6 @@ public class ExportFragment extends Fragment {
             shareTitle = mainActivityInterface.getSong().getFilename();
             doExportSong();
         }
-
-        Log.d(TAG,"openSong:"+openSong+"  openSongApp:"+openSongApp);
     }
 
     private void doExportSet() {
@@ -494,6 +494,8 @@ public class ExportFragment extends Fragment {
         mainActivityInterface.getThreadPoolExecutor().execute(() -> {
             // Keep all songs in a combined string for additional export
             combinedSetText = new StringBuilder();
+
+            mainActivityInterface.getConvertJustChords().resetVariables();
 
             // Load in the sets
             // First up add the simple set files that don't require drawing pdfs
@@ -508,11 +510,6 @@ public class ExportFragment extends Fragment {
             if (openSongSetBundle) {
                 urisSetBundle.addAll(mainActivityInterface.getExportActions().addOpenSongAppSetsToUris(setNames));
             }
-            if (justChordsSetBundle) {
-                urisJustChordsBundle.addAll(mainActivityInterface.getExportActions().addOpenSongAppSetsToUris(setNames));
-            }
-
-            Log.d(TAG,"498: The set file added.  uris.size():"+uris.size()+"   urisSetBundle.size()"+urisSetBundle.size()+"  urisJustChordsBundle.size():"+urisJustChordsBundle.size());
 
             // Go through the set and create any custom slides required (variations, slides, etc).
             ArrayList<Uri> setFiles = mainActivityInterface.getExportActions().addOpenSongSetsToUris(setNames);
@@ -529,7 +526,6 @@ public class ExportFragment extends Fragment {
                     mimeTypes.add("text/xml");
                 }
             }
-            Log.d(TAG,"515: The desktop set file added.  uris.size():"+uris.size()+"   urisSetBundle.size()"+urisSetBundle.size()+"  urisJustChordsBundle.size():"+urisJustChordsBundle.size());
 
             setContent = setData[1];
             // Prepare a text version of the set
@@ -546,7 +542,6 @@ public class ExportFragment extends Fragment {
                     }
                 }
             }
-            Log.d(TAG,"532: The text file added.  uris.size():"+uris.size()+"   urisSetBundle.size()"+urisSetBundle.size()+"  urisJustChordsBundle.size():"+urisJustChordsBundle.size());
 
             // Now we go through the songs if we want to include them (not pdf rendered yet though)
             ids = setData[0].split("\n");
@@ -572,8 +567,6 @@ public class ExportFragment extends Fragment {
                         boolean likelyPDF = location[1].toLowerCase(Locale.ROOT).endsWith(".pdf");
                         boolean likelyIMG = mainActivityInterface.getStorageAccess().filenameIsImage(location[1]);
 
-                        Log.d(TAG,"id:"+id);
-                        Log.d(TAG,"XML:"+likelyXML+"  PDF:"+likelyPDF+"  IMG:"+likelyIMG);
                         // If this is a variation, etc. load it.
                         // Otherwise, get from the database
                         Song song;
@@ -597,9 +590,10 @@ public class ExportFragment extends Fragment {
                             song.setFilename(song.getFilename()+"__"+setKeys[x]);
                             Uri uri = mainActivityInterface.getStorageAccess().getUriForItem("Export", "",song.getFilename());
                             mainActivityInterface.getStorageAccess().lollipopCreateFileForOutputStream(true,uri,null,"Export","",song.getFilename());
+                            float fileSize = mainActivityInterface.getStorageAccess().getFileSizeFromUri(uri);
                             mainActivityInterface.getProcessSong().getXML(song);
                             mainActivityInterface.getStorageAccess().doStringWriteToFile("Export", "", song.getFilename(), song.getSongXML());
-                            if (includeSongs) {
+                            if (includeSongs && fileSize>0) {
                                 uris.add(uri);
                             }
                             if (!mimeTypes.contains("text/xml")) {
@@ -607,9 +601,6 @@ public class ExportFragment extends Fragment {
                             }
                             if (openSongSetBundle) {
                                 urisSetBundle.add(uri);
-                            }
-                            if (justChordsSetBundle) {
-                                urisJustChordsBundle.add(uri);
                             }
                             useTransposed = true;
                         }
@@ -621,8 +612,8 @@ public class ExportFragment extends Fragment {
 
                         // Deal with the currentFormat option first, or PDF or IMG songs
                         if (!id.equals("ignore") && ((currentFormat && !useTransposed) ||
-                                ((openSongSetBundle || justChordsSetBundle || pdf) && likelyPDF) ||
-                                ((openSongSetBundle || justChordsSetBundle || image) && likelyIMG))) {
+                                ((openSongSetBundle || pdf) && likelyPDF) ||
+                                ((openSongSetBundle || image) && likelyIMG))) {
                             // Just get a uri for the song
                             if (song.getFolder()!=null && song.getFolder().equals("../Export")) {
                                 location[0] = "../Export";
@@ -635,11 +626,12 @@ public class ExportFragment extends Fragment {
                             }
                             if (openSongSetBundle &&
                                     mainActivityInterface.getStorageAccess().isIMGorPDF(location[1])) {
-                                urisSetBundle.add(uricopied);
-                            }
-                            if (justChordsSetBundle &&
-                                    mainActivityInterface.getStorageAccess().isIMGorPDF(location[1])) {
-                                urisJustChordsBundle.add(uricopied);
+                                Uri uricopiedWithFolder = mainActivityInterface.getStorageAccess().copyFromTo(
+                                        "Songs", fixSubfolder(location[0]), location[1],
+                                        "Export", "", location[0] +
+                                                mainActivityInterface.getSetActions().getSetCategorySeparator() +
+                                                location[1]);
+                                urisSetBundle.add(uricopiedWithFolder);
                             }
 
                             if (openSong && !mimeTypes.contains("text/xml")) {
@@ -650,8 +642,6 @@ public class ExportFragment extends Fragment {
                                 mimeTypes.add("image/*");
                             }
                         }
-                        Log.d(TAG,"636: The song files added.  uris.size():"+uris.size()+"   urisSetBundle.size()"+urisSetBundle.size()+"  urisJustChordsBundle.size():"+urisJustChordsBundle.size());
-
 
                         // Add OpenSongApp files
                         if (!id.equals("ignore") && likelyXML &&
@@ -662,11 +652,12 @@ public class ExportFragment extends Fragment {
                                         "Export", "",song.getFilename(),
                                         "Export", "", song.getFilename() + ".ost");
                                 if (openSongSetBundle) {
-                                    urisSetBundle.add(uricopied);
-                                }
-                                if (justChordsSetBundle) {
-                                    // TODO likely need to fix this
-                                    urisJustChordsBundle.add(uricopied);
+                                    Uri uricopiedWithFolder = mainActivityInterface.getStorageAccess().copyFromTo(
+                                            "Export", "", song.getFilename(),
+                                            "Export", "", song.getFolder() +
+                                                    mainActivityInterface.getSetActions().getSetCategorySeparator() +
+                                                    song.getAutoscrolllength() + ".ost");
+                                    urisSetBundle.add(uricopiedWithFolder);
                                 }
 
                                 if (openSongApp) {
@@ -678,10 +669,12 @@ public class ExportFragment extends Fragment {
                                         "Songs", fixSubfolder(location[0]), location[1],
                                         "Export", "", location[1] + ".ost");
                                 if (openSongSetBundle) {
-                                    urisSetBundle.add(uricopied);
-                                }
-                                if (justChordsSetBundle) {
-                                    urisJustChordsBundle.add(uricopied);
+                                    Uri uricopiedWithFolder = mainActivityInterface.getStorageAccess().copyFromTo(
+                                            "Songs", fixSubfolder(location[0]), location[1],
+                                            "Export", "", location[0] +
+                                                    mainActivityInterface.getSetActions().getSetCategorySeparator() +
+                                                    location[1] + ".ost");
+                                    urisSetBundle.add(uricopiedWithFolder);
                                 }
                                 if (openSongApp) {
                                     uris.add(uricopied);
@@ -691,24 +684,22 @@ public class ExportFragment extends Fragment {
                                 mimeTypes.add("text/xml");
                             }
                         }
-                        Log.d(TAG,"677: The opensongapp files added.  uris.size():"+uris.size()+"   urisSetBundle.size()"+urisSetBundle.size()+"  urisJustChordsBundle.size():"+urisJustChordsBundle.size());
 
                         // Add justChord files
                         if (!id.equals("ignore") && (justChords || justChordsSetBundle) && likelyXML) {
-                            // Get the text from the file
-                            String content = mainActivityInterface.getPrepareFormats().getSongAsJustChords(song);
-                            mainActivityInterface.getStorageAccess().updateFileActivityLog(TAG+" doExportSet doStringWriteToFile Export/"+location[1]+".justsong with: "+content);
-                            if (mainActivityInterface.getStorageAccess().doStringWriteToFile("Export", "", location[1] + ".justsong", content)) {
-                                Uri uricopied = mainActivityInterface.getStorageAccess().getUriForItem("Export", "", location[1] + ".justsong");
-                                if (justChordsSetBundle) {
-                                    urisJustChordsBundle.add(uricopied);
-                                }
-                                if (justChords) {
-                                    uris.add(uricopied);
+                            // If we want the single song, add it
+                            if (justChords) {
+                                Uri uri = mainActivityInterface.getConvertJustChords().buildJustChordsSingleSong(song);
+                                if (uri!=null) {
+                                    uris.add(uri);
                                 }
                                 if (!mimeTypes.contains("text/plain")) {
                                     mimeTypes.add("text/plain");
                                 }
+                            }
+                            // If we want a set bundle, add the song to the class - deal with it at the end
+                            if (justChordsSetBundle) {
+                                mainActivityInterface.getConvertJustChords().addOpenSongToArray(song);
                             }
                         }
 
@@ -759,13 +750,22 @@ public class ExportFragment extends Fragment {
                 }
             }
 
-            if ((openSongSetBundle && !urisSetBundle.isEmpty()) ||
-                    justChordsSetBundle && !urisJustChordsBundle.isEmpty()) {
+            if (openSongSetBundle && !urisSetBundle.isEmpty()) {
                 exportOpenSongSetBundle();
                 if (!mimeTypes.contains("application/zip")) {
                     mimeTypes.add("application/zip");
                     mimeTypes.add("application/x-zip");
                     mimeTypes.add("application/octet-stream");
+                }
+            }
+
+            if (justChordsSetBundle) {
+                Uri uri = mainActivityInterface.getConvertJustChords().buildJustChordsSet(setToExport);
+                if (uri!=null) {
+                    uris.add(uri);
+                    if (!mimeTypes.contains("text/plain")) {
+                        mimeTypes.add("text/plain");
+                    }
                 }
             }
 
@@ -867,7 +867,7 @@ public class ExportFragment extends Fragment {
                     }
                 }
                 createOnTheFly(song,location[1]+".pdf");
-            } else if (id.equals("ignore")) {
+            } else if (id.equals("ignore") || !likelyXML) {
                 songsProcessed++;
                 renderPDFSongs();
             }
@@ -919,6 +919,16 @@ public class ExportFragment extends Fragment {
                         folder, filename, "Export", "", filename + ".ost"));
                 if (!mimeTypes.contains("text/plain")) {
                     mimeTypes.add("text/plain");
+                }
+            }
+
+            if (justChords && isXML) {
+                Uri uri = mainActivityInterface.getConvertJustChords().buildJustChordsSingleSong(mainActivityInterface.getSong());
+                if (uri!=null) {
+                    uris.add(uri);
+                }
+                if (!mimeTypes.contains("application/json")) {
+                    mimeTypes.add("application/json");
                 }
             }
 
@@ -977,6 +987,7 @@ public class ExportFragment extends Fragment {
     private void initiateShare() {
         // Copy the exported folder into the local app files/export folder (for sharing permission)
         File exportFolder = mainActivityInterface.getStorageAccess().getAppSpecificFile("Export","",null);
+        // Don't delete - does something!
         Log.d(TAG,"makedirs:"+exportFolder.mkdirs());
         ArrayList<Uri> newUris = new ArrayList<>();
 
@@ -1005,13 +1016,11 @@ public class ExportFragment extends Fragment {
                         if (name.contains(bitToRemove) && !name.endsWith(bitToRemove)) {
                             name = name.substring(name.indexOf(bitToRemove)+bitToRemove.length());
                         }
-                        Log.d(TAG, "uri to copy:" + uri);
-                        Log.d(TAG, "name:" + name);
                         File file = new File(exportFolder, name);
                         OutputStream outputStream = new FileOutputStream(file);
+                        // Don't delete - does something!
                         Log.d(TAG, "Copy:" + mainActivityInterface.getStorageAccess().copyFile(inputStream, outputStream));
                         Uri newUri = FileProvider.getUriForFile(getContext(), "com.garethevans.church.opensongtablet.fileprovider", file);
-                        Log.d(TAG, "add newUri:" + newUri);
                         newUris.add(newUri);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -1541,30 +1550,30 @@ public class ExportFragment extends Fragment {
         });
     }
 
-    // OpenSongSet bundle export (also logic for JustChords bundle)
+    // OpenSongSet bundle export
     private void exportOpenSongSetBundle() {
         // The song files should already now be in the export folder
         // We now need to add them to a zip file
         if (getContext()!=null && myView!=null) {
             if (openSongSetBundle) {
-                openSongSetBundleHelper.zipFiles(setToExport, urisSetBundle, true);
+                mainActivityInterface.getOpenSongSetBundle().zipFiles(setToExport, urisSetBundle, true);
 
                 // Add the bundle files to the uris
-                Uri setBundleUri = openSongSetBundleHelper.getSetBundleUri();
+                Uri setBundleUri = mainActivityInterface.getOpenSongSetBundle().getSetBundleUri();
                 if (setBundleUri != null) {
                     uris.add(setBundleUri);
                 }
             }
 
-            if (justChordsSetBundle) {
-                openSongSetBundleHelper.zipFiles(setToExport, urisSetBundle, false);
+            /*if (justChordsSetBundle) {
+                //mainActivityInterface.getOpenSongSetBundle().zipFiles(setToExport, urisSetBundle, false);
 
-                Uri justChordsBundleUri = openSongSetBundleHelper.getJustChordsBundleUri();
+                Uri justChordsBundleUri = mainActivityInterface.getOpenSongSetBundle().getJustChordsBundleUri();
                 if (justChordsBundleUri!=null) {
                         uris.add(justChordsBundleUri);
                 }
-            }
-            openSongSetBundleHelper.destroy();
+            }*/
+            mainActivityInterface.getOpenSongSetBundle().destroy();
         }
     }
 
@@ -1614,6 +1623,7 @@ public class ExportFragment extends Fragment {
     private void tidyOnClose() {
         try {
             if (mainActivityInterface!=null) {
+                mainActivityInterface.getOpenSongSetBundle().setProgressText(null);
                 mainActivityInterface.getSong().setFolder(currentSongFolder);
                 mainActivityInterface.getSong().setFilename(currentSongFile);
                 mainActivityInterface.getLoadSong().doLoadSong(mainActivityInterface.getSong(),false);

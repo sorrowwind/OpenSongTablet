@@ -38,6 +38,7 @@ import com.garethevans.church.opensongtablet.customviews.DrawNotes;
 import com.garethevans.church.opensongtablet.customviews.MyToolbar;
 import com.garethevans.church.opensongtablet.drummer.Drummer;
 import com.garethevans.church.opensongtablet.export.ExportActions;
+import com.garethevans.church.opensongtablet.export.OpenSongSetBundle;
 import com.garethevans.church.opensongtablet.export.PrepareFormats;
 import com.garethevans.church.opensongtablet.filemanagement.LoadSong;
 import com.garethevans.church.opensongtablet.filemanagement.SaveSong;
@@ -66,7 +67,7 @@ import com.garethevans.church.opensongtablet.setprocessing.SetActions;
 import com.garethevans.church.opensongtablet.songmenu.SongListBuildIndex;
 import com.garethevans.church.opensongtablet.songmenu.SongMenuFragment;
 import com.garethevans.church.opensongtablet.songprocessing.ConvertChoPro;
-import com.garethevans.church.opensongtablet.songprocessing.ConvertJustChords;
+import com.garethevans.church.opensongtablet.justchords.ConvertJustChords;
 import com.garethevans.church.opensongtablet.songprocessing.ConvertOnSong;
 import com.garethevans.church.opensongtablet.songprocessing.ConvertTextSong;
 import com.garethevans.church.opensongtablet.songprocessing.ConvertWord;
@@ -165,6 +166,7 @@ public interface MainActivityInterface {
     int getSongWidth();
     Variations getVariations();
     SetMenuFragment getSetMenuFragment();
+    OpenSongSetBundle getOpenSongSetBundle();
 
 
     // Menus
@@ -248,6 +250,7 @@ public interface MainActivityInterface {
     void setImportUri(Uri importUri);
     String getImportFilename();
     PrepareFormats getPrepareFormats();
+    void openFragmentBasedOnFileImport();
 
     // Nearby connections
     NearbyConnections getNearbyConnections(MainActivityInterface mainActivityInterface);
