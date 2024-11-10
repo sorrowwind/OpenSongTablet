@@ -96,8 +96,8 @@ public class AreYouSureBottomSheet extends BottomSheetDialogFragment {
 
         myView.action.setText(textToShow);
         myView.okButton.setOnClickListener(v -> {
-            mainActivityInterface.confirmedAction(true,what,arguments,fragName,callingFragment,song);
             dismiss();
+            mainActivityInterface.confirmedAction(true,what,arguments,fragName,callingFragment,song);
         });
         return myView.getRoot();
     }
