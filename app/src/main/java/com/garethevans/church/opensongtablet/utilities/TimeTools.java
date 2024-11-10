@@ -44,6 +44,9 @@ public class TimeTools {
         return (min*60) + sec;
     }
 
+    public int totalSecs(int hours, int mins, int secs) {
+        return (hours*60*60) + (mins*60) + secs;
+    }
 
     public void setFormat(TextClock textClock, boolean settingsOpen, float textSize, boolean visible,
                           boolean is24hr, boolean showSeconds) {
@@ -82,5 +85,28 @@ public class TimeTools {
     public String getDateFromMillis(Locale locale, long millis) {
         DateFormat formatter = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.DEFAULT, SimpleDateFormat.SHORT, locale);
         return formatter.format(new Date(millis));
+    }
+
+    public int getTotalSecsFromColonTimes(String time) {
+        int hours = 0;
+        int mins = 0;
+        int secs = 0;
+        if (time==null || time.isEmpty()) {
+            return 0;
+        } else {
+            String[] splitTime = time.split(":");
+
+            if (splitTime.length == 1) {
+                secs = Integer.parseInt(splitTime[0]);
+            } else if (splitTime.length == 2) {
+                mins = Integer.parseInt(splitTime[0]);
+                secs = Integer.parseInt(splitTime[1]);
+            } else if (splitTime.length == 3) {
+                hours = Integer.parseInt(splitTime[0]);
+                mins = Integer.parseInt(splitTime[1]);
+                secs = Integer.parseInt(splitTime[2]);
+            }
+            return totalSecs(hours, mins, secs);
+        }
     }
 }

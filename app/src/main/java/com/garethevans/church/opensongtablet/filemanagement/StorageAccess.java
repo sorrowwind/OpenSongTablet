@@ -219,10 +219,30 @@ public class StorageAccess {
             uri = Uri.parse(mainActivityInterface.getPreferences().getMyPreferenceString("uriTree", ""));
         }
 
+        // Clear the temporary app folders (can use File method)
+        try {
+            emptyFileFolder(getAppSpecificFile("Audio", "", ""));
+            emptyFileFolder(getAppSpecificFile("Export", "", ""));
+            emptyFileFolder(getAppSpecificFile("Files", "", ""));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         if (lollipopOrLater()) {
             return createOrCheckRootFolders_SAF(uri);
         } else {
             return createOrCheckRootFolders_File();
+        }
+    }
+
+    public void emptyFileFolder(File folder) {
+        if (folder!=null && folder.exists()) {
+            File[] folderContents = folder.listFiles();
+            if (folderContents!=null) {
+                for (File folderContent : folderContents) {
+                    Log.d(TAG,"clear '"+folderContent.getName()+"':"+folderContent.delete());
+                }
+            }
         }
     }
 
@@ -1055,7 +1075,7 @@ public class StorageAccess {
 
     public boolean isSpecificFileExtension(String whichType, String filename) {
         String toCheck = "";
-        switch (whichType) {
+        switch (whichType.toLowerCase()) {
             case "image":
                 toCheck = ".jpg.jpeg.gif.bmp.png";
                 break;
@@ -1080,6 +1100,10 @@ public class StorageAccess {
             case "docx":
             case "word":
                 toCheck = ".docx";
+                break;
+            case "justchords":
+            case "justchord":
+                toCheck = ".justchords";
                 break;
         }
         // This is a simple check for file extensions that tell the app which database to use
@@ -2297,8 +2321,8 @@ public class StorageAccess {
                         }
                     }
                     cursor.close();
-
                 }
+
             } catch (Exception e) {
                 Log.d(TAG,"Temporary issue - couldn't get access to dir:"+children);
             }

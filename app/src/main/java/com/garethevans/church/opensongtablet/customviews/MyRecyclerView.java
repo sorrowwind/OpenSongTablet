@@ -182,7 +182,6 @@ public class MyRecyclerView extends RecyclerView  implements RecyclerView.Smooth
     }
 
     public void doSmoothScrollTo(RecyclerLayoutManager recyclerLayoutManager, int position) {
-        Log.d(TAG,"doSmoothScrollTo() position:"+position);
         // Cancel any post delayed check
         if (checkPosRunnable!=null) {
             checkScrollPosIsRight1.removeCallbacks(checkPosRunnable);
@@ -574,7 +573,6 @@ public class MyRecyclerView extends RecyclerView  implements RecyclerView.Smooth
 
     public void checkScrollPosition() {
         try {
-            Log.d(TAG, "getScrollPos():" + getScrollPos());
             scrolledToBottom = getScrollPos() >= maxScrollY;
             scrolledToTop = getScrollPos() == 0;
         } catch (Exception e) {

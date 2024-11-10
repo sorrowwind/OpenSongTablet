@@ -27,7 +27,7 @@ public class ShowToast {
     private long messageEndTime = 0;
     private final long showTime = 2500;
     private String currentMessage = "";
-    private Runnable runnableHide = new Runnable() {
+    private final Runnable runnableHide = new Runnable() {
         @Override
         public void run() {
             try {
@@ -147,13 +147,22 @@ public class ShowToast {
     }
 
     public void kill() {
-        if (handlerShow!=null) {
-            handlerShow.removeCallbacks(runnableShow);
+        try {
+            currentMessage = "";
+            // Remove any pending runnables to show/hide
+            if (handlerShow != null) {
+                handlerShow.removeCallbacks(runnableShow);
+            }
+            if (handlerHide != null) {
+                handlerHide.removeCallbacks(runnableHide);
+            }
+
+            // Just hide the popup window
+            if (popupWindow != null && popupWindow.isShowing()) {
+                popupWindow.dismiss();
+            }
+        } catch (Exception e) {
+            Log.d(TAG,"Couldn't kill showToast");
         }
-        runnableShow = null;
-        if (handlerHide!=null) {
-            handlerHide.removeCallbacks(runnableHide);
-        }
-        runnableHide = null;
     }
 }

@@ -1315,10 +1315,6 @@ public class PerformanceFragment extends Fragment {
     // This stuff deals with running song actions
     @SuppressWarnings("ConstantConditions")
     private void dealWithStuffAfterReady(boolean callEndProcessing) {
-
-        // TODO JSON TEST
-        //mainActivityInterface.getExportActions().songXMLToJsong();
-
         if (callEndProcessing) {
             endProcessing();
         }
