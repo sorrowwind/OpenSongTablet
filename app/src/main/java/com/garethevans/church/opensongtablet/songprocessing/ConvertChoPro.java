@@ -883,7 +883,6 @@ public class ConvertChoPro {
             thisLine = lines[y].replaceAll("\\s+$", "");
 
             String howToProcess = mainActivityInterface.getProcessSong().howToProcessLines(y, linenums, thislinetype, nextlinetype, previouslinetype);
-            Log.d(TAG,"howToProcess:"+howToProcess+"  thisLine:"+thisLine);
             switch (howToProcess) {
                 // If this is a chord line followed by a lyric line.
                 case "chord_then_lyric":
@@ -962,7 +961,6 @@ public class ConvertChoPro {
                     for (int w = 0; w < lyrics_returned.length; w++) {
                         String chord_to_add = "";
                         if (w<chords_returned.length) {
-                            Log.d(TAG,"chords_returned["+w+"]:"+chords_returned[w]);
                             if (chords_returned[w] != null && !chords_returned[w].trim().isEmpty()) {
                                 if (chords_returned[w].trim().startsWith(".") || chords_returned[w].trim().startsWith(":")) {
                                     chord_to_add = "[" + chords_returned[w].trim().replace(".","").replace(":","")+"]";
@@ -1006,7 +1004,6 @@ public class ConvertChoPro {
                     String testLine = thisLine.replaceAll("[ 0-9]", "").toLowerCase(Locale.ROOT);
                     testLine = testLine.replace(c.getString(R.string.chorus).toLowerCase(),"c");
                     testLine = testLine.replace("chorus","c");
-                    Log.d(TAG,"thisLine:"+thisLine+"  testLine:"+testLine);
                     if (testLine.startsWith("[c]")) {
                         dealingwithchorus = true;
                         newlyrics.append("{soc}\n#").append(thisLine);
