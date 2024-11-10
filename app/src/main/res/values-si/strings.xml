@@ -36,6 +36,7 @@
     <string name="alphabetical_level2">අක්ෂර දෙකක අකාරාදී දර්ශකය</string>
     <string name="alphabetical_level2_info">අකාරාදී දර්ශකයේ ඇති අයිතමයක් මත ක්ලික් කිරීමෙන් අක්ෂර අකාරාදී දර්ශක එක සහ දෙක අතර මාරු වේ</string>
     <string name="alphabetical_sort">අයිතම අකාරාදී පිළිවෙලට තබන්න</string>
+    <string name="app_specific_file">OpenSongApp සඳහා විශේෂිත ගොනුවක්</string>
     <string name="appearance_change">පෙනුම සකස් කරයි</string>
     <string name="apply_changes">වෙනස්කම් යොදන්න</string>
     <string name="are_you_sure">ඔයාට විශ්වාස ද?</string>
@@ -182,6 +183,7 @@
     <string name="chordinator">Paul Evans වෙතින් Augmented Chordinator වෙතින් chord extract code භාවිතා කරයි.  අවසරයෙන් භාවිතා වේ</string>
     <string name="chordinator_info">මෙම ක්‍රමය ස්වයන්ක්‍රීයව ස්වරෑප පත්‍ර සෙවීමට උත්සාහ කරනු ඇත, නමුත් එය අසාර්ථකයි, පහත විස්තර කර ඇති තේරීම් සහ පිටපත් කිරීමේ ක්‍රමය භාවිතයෙන් ඔබට අතින් අන්තර්ගතය උකහා ගත හැක.</string>
     <string name="chordline_scale">ස්කේල් කෝඩ්ස්</string>
+    <string name="chordpro_file_info">ගීත පොත් යෙදුම් රාශියකට ආයාත කළ හැකි ගොනුවක්</string>
     <string name="chords">කෝඩ්ස්</string>
     <string name="chords_found">ගීතයේ පදවල ඇති සියලුම ස්වර</string>
     <string name="chorus">ගායනය</string>
@@ -291,6 +293,7 @@
     <string name="delete_folder_info">ගීත උප බහලුම මකන්න</string>
     <string name="delete_folder_warning">ඔබ මෙම උප බහලුම මකා දැමුවහොත්, මෙය එහි අඩංගු ඕනෑම ගීත හෝ ෆෝල්ඩර මකා දමයි.  ඔබට මෙම වෙනස පසුගමනය කළ නොහැක!\n\nකරුණාකර ඉදිරියට යාමට පෙර ඔබ ඔබගේ සියලුම ගොනු උපස්ථ කර ඇති බවට වග බලා ගන්න!!!</string>
     <string name="delete_song_warning">ඔබට මෙම ක්‍රියාව පසුගමනය කළ නොහැක.  කරුණාකර ඔබ උපස්ථයක් සාදා ඇති බව සහතික කර ගන්න!</string>
+    <string name="desktop_specific_file">OpenSong හි ඩෙස්ක්ටොප් අනුවාදයට විශේෂිත ගොනුවක්</string>
     <string name="device">උපාංගය</string>
     <string name="display">ප්රදර්ශනය කරන්න</string>
     <string name="display_settings">දර්ශන සැකසුම් වෙනස් කරන්න (ඔබ තිරයේ දකින දේ)</string>
@@ -326,11 +329,13 @@
     <string name="export_chordpro">ChordPro ගීතය (.cho)</string>
     <string name="export_convert_song">OpenSong ෆෝමැට් කරන ලද ගීත පහත ආකෘතිවලට ද පරිවර්තනය කළ හැක</string>
     <string name="export_current_format">ගීත ඒවායේ වත්මන් ආකෘතියෙන්</string>
+    <string name="export_current_format_info">එහි වත්මන් ආකෘතියේ ගීතයේ පිටපතක් (OpenSong, PDF හෝ රූපය)</string>
     <string name="export_current_set">වත්මන් කට්ටලය බෙදා ගන්න</string>
     <string name="export_current_song">වත්මන් ගීතය බෙදා ගන්න</string>
     <string name="export_desktop">ඩෙස්ක්ටොප් ගොනුව (ගොනු දිගුවක් නොමැත)</string>
     <string name="export_image">රූපය (.png)</string>
     <string name="export_include_set_songs">කට්ටලය තුළ හඳුනාගත් ගීත ඇතුළත් කරන්න</string>
+    <string name="export_include_set_songs_info">අපනයන සහ මුද්‍රණ විකල්පයන් තුළ ගීත ඇතුළත් කිරීමට මෙය ඉඩ දෙයි</string>
     <string name="export_onsong">OnSong ගීතය (.onsong)</string>
     <string name="export_ost">OpenSongApp ගීතය (.ost)</string>
     <string name="export_set">OpenSongApp කට්ටලය (.osts)</string>
@@ -430,6 +435,7 @@
     <string name="image">රූප</string>
     <string name="image_adjust">රූපය සීරුමාරු කරන්න (කපා කර කරකවන්න)</string>
     <string name="image_change">වෙනස් කිරීමට රූපය මත ක්ලික් කරන්න</string>
+    <string name="image_file_info">OpenSongApp ගොනුව රූප ගොනුවක් බවට පරිවර්තනය විය</string>
     <string name="image_slide">රූප විනිවිදක දර්ශනය</string>
     <string name="immersive_mode">ගිල්වන ආකාරය</string>
     <string name="immersive_mode_info">ඔබගේ සංදර්ශකය වැඩිපුර භාවිතා කිරීමට සංචාලනය සහ තත්ව තීරු සඟවන්න</string>
@@ -446,6 +452,10 @@
     <string name="imported">ආනයනය කරන ලදී</string>
     <string name="imported_values">ආනයනික අගයන්</string>
     <string name="inc_autoscroll_speed">Autoscroll Speed ​​වැඩි කරන්න</string>
+    <string name="included_songs">ඇතුළත් ගීත</string>
+    <string name="included_songs_already_have">ඔබ දැනටමත් ඔබගේ දත්ත ගබඩාවේ මෙම අයිතමය ඇත</string>
+    <string name="included_songs_import">තෝරාගත් ගීත ආයාත කරන්න</string>
+    <string name="included_songs_warning">ඔබගේ දත්ත ගබඩාවේ දැනටමත් පවතින අයිතම ආයාත කිරීම ඔබගේ අනුවාදය ආයාත කළ අනුවාදය මගින් ප්‍රතිස්ථාපනය කිරීමට හේතු වේ.  මෙම ගීත අනතුරු ඇඟවීමේ පණිවිඩයක් සමඟ හඳුනාගෙන ඇති අතර පෙරනිමියෙන් තෝරා නොගනී</string>
     <string name="index_songs">දර්ශක ගීත</string>
     <string name="index_songs_end">ගීත දර්ශකය සම්පූර්ණ කර ඇත</string>
     <string name="index_songs_error">ගීත දර්ශකය ගොඩනැගීමේ දෝෂයක් ඇති විය</string>
@@ -473,6 +483,8 @@
     <string name="invert_PDF_info">බොහෝ PDF ලේඛනවල සැහැල්ලු පසුබිමක් සහ අඳුරු පෙළක් ඇත.  වර්ණ ප්‍රතිලෝම කිරීමෙන් මෙය අඳුරු පසුබිමක් සහ අඳුරු හෝ රාත්‍රී තේමාවකට සමාන සැහැල්ලු පෙළක් ඇති කරයි.</string>
     <string name="is_not_set">සකසා නැත</string>
     <string name="item">අයිතමය</string>
+    <string name="justchords">JustChords ගොනුව (.justchords)</string>
+    <string name="justchords_file_info">iOS මත JustChords සඳහා විශේෂිත ගොනු ආකෘතියක්</string>
     <string name="keep_multiline">බහු රේඛා සංයුක්ත තබා ගන්න</string>
     <string name="keep_multiline_info">ගීත සංස්කරණ කවුළුවේ දිස්වන පරිදි ඒකාබද්ධ පද අඩංගු ගීත සංදර්ශන කරන්න.</string>
     <string name="key">යතුර</string>
@@ -539,6 +551,7 @@
     <string name="menu_song_info">මෙම බොත්තම බැලීම භාවිතා කර ඔබගේ ගීත කළමනාකරණය කරන්න</string>
     <string name="menu_song_order">මෙනුවේ ගීත ලැයිස්තුගත කළ යුත්තේ කෙසේද?</string>
     <string name="merged_text_file">පෙළ ගොනුව ඒකාබද්ධ කරන ලදී</string>
+    <string name="merged_text_file_info">සියලුම අයිතම ඒකාබද්ධ කළ තනි පෙළ ගොනුවක්.  කඩදාසි ගීත පොතක් නිෂ්පාදනය කිරීමේදී ලේඛනයකට ආයාත කිරීම සඳහා ප්රයෝජනවත් වේ</string>
     <string name="metronome">මෙට්රොනෝමය</string>
     <string name="metronome_autostart">ස්වයංක්‍රීය ආරම්භක මෙට්‍රොනෝමය</string>
     <string name="metronome_autostart_info">ගීත වෙනස් කිරීමේදී මෙට්‍රොනොම් ක්‍රියාත්මකව තබා ගන්න</string>
@@ -629,6 +642,7 @@
     <string name="okay">හරි</string>
     <string name="on">මත</string>
     <string name="online">ඔන්ලයින්</string>
+    <string name="onsong_file_info">iOS උපාංග මත OnSong වෙත ආයාත කළ හැකි ගොනුවක්</string>
     <string name="onsong_import">"OnSong උපස්ථ ගොනුව ආයාත කරන්න"</string>
     <string name="onsong_import_folder">ආනයනික ගීත සුරැකීමට ෆෝල්ඩරයක් තෝරන්න</string>
     <string name="onsong_import_folder_info">නිර්දේශිත විකල්පය වන්නේ වෙනම OnSong ෆෝල්ඩරයකට ආයාත කිරීමයි.  ඔබට සැම විටම ගීත පසුව වෙනත් ෆෝල්ඩර වෙත ගෙන යා හැක.</string>
@@ -676,6 +690,7 @@
     <string name="password">මුරපදය</string>
     <string name="pause">නවත්වන්න</string>
     <string name="paypal_description">ඔබට යෙදුම ප්‍රයෝජනවත් යැයි හැඟේ නම් මට පරිත්‍යාගයක් එවන්න</string>
+    <string name="pdf_file_info">OpenSongApp ගොනුව PDF ලේඛනයක් බවට පරිවර්තනය කරන ලදී</string>
     <string name="pdf_horizontal">PDF පිටු තිරස් අතට පෙන්වන්න</string>
     <string name="pdf_horizontal_info">ස්වයංක්‍රීය පරිමාණය සම්පූර්ණ ලෙස සකසා ඇති විට සහ උපාංගය භූ දර්ශන දිශානතියේ ඇති විට PDF පිටු පැත්තකින් පෙන්වනු ඇත (උස අනුව පරිමාණය කර ඇත)</string>
     <string name="pdf_preview_not_allowed">PDF ගොනු සෘජුවම පෙරදසුන් කිරීම බොහෝ ජංගම වෙබ් බ්‍රව්සර්වල සහාය නොදක්වයි, නමුත් ඔබට පහත බොත්තම භාවිතයෙන් ගොනුව විවෘත කළ හැක.</string>
@@ -788,6 +803,7 @@
     <string name="scaling">පරිමාණ කිරීම</string>
     <string name="scaling_info">ස්වයංක්‍රීය පරිමාණ සැකසුම් සහ කොටස් පරිමාණය</string>
     <string name="screenshot">තිර රුවක්</string>
+    <string name="screenshot_info">ගීතය ඔබගේ උපාංගයේ දිස්වන ආකාරය පිළිබඳ තිර රුවක් (ඔබේ යෙදුම් තේමාව මත පදනම්ව)</string>
     <string name="scripture">ශුද්ධ ලියවිල්ල</string>
     <string name="scroll">අනුචලනය කරන්න</string>
     <string name="scroll_amount">අනුචලන මුදල</string>
@@ -807,15 +823,22 @@
     <string name="select_page">පිටුව තෝරන්න</string>
     <string name="set">සකසන්න</string>
     <string name="set_add">කට්ටලයට එකතු කරන්න</string>
+    <string name="set_bundle_justchords">JustChords කට්ටල බණ්ඩලය</string>
+    <string name="set_bundle_opensongapp">OpenSongApp කට්ටල බණ්ඩලය</string>
+    <string name="set_bundle_opensongapp_import">ආයාත කට්ටල බණ්ඩලය (.ossb)</string>
+    <string name="set_bundle_opensongapp_info">ඔබ වෙනත් OpenSongApp පරිශීලකයන් සමඟ කට්ටලයක් බෙදා ගන්නේ නම්, මෙය වඩාත් කැමති ක්‍රමයයි.  එහි කට්ටල ලැයිස්තුව සහ අවශ්‍ය සියලුම ගොනු අඩංගු වේ, ඔබට පහත අමතර විකල්ප කිසිවක් අවශ්‍ය නොවේ</string>
     <string name="set_current">වත්මන් කට්ටලය</string>
     <string name="set_delete_info">පැරණි කට්ටල මකන්න</string>
     <string name="set_help">ඔබේ කට්ටලයේ අනුපිළිවෙල වෙනස් කිරීමට ගීත ඇදගෙන යන්න</string>
+    <string name="set_import">ආයාත කට්ටල ලැයිස්තුව</string>
     <string name="set_inline">පේළිගත කට්ටලය</string>
     <string name="set_inline_info">ගීත කවුළුව අසල තිරය මත කට්ටල ලැයිස්තුව පෙන්වන්න</string>
     <string name="set_inline_showcase">ඔබ ක්‍රියා කරන අතරතුර කට්ටල ලැයිස්තුව බැලීමට ඉඩ දෙන පේළිගත කට්ටලය මෙයයි.  ඔබට සැකසීම් / සංදර්ශකය / පේළිගත කට්ටලය තුළ සැකසුම් වෙනස් කළ හැකිය.</string>
     <string name="set_is_empty">ඔබගේ කට්ටලයේ අයිතම කිසිවක් නොමැත</string>
     <string name="set_item_info">ඔබට කට්ටලයෙන් පටවා ඇති ගීතයේ ෆෝල්ඩරය/ගොනු නාමය වෙනස් කළ හැකි අතර ඔබට ගීත සංදර්ශකය සඳහා යතුරද වෙනස් කළ හැකිය (මෙය අවශ්‍ය නම් ඔබගේ උපාංගයේ ගීතය තාවකාලිකව මාරු කිරීම සිදු කරයි)</string>
     <string name="set_item_removed">අයිතමය කට්ටලයෙන් ඉවත් කරන ලදී</string>
+    <string name="set_list">Setlist</string>
+    <string name="set_list_separate">ලැයිස්තු ගොනු සකසන්න</string>
     <string name="set_load_first">පළමු අයිතමයේ පටවන ලද කට්ටලය විවෘත කරන්න</string>
     <string name="set_load_first_info">සෑම විටම පළමු කට්ටලය විවෘත කරන්න.  ක්‍රියා විරහිත කළහොත්, කට්ටලය තුළ තිබේ නම්, දැනට පටවා ඇති ගීතය විවෘත කිරීමට උත්සාහ කරයි.</string>
     <string name="set_load_info">කලින් සුරකින ලද කට්ටලයක් පූරණය කරන්න</string>
@@ -829,6 +852,7 @@
     <string name="set_new_info">වත්මන් කට්ටලයෙන් සියලුම ගීත ඉවත් කරන්න</string>
     <string name="set_packaged_opensongapp">ඇසුරුම් කළ OpenSongApp ගොනුව</string>
     <string name="set_packaged_opensongapp_info">මෙය සකසා ඇති ගොනුව සහ කට්ටලයේ සඳහන් සියලුම OpenSong, PDF හෝ රූප ගොනු අඩංගු අභිරුචි zip ගොනුවක් නිර්මාණය කරයි.  මෙය අනෙකුත් OpenSongApp භාවිතා කරන්නන් සමඟ බෙදා ගත හැක</string>
+    <string name="set_packages">පැකේජ සම්පූර්ණ කරන්න</string>
     <string name="set_rebuild">කට්ටලය නැවත ගොඩනඟන්න</string>
     <string name="set_rebuild_info">අවසාන සාර්ථක වෙනසෙන් කට්ටලය නැවත ගොඩනඟන්න (ඔබේ කට්ටලයේ ගැටලුවක් ඇතැයි ඔබ සැක කරන්නේ නම් භාවිතා කරන්න)</string>
     <string name="set_save_info">අනාගත භාවිතය සඳහා වත්මන් කට්ටලය සුරකින්න</string>
@@ -872,6 +896,7 @@
     <string name="song_duration">ගීතයේ කාලසීමාව</string>
     <string name="song_features">ගීත විශේෂාංග</string>
     <string name="song_features_warning">මෙම අගයන් සැකසීම් මෙනුවේ කැප වූ ගීත විශේෂාංග විකල්ප භාවිතයෙන් වඩාත් හොඳින් සකසා ඇත. මුලින්ම ගීතය සුරකින්න. කෙසේ වෙතත්, ඔබට මෙහි අගයන් අතින් සංස්කරණය කළ හැක.</string>
+    <string name="song_files_separate">ගීත ගොනු</string>
     <string name="song_menu_checkboxes">ගීත මෙනුවේ කට්ටල පිරික්සුම් කොටු පෙන්වන්න</string>
     <string name="song_menu_subtitle_size">ගීත මෙනු අයිතමයේ උපසිරැසි ප්‍රමාණය</string>
     <string name="song_menu_title_size">ගීත මෙනු අයිතමයේ මාතෘකා ප්‍රමාණය</string>
@@ -947,6 +972,7 @@
     <string name="text_extract">ගොනුවෙන් පෙළ උපුටා ගන්න (OCR)</string>
     <string name="text_extract_check">OpenSongApp ගීත අන්තර්ගතය ස්වයංක්‍රීයව සොයා ගැනීමට උත්සාහ කරයි, කෙසේ වෙතත්, ඔබට මෙම බොත්තම ක්ලික් කිරීමෙන් අතින් පරීක්ෂා කළ හැක.</string>
     <string name="text_extract_website">ගීත පෙළ මෙම පිටුවෙන් හමු විය.  උපුටා ගැනීමට මෙතන ක්ලික් කරන්න.</string>
+    <string name="text_file_info">බොහෝ යෙදුම් වලට විවෘත කර බැලිය හැකි ගොනුවක්</string>
     <string name="text_size">පෙළ ප්රමාණය</string>
     <string name="theme">තේමාව</string>
     <string name="theme_choose">තේමාව මාරු කරන්න</string>
@@ -956,6 +982,7 @@
     <string name="theme_edit">වත්මන් තේමාව සංස්කරණය කරන්න හෝ වෙනස් කරන්න</string>
     <string name="theme_exists">එම තේමාව දැනටමත් පවතී</string>
     <string name="theme_light">සැහැල්ලු තේමාව</string>
+    <string name="theme_pdf_image">PDF/රූපය සඳහා තේමාව</string>
     <string name="time">කාලය</string>
     <string name="time_format">පැය 24</string>
     <string name="time_mins">මිනිත්තු</string>

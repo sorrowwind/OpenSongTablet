@@ -36,6 +36,7 @@
     <string name="alphabetical_level2">2 文字のアルファベット索引</string>
     <string name="alphabetical_level2_info">アルファベット順のインデックスの項目をクリックすると、1 文字と 2 文字のアルファベット順のインデックスが切り替わります</string>
     <string name="alphabetical_sort">項目をアルファベット順に並べる</string>
+    <string name="app_specific_file">OpenSongApp に固有のファイル</string>
     <string name="appearance_change">外観を調整します</string>
     <string name="apply_changes">変更を適用する</string>
     <string name="are_you_sure">"確かですか？"</string>
@@ -182,6 +183,7 @@
     <string name="chordinator">ポール・エヴァンスから拡張されたコーディネーターからのコード抽出コードを使用します。 許可を得て使用</string>
     <string name="chordinator_info">このメソッドはコードシートを自動的に検索しようとしますが、失敗し、以下で説明する選択とコピーの方法を使用してコンテンツを手動で抽出できます</string>
     <string name="chordline_scale">"スケールコード"</string>
+    <string name="chordpro_file_info">さまざまなソングブックアプリケーションにインポートできるファイル</string>
     <string name="chords">和音</string>
     <string name="chords_found">歌詞にあるすべてのコード</string>
     <string name="chorus">折り返し</string>
@@ -291,6 +293,7 @@
     <string name="delete_folder_info">曲のサブディレクトリを削除する</string>
     <string name="delete_folder_warning">このサブディレクトリを削除すると、それに含まれるすべての曲またはフォルダも削除されます。 この変更を元に戻すことはできません！ 続行する前に、すべてのファイルのバックアップを作成して保存したことを確認してください!!!</string>
     <string name="delete_song_warning">このアクションを元に戻すことはできません。 万が一に備えて、バックアップを作成してください。</string>
+    <string name="desktop_specific_file">OpenSong のデスクトップ バージョンに固有のファイル</string>
     <string name="device">デバイス</string>
     <string name="display">"ディスプレイ"</string>
     <string name="display_settings">表示設定（画面に表示されるもの）を変更します</string>
@@ -326,11 +329,13 @@
     <string name="export_chordpro">"ChordProの歌（.cho）"</string>
     <string name="export_convert_song">OpenSong 形式の曲は、次の形式に変換することもできます</string>
     <string name="export_current_format">現在の形式の曲</string>
+    <string name="export_current_format_info">現在の形式 (OpenSong、PDF、または画像) での曲のコピー</string>
     <string name="export_current_set">現在のセットを共有する</string>
     <string name="export_current_song">"現在の曲を共有する"</string>
     <string name="export_desktop">"デスクトップファイル（ファイル拡張子なし）"</string>
     <string name="export_image">画像 (.png)</string>
     <string name="export_include_set_songs">セットで識別された曲を含める</string>
+    <string name="export_include_set_songs_info">これにより、曲をエクスポートおよび印刷オプションに含めることができます</string>
     <string name="export_onsong">"OnSongの歌（韻）"</string>
     <string name="export_ost">"OpenSongAppの歌（.ost）"</string>
     <string name="export_set">"OpenSongAppセット（.osts）"</string>
@@ -430,6 +435,7 @@
     <string name="image">"像"</string>
     <string name="image_adjust">画像を調整する(切り抜きと回転)</string>
     <string name="image_change">変更するには画像をクリックしてください</string>
+    <string name="image_file_info">画像ファイルに変換された OpenSongApp ファイル</string>
     <string name="image_slide">"画像スライドショー"</string>
     <string name="immersive_mode">没入型モード</string>
     <string name="immersive_mode_info">ナビゲーションとステータス バーを非表示にして、ディスプレイをより有効に活用する</string>
@@ -446,6 +452,10 @@
     <string name="imported">インポート</string>
     <string name="imported_values">インポートされた値</string>
     <string name="inc_autoscroll_speed">"オートスクロールスピードを上げる"</string>
+    <string name="included_songs">収録曲</string>
+    <string name="included_songs_already_have">このアイテムはすでにデータベースにあります</string>
+    <string name="included_songs_import">選択した曲をインポートする</string>
+    <string name="included_songs_warning">データベースにすでに存在する項目をインポートすると、現在のバージョンがインポートされたバージョンに置き換えられます。  これらの曲は警告メッセージで識別され、デフォルトでは選択されません。</string>
     <string name="index_songs">インデックス曲</string>
     <string name="index_songs_end">"すべての曲が完全にインデックスが作成されました"</string>
     <string name="index_songs_error">"検索データベースを構築中にエラーが発生しました"</string>
@@ -473,6 +483,8 @@
     <string name="invert_PDF_info">ほとんどの PDF ドキュメントは、明るい背景と暗いテキストを使用しています。色を反転すると、暗い背景や暗いテーマに似た明るいテキストになります。</string>
     <string name="is_not_set">"設定されない"</string>
     <string name="item">"項目"</string>
+    <string name="justchords">JustChords ファイル (.justchords)</string>
+    <string name="justchords_file_info">iOS 上の JustChords に固有のファイル形式</string>
     <string name="keep_multiline">マルチラインコンパクトを保つ</string>
     <string name="keep_multiline_info">曲編集ウィンドウに表示されるように、結合された詩を含む曲を表示します。</string>
     <string name="key">"キー (key)"</string>
@@ -539,6 +551,7 @@
     <string name="menu_song_info">このボタンを使用して、曲を表示および管理します</string>
     <string name="menu_song_order">メニューに曲をどのように表示する必要がありますか？</string>
     <string name="merged_text_file">結合されたテキストファイル</string>
+    <string name="merged_text_file_info">すべての項目が結合された単一のテキスト ファイル。  紙のソングブックを作成するときにドキュメントにインポートするのに便利です</string>
     <string name="metronome">"メトロノーム"</string>
     <string name="metronome_autostart">自動起動メトロノーム</string>
     <string name="metronome_autostart_info">曲を変えるときにメトロノームを鳴らし続ける</string>
@@ -629,6 +642,7 @@
     <string name="okay">Ok</string>
     <string name="on">"上の"</string>
     <string name="online">オンライン</string>
+    <string name="onsong_file_info">iOS デバイス上の OnSong にインポートできるファイル</string>
     <string name="onsong_import">"インポートOnSongバックアップファイル"</string>
     <string name="onsong_import_folder">インポートした曲を保存するフォルダを選択してください</string>
     <string name="onsong_import_folder_info">推奨されるオプションは、別のOnSongフォルダーにインポートすることです。 後でいつでも曲を他のフォルダに移動できます。</string>
@@ -676,6 +690,7 @@
     <string name="password">パスワード</string>
     <string name="pause">一時停止</string>
     <string name="paypal_description">アプリが便利だと思ったら寄付を送ってください</string>
+    <string name="pdf_file_info">PDF ドキュメントに変換された OpenSongApp ファイル</string>
     <string name="pdf_horizontal">PDF ページを水平方向に表示</string>
     <string name="pdf_horizontal_info">自動スケーリングが full に設定され、デバイスが横向きの場合、PDF ページは並べて表示されます (高さでスケーリングされます)。</string>
     <string name="pdf_preview_not_allowed">PDF ファイルの直接プレビューは、多くのモバイル Web ブラウザーではサポートされていませんが、下のボタンを使用してファイルを開くことができます。</string>
@@ -788,6 +803,7 @@
     <string name="scaling">スケーリング</string>
     <string name="scaling_info">自動スケーリング設定とセクションスケーリング</string>
     <string name="screenshot">スクリーンショット</string>
+    <string name="screenshot_info">曲がデバイス上でどのように表示されるかを示すスクリーンショット (アプリのテーマに基づく)</string>
     <string name="scripture">"聖書"</string>
     <string name="scroll">スクロール</string>
     <string name="scroll_amount">"スクロール量"</string>
@@ -807,15 +823,22 @@
     <string name="select_page">"選択ページ"</string>
     <string name="set">"組"</string>
     <string name="set_add">セットに追加</string>
+    <string name="set_bundle_justchords">JustChords セットバンドル</string>
+    <string name="set_bundle_opensongapp">OpenSongApp セットバンドル</string>
+    <string name="set_bundle_opensongapp_import">インポート セット バンドル (.ossb)</string>
+    <string name="set_bundle_opensongapp_info">他の OpenSongApp ユーザーとセットを共有する場合は、これが推奨される方法です。  セットリストと必要なすべてのファイルが含まれており、以下の追加オプションは必要ありません。</string>
     <string name="set_current">"現在のセット"</string>
     <string name="set_delete_info">古いセットを削除する</string>
     <string name="set_help">"ドラッグ曲は周りのあなたのセットの順序を変更するには"</string>
+    <string name="set_import">セットリストをインポートする</string>
     <string name="set_inline">インライン セット</string>
     <string name="set_inline_info">曲ウィンドウの横の画面にセットリストを表示します</string>
     <string name="set_inline_showcase">これは、演奏中にセットリストを表示できるインラインセットです。 設定/表示/インラインセットで設定を変更できます。</string>
     <string name="set_is_empty">セットにアイテムがありません</string>
     <string name="set_item_info">セットからロードされた曲のフォルダ/ファイル名を変更したり、曲表示のキーを変更したりすることもできます(これにより、必要に応じてデバイス上の曲の一時的な移調が実行されます)</string>
     <string name="set_item_removed">セットから削除されたアイテム</string>
+    <string name="set_list">セットリスト</string>
+    <string name="set_list_separate">セットリストファイル</string>
     <string name="set_load_first">ロードされたセットを最初のアイテムで開く</string>
     <string name="set_load_first_info">常に最初のセット項目を開きます。 オフにすると、セットは現在ロードされている曲がセット内にある場合は、その曲で開こうとします。</string>
     <string name="set_load_info">以前に保存したセットをロードします</string>
@@ -829,6 +852,7 @@
     <string name="set_new_info">現在のセットからすべての曲を削除します</string>
     <string name="set_packaged_opensongapp">パッケージ化された OpenSongApp セット ファイル</string>
     <string name="set_packaged_opensongapp_info">これにより、セット ファイルと、セット内で参照されるすべての OpenSong、PDF、または画像ファイルを含むカスタム zip ファイルが作成されます。  これは他の OpenSongApp ユーザーと共有できます</string>
+    <string name="set_packages">コンプリートセットパッケージ</string>
     <string name="set_rebuild">セットの再構築</string>
     <string name="set_rebuild_info">最後に成功した変更からセットを再構築します(セットに問題があると思われる場合に使用します)</string>
     <string name="set_save_info">将来の使用のために現在のセットを保存します</string>
@@ -872,6 +896,7 @@
     <string name="song_duration">曲の時間</string>
     <string name="song_features">曲の特徴</string>
     <string name="song_features_warning">これらの値は、設定メニューの専用の曲機能オプションを使用して設定するのが最適です。 最初に曲を保存します。 ただし、ここで値を手動で編集できます。</string>
+    <string name="song_files_separate">ソングファイル</string>
     <string name="song_menu_checkboxes">"ソングメニューで設定したチェックボックスを表示する"</string>
     <string name="song_menu_subtitle_size">曲のメニュー項目の字幕サイズ</string>
     <string name="song_menu_title_size">ソングメニュー項目のタイトルサイズ</string>
@@ -947,6 +972,7 @@
     <string name="text_extract">ファイルからテキストを抽出する（OCR）</string>
     <string name="text_extract_check">OpenSongAppは曲のコンテンツを自動的に検索しようとしますが、このボタンをクリックして手動で確認できます。</string>
     <string name="text_extract_website">このページにある曲のテキスト。 抽出するには、ここをクリックしてください。</string>
+    <string name="text_file_info">ほとんどのアプリケーションで開いて表示できるファイル</string>
     <string name="text_size">文字サイズ</string>
     <string name="theme">"テーマ"</string>
     <string name="theme_choose">"スイッチのテーマ"</string>
@@ -956,6 +982,7 @@
     <string name="theme_edit">現在のテーマを編集または変更する</string>
     <string name="theme_exists">そのテーマはすでに存在します。</string>
     <string name="theme_light">"光をテーマ"</string>
+    <string name="theme_pdf_image">PDF/画像のテーマ</string>
     <string name="time">"タイム"</string>
     <string name="time_format">"24時間"</string>
     <string name="time_mins">分</string>

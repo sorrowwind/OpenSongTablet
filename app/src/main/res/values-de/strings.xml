@@ -36,6 +36,7 @@
     <string name="alphabetical_level2">Alphabetischer Index mit zwei Zeichen</string>
     <string name="alphabetical_level2_info">Durch Klicken auf ein Element im alphabetischen Index wird zwischen einem ein- und zweistelligen alphabetischen Index umgeschaltet</string>
     <string name="alphabetical_sort">Artikel alphabetisch ordnen</string>
+    <string name="app_specific_file">Eine für OpenSongApp spezifische Datei</string>
     <string name="appearance_change">Passt das Aussehen an</string>
     <string name="apply_changes">Änderungen übernehmen</string>
     <string name="are_you_sure">"Sind Sie sicher?"</string>
@@ -182,6 +183,7 @@
     <string name="chordinator">Verwendet Akkordextraktionscode von Chordinator Augmented von Paul Evans.  Verwendung mit Genehmigung</string>
     <string name="chordinator_info">Diese Methode versucht, Akkordblätter automatisch zu finden, aber es ist nicht erfolgreich, Sie können den Inhalt manuell mit der unten beschriebenen Auswahl- und Kopiermethode extrahieren</string>
     <string name="chordline_scale">"Skalierung Akkorde"</string>
+    <string name="chordpro_file_info">Eine Datei, die in zahlreiche Songbook-Anwendungen importiert werden kann</string>
     <string name="chords">Akkorde</string>
     <string name="chords_found">Alle Akkorde in den Liedtexten gefunden</string>
     <string name="chorus">Chorus</string>
@@ -291,6 +293,7 @@
     <string name="delete_folder_info">Song-Unterverzeichnis löschen</string>
     <string name="delete_folder_warning">Wenn Sie dieses Unterverzeichnis löschen, werden auch alle darin enthaltenen Songs oder Ordner gelöscht. Sie können diese Änderung nicht rückgängig machen! Bitte stellen Sie sicher, dass Sie Sicherungskopien ALLER Ihrer Dateien erstellt und gespeichert haben, bevor Sie fortfahren!!!</string>
     <string name="delete_song_warning">Sie können diese Aktion nicht rückgängig machen. Bitte stellen Sie sicher, dass Sie für alle Fälle ein Backup erstellt haben!</string>
+    <string name="desktop_specific_file">Eine Datei, die speziell für die Desktop-Version von OpenSong gilt</string>
     <string name="device">Gerät</string>
     <string name="display">"Anzeige"</string>
     <string name="display_settings">Anzeigeeinstellungen ändern (was Sie auf dem Bildschirm sehen)</string>
@@ -326,11 +329,13 @@
     <string name="export_chordpro">"ChordPro Song (.cho)"</string>
     <string name="export_convert_song">Songs im OpenSong-Format können auch in die folgenden Formate konvertiert werden</string>
     <string name="export_current_format">Songs in ihrem aktuellen Format</string>
+    <string name="export_current_format_info">Eine Kopie des Songs im aktuellen Format (OpenSong, PDF oder Bild)</string>
     <string name="export_current_set">Teilen Sie das aktuelle Set</string>
     <string name="export_current_song">"Aktuellen Song teilen"</string>
     <string name="export_desktop">"Desktop-Datei (keine Dateierweiterung)"</string>
     <string name="export_image">Bild (.png)</string>
     <string name="export_include_set_songs">Im Set identifizierte Songs einbeziehen</string>
+    <string name="export_include_set_songs_info">Dadurch können Songs in die Export- und Druckoptionen einbezogen werden</string>
     <string name="export_onsong">"OnSong Lied (.onsong)"</string>
     <string name="export_ost">"OpenSongApp Song (.ost)"</string>
     <string name="export_set">"OpenSongApp Set (.osts)"</string>
@@ -430,6 +435,7 @@
     <string name="image">"Bild"</string>
     <string name="image_adjust">Bild anpassen (zuschneiden und drehen)</string>
     <string name="image_change">Klicken Sie auf das Bild, um es zu ändern</string>
+    <string name="image_file_info">Die OpenSongApp-Datei wurde in eine Bilddatei konvertiert</string>
     <string name="image_slide">"Bilder-Folie"</string>
     <string name="immersive_mode">Immersiver Modus</string>
     <string name="immersive_mode_info">Blenden Sie Navigations- und Statusleisten aus, um mehr von Ihrem Display zu nutzen</string>
@@ -446,6 +452,10 @@
     <string name="imported">Eingeführt</string>
     <string name="imported_values">Importierte Werte</string>
     <string name="inc_autoscroll_speed">"Autoscroll-Geschwindigkeit erhöhen"</string>
+    <string name="included_songs">Enthaltene Lieder</string>
+    <string name="included_songs_already_have">Sie haben diesen Artikel bereits in Ihrer Datenbank</string>
+    <string name="included_songs_import">Ausgewählte Songs importieren</string>
+    <string name="included_songs_warning">Wenn Sie Elemente importieren, die bereits in Ihrer Datenbank vorhanden sind, wird Ihre Version durch die importierte Version ersetzt.  Diese Songs sind mit einer Warnmeldung gekennzeichnet und nicht standardmäßig ausgewählt</string>
     <string name="index_songs">Lieder indizieren</string>
     <string name="index_songs_end">"Alle Songs wurden erfolgreich indiziert"</string>
     <string name="index_songs_error">"Es gab einen Fehler beim Aufbau Ihrer Suchdatenbank"</string>
@@ -473,6 +483,8 @@
     <string name="invert_PDF_info">Die meisten PDF-Dokumente haben einen hellen Hintergrund und dunklen Text. Wenn Sie die Farben umkehren, erhalten Sie einen dunklen Hintergrund und hellen Text, ähnlich wie bei einem dunklen oder nächtlichen Thema.</string>
     <string name="is_not_set">"Nicht gesetzt"</string>
     <string name="item">"Item"</string>
+    <string name="justchords">JustChords-Datei (.justchords)</string>
+    <string name="justchords_file_info">Ein Dateiformat speziell für JustChords unter iOS</string>
     <string name="keep_multiline">Mehrzeilige Verse kompakt halten</string>
     <string name="keep_multiline_info">Zeigen Sie Songs mit kombinierten Strophen so an, wie sie im Song-Bearbeitungsfenster erscheinen.</string>
     <string name="key">"Tonart"</string>
@@ -539,6 +551,7 @@
     <string name="menu_song_info">Verwenden Sie diese Schaltflächenansicht und verwalten Sie Ihre Songs</string>
     <string name="menu_song_order">Wie sollten Songs im Menü aufgelistet werden?</string>
     <string name="merged_text_file">Zusammengeführte Textdatei</string>
+    <string name="merged_text_file_info">Eine einzige Textdatei, in der alle Elemente zusammengeführt sind.  Nützlich zum Importieren in ein Dokument bei der Erstellung eines Liederbuchs auf Papier</string>
     <string name="metronome">"Metronom"</string>
     <string name="metronome_autostart">Autostart-Metronom</string>
     <string name="metronome_autostart_info">Lassen Sie das Metronom laufen, wenn Sie Songs wechseln</string>
@@ -629,6 +642,7 @@
     <string name="okay">In Ordnung</string>
     <string name="on">Ein</string>
     <string name="online">Online</string>
+    <string name="onsong_file_info">Eine Datei, die auf iOS-Geräten in OnSong importiert werden kann</string>
     <string name="onsong_import">"OnSong Backupdatei importieren"</string>
     <string name="onsong_import_folder">Wählen Sie einen Ordner, um importierte Songs zu speichern</string>
     <string name="onsong_import_folder_info">Die empfohlene Option ist der Import in einen separaten OnSong-Ordner. Sie können Songs später jederzeit in andere Ordner verschieben.</string>
@@ -676,6 +690,7 @@
     <string name="password">Passwort</string>
     <string name="pause">Pause</string>
     <string name="paypal_description">Senden Sie mir eine Spende, wenn Sie die App nützlich finden</string>
+    <string name="pdf_file_info">Die OpenSongApp-Datei wurde in ein PDF-Dokument konvertiert</string>
     <string name="pdf_horizontal">PDF-Seiten horizontal anzeigen</string>
     <string name="pdf_horizontal_info">Wenn die automatische Skalierung auf \"Voll\" eingestellt ist und sich das Gerät im Querformat befindet, werden PDF-Seiten nebeneinander angezeigt (skaliert nach Höhe)</string>
     <string name="pdf_preview_not_allowed">Die direkte Vorschau von PDF-Dateien wird von vielen mobilen Webbrowsern nicht unterstützt, aber Sie können die Datei über die Schaltfläche unten öffnen.</string>
@@ -788,6 +803,7 @@
     <string name="scaling">Skalierung</string>
     <string name="scaling_info">Autoscale-Einstellungen und Abschnittsskalierung</string>
     <string name="screenshot">Screenshot</string>
+    <string name="screenshot_info">Ein Screenshot davon, wie der Song auf Ihrem Gerät angezeigt wird (basierend auf Ihrem App-Thema)</string>
     <string name="scripture">"Bibeltext"</string>
     <string name="scroll">Scrollen</string>
     <string name="scroll_amount">"Scrollweite"</string>
@@ -807,15 +823,22 @@
     <string name="select_page">"Seite auswählen"</string>
     <string name="set">Set</string>
     <string name="set_add">Zum Set hinzufügen</string>
+    <string name="set_bundle_justchords">JustChords-Set-Bundle</string>
+    <string name="set_bundle_opensongapp">OpenSongApp-Set-Bundle</string>
+    <string name="set_bundle_opensongapp_import">Set-Bundle importieren (.ossb)</string>
+    <string name="set_bundle_opensongapp_info">Wenn Sie ein Set mit anderen OpenSongApp-Benutzern teilen, ist dies die bevorzugte Methode.  Es enthält die Set-Liste und alle erforderlichen Dateien. Sie benötigen unten keine zusätzlichen Optionen</string>
     <string name="set_current">"Aktuelles Set"</string>
     <string name="set_delete_info">Alte Sätze löschen</string>
     <string name="set_help">"Elemente verschieben um die Reihenfolge im aktuellen Set zu ändern"</string>
+    <string name="set_import">Setliste importieren</string>
     <string name="set_inline">Inline-Set</string>
     <string name="set_inline_info">Zeigen Sie die Setlist auf dem Bildschirm neben dem Song-Fenster an</string>
     <string name="set_inline_showcase">Dies ist das Inline-Set, das einen Blick auf die Setlist ermöglicht, während Sie spielen.  Sie können die Einstellungen unter Einstellungen / Anzeige / Inline-Set ändern.</string>
     <string name="set_is_empty">Es befinden sich keine Artikel in Ihrem Set</string>
     <string name="set_item_info">Sie können den Ordner/Dateinamen des aus dem Set geladenen Songs ändern und Sie können auch die Taste für die Songanzeige ändern (dies führt bei Bedarf eine temporäre Transponierung des Songs auf Ihrem Gerät durch)</string>
     <string name="set_item_removed">Artikel aus dem Set entfernt</string>
+    <string name="set_list">Setlist</string>
+    <string name="set_list_separate">Listendateien festlegen</string>
     <string name="set_load_first">Öffnen Sie das geladene Set beim ersten Element</string>
     <string name="set_load_first_info">Öffnen Sie immer das erste Set-Element.  Wenn diese Option ausgeschaltet ist, versucht das Set, den aktuell geladenen Song zu öffnen, wenn er sich im Set befindet.</string>
     <string name="set_load_info">Laden Sie einen zuvor gespeicherten Satz</string>
@@ -829,6 +852,7 @@
     <string name="set_new_info">Entfernen Sie alle Songs aus dem aktuellen Set</string>
     <string name="set_packaged_opensongapp">Verpackte OpenSongApp-Set-Datei</string>
     <string name="set_packaged_opensongapp_info">Dadurch wird eine benutzerdefinierte ZIP-Datei erstellt, die die Set-Datei und alle im Set referenzierten OpenSong-, PDF- oder Bilddateien enthält.  Dies kann mit anderen OpenSongApp-Benutzern geteilt werden</string>
+    <string name="set_packages">Komplette Set-Pakete</string>
     <string name="set_rebuild">Umbau-Set</string>
     <string name="set_rebuild_info">Erstellen Sie das Set nach der letzten erfolgreichen Änderung neu (verwenden Sie es, wenn Sie vermuten, dass es ein Problem mit Ihrem Set gibt)</string>
     <string name="set_save_info">Speichern Sie den aktuellen Satz für die zukünftige Verwendung</string>
@@ -872,6 +896,7 @@
     <string name="song_duration">Song-Dauer</string>
     <string name="song_features">Song-Funktionen</string>
     <string name="song_features_warning">Diese Werte werden am besten mit den speziellen Song-Feature-Optionen im Einstellungsmenü eingestellt. Speichern Sie zuerst das Lied. Sie können die Werte hier jedoch manuell bearbeiten.</string>
+    <string name="song_files_separate">Songdateien</string>
     <string name="song_menu_checkboxes">"Set-Kontrollkästchen im Liedmenü anzeigen"</string>
     <string name="song_menu_subtitle_size">Untertitelgröße des Liedmenüelements</string>
     <string name="song_menu_title_size">Titelgröße des Song-Menüeintrags</string>
@@ -947,6 +972,7 @@
     <string name="text_extract">Text aus Datei extrahieren (OCR)</string>
     <string name="text_extract_check">OpenSongApp wird versuchen, Songinhalte automatisch zu finden, Sie können dies jedoch manuell überprüfen, indem Sie auf diese Schaltfläche klicken.</string>
     <string name="text_extract_website">Liedtext auf dieser Seite gefunden. Klicken Sie hier, um zu extrahieren.</string>
+    <string name="text_file_info">Eine Datei, die von den meisten Anwendungen geöffnet und angezeigt werden kann</string>
     <string name="text_size">Textgröße</string>
     <string name="theme">"Thema"</string>
     <string name="theme_choose">"Design umschalten"</string>
@@ -956,6 +982,7 @@
     <string name="theme_edit">Bearbeiten oder ändern Sie das aktuelle Design</string>
     <string name="theme_exists">Dieses Thema existiert bereits.</string>
     <string name="theme_light">"Helles Theme"</string>
+    <string name="theme_pdf_image">Thema für PDF/Bild</string>
     <string name="time">"Zeit"</string>
     <string name="time_format">"24hr"</string>
     <string name="time_mins">Protokoll</string>

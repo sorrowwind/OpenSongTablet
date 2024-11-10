@@ -36,6 +36,7 @@
     <string name="alphabetical_level2">Dwuznakowy indeks alfabetyczny</string>
     <string name="alphabetical_level2_info">Kliknięcie pozycji w indeksie alfabetycznym spowoduje przełączenie między jedno- a dwuznakowym indeksem alfabetycznym</string>
     <string name="alphabetical_sort">Ułóż elementy w kolejności alfabetycznej</string>
+    <string name="app_specific_file">Plik specyficzny dla OpenSongApp</string>
     <string name="appearance_change">Dostosowuje wygląd</string>
     <string name="apply_changes">Zatwierdź zmiany</string>
     <string name="are_you_sure">Jesteś pewien?</string>
@@ -182,6 +183,7 @@
     <string name="chordinator">Wykorzystuje kod ekstrakcji akordów z Chordinator Augmented od Paula Evansa. Używane za zgodą</string>
     <string name="chordinator_info">Ta metoda spróbuje automatycznie znaleźć arkusze akordów, ale nie powiedzie się, możesz ręcznie wyodrębnić zawartość za pomocą metody wyboru i kopiowania opisanej poniżej</string>
     <string name="chordline_scale">Skaluj akordy</string>
+    <string name="chordpro_file_info">Plik, który można zaimportować do wielu aplikacji ze śpiewnikami</string>
     <string name="chords">Akordy</string>
     <string name="chords_found">Wszystkie akordy znalezione w tekście piosenki</string>
     <string name="chorus">Refren</string>
@@ -291,6 +293,7 @@
     <string name="delete_folder_info">Usuń podkatalog piosenek</string>
     <string name="delete_folder_warning">Jeśli usuniesz ten podkatalog, usunie to również wszystkie zawarte w nim piosenki lub katalogi. Tej zmiany nie można cofnąć!</string>
     <string name="delete_song_warning">Tej akcji nie można cofnąć. Upewnij się, że utworzyłeś kopię zapasową na wszelki wypadek!</string>
+    <string name="desktop_specific_file">Plik specyficzny dla komputerowej wersji OpenSong</string>
     <string name="device">Urządzenie</string>
     <string name="display">Wyświetlacz</string>
     <string name="display_settings">Zmień ustawienia wyświetlania (to, co widzisz na ekranie)</string>
@@ -326,11 +329,13 @@
     <string name="export_chordpro">Piosenka ChordPro (.cho)</string>
     <string name="export_convert_song">Piosenki w formacie OpenSong można również konwertować do następujących formatów</string>
     <string name="export_current_format">Piosenki w obecnym formacie</string>
+    <string name="export_current_format_info">Kopia utworu w jego obecnym formacie (OpenSong, PDF lub obraz)</string>
     <string name="export_current_set">Udostępnij bieżący zestaw</string>
     <string name="export_current_song">Udostępnij bieżącą piosenkę</string>
     <string name="export_desktop">Plik desktop (brak rozszerzenia pliku)</string>
     <string name="export_image">Obraz (.png)</string>
     <string name="export_include_set_songs">Uwzględnij piosenki zidentyfikowane w zestawie</string>
+    <string name="export_include_set_songs_info">Dzięki temu utwory mogą być uwzględnione w opcjach eksportu i drukowania</string>
     <string name="export_onsong">Piosenka OnSong (.onsong)</string>
     <string name="export_ost">Piosenka OpenSongApp (.ost)</string>
     <string name="export_set">Zestaw OpenSongApp (.osts)</string>
@@ -430,6 +435,7 @@
     <string name="image">Obraz</string>
     <string name="image_adjust">Dopasuj obraz (kadrowanie i obracanie)</string>
     <string name="image_change">Kliknij na obrazek, aby zmienić</string>
+    <string name="image_file_info">Plik OpenSongApp przekonwertowany na plik obrazu</string>
     <string name="image_slide">Pokaz slajdów</string>
     <string name="immersive_mode">Tryb wciągający</string>
     <string name="immersive_mode_info">Ukryj paski nawigacji i stanu, aby wykorzystać większą część ekranu</string>
@@ -446,6 +452,10 @@
     <string name="imported">Importowane</string>
     <string name="imported_values">Zaimportowane wartości</string>
     <string name="inc_autoscroll_speed">Zwiększ prędkość autoprzewijania</string>
+    <string name="included_songs">Zawiera utwory</string>
+    <string name="included_songs_already_have">Masz już tę pozycję w swojej bazie danych</string>
+    <string name="included_songs_import">Importuj wybrane utwory</string>
+    <string name="included_songs_warning">Importowanie elementów, które już istnieją w Twojej bazie danych, spowoduje zastąpienie Twojej wersji wersją zaimportowaną.  Utwory te są oznaczone komunikatem ostrzegawczym i nie są domyślnie wybrane</string>
     <string name="index_songs">Indeks piosenek</string>
     <string name="index_songs_end">Indeksowanie zakończone</string>
     <string name="index_songs_error">Wystąpił błąd podczas indeksowania piosenek</string>
@@ -473,6 +483,8 @@
     <string name="invert_PDF_info">Większość dokumentów PDF ma jasne tło i ciemny tekst. Odwrócenie kolorów sprawi, że dokument będzie miał ciemne tło i jasny tekst, podobny do motywu ciemnego lub nocnego.</string>
     <string name="is_not_set">Nie ustawiono</string>
     <string name="item">Element</string>
+    <string name="justchords">Plik JustChords (.justchords)</string>
+    <string name="justchords_file_info">Format pliku specyficzny dla JustChords na iOS</string>
     <string name="keep_multiline">Kompaktuj multilinie</string>
     <string name="keep_multiline_info">Wyświetlaj piosenki zawierające połączone zwrotki tak, jak wyglądają w oknie edycji piosenki.</string>
     <string name="key">Tonacja</string>
@@ -539,6 +551,7 @@
     <string name="menu_song_info">Użyj tego przycisku, aby wyświetlać i zarządzać swoimi piosenkami</string>
     <string name="menu_song_order">Jak piosenki powinny być ułożone w menu?</string>
     <string name="merged_text_file">Połączony plik tekstowy</string>
+    <string name="merged_text_file_info">Pojedynczy plik tekstowy ze wszystkimi połączonymi elementami.  Przydatne do importowania do dokumentu podczas tworzenia śpiewnika papierowego</string>
     <string name="metronome">Metronom</string>
     <string name="metronome_autostart">Automatycznie uruchom metronom</string>
     <string name="metronome_autostart_info">Utrzymuj włączony metronom podczas zmiany piosenek</string>
@@ -629,6 +642,7 @@
     <string name="okay">Ok</string>
     <string name="on">Wł.</string>
     <string name="online">Online</string>
+    <string name="onsong_file_info">Plik, który można zaimportować do OnSong na urządzeniach iOS</string>
     <string name="onsong_import">Importuj plik kopii zapasowej OnSong</string>
     <string name="onsong_import_folder">Wybierz folder, aby zapisać importowane piosenki</string>
     <string name="onsong_import_folder_info">Zalecaną opcją jest import do osobnego folderu OnSong. Zawsze możesz później przenieść piosenki do innych folderów.</string>
@@ -676,6 +690,7 @@
     <string name="password">Hasło</string>
     <string name="pause">Pauza</string>
     <string name="paypal_description">Wyślij mi darowiznę, jeśli aplikacja jest dla ciebie przydatna</string>
+    <string name="pdf_file_info">Plik OpenSongApp przekonwertowany na dokument PDF</string>
     <string name="pdf_horizontal">Wyświetlanie stron PDF w poziomie</string>
     <string name="pdf_horizontal_info">Gdy automatyczne skalowanie jest ustawione na pełne, a urządzenie jest w orientacji poziomej, strony PDF będą wyświetlane obok siebie (skalowane według wysokości)</string>
     <string name="pdf_preview_not_allowed">Bezpośredni podgląd plików PDF nie jest obsługiwany w wielu mobilnych przeglądarkach internetowych, ale możesz otworzyć plik za pomocą poniższego przycisku.</string>
@@ -788,6 +803,7 @@
     <string name="scaling">Skalowanie</string>
     <string name="scaling_info">Ustawienia autoskalowania i skalowanie sekcji</string>
     <string name="screenshot">Zrzut ekranu</string>
+    <string name="screenshot_info">Zrzut ekranu przedstawiający wygląd utworu na Twoim urządzeniu (w zależności od motywu aplikacji)</string>
     <string name="scripture">Pismo</string>
     <string name="scroll">Przewijanie</string>
     <string name="scroll_amount">Odległość przewijania</string>
@@ -807,15 +823,22 @@
     <string name="select_page">Wybierz stronę</string>
     <string name="set">Zestaw</string>
     <string name="set_add">Dodaj do zestawu</string>
+    <string name="set_bundle_justchords">Pakiet zestawu JustChords</string>
+    <string name="set_bundle_opensongapp">Pakiet zestawu OpenSongApp</string>
+    <string name="set_bundle_opensongapp_import">Importuj pakiet zestawu (.ossb)</string>
+    <string name="set_bundle_opensongapp_info">Jeśli udostępniasz zestaw innym użytkownikom OpenSongApp, jest to preferowana metoda.  Zawiera listę zestawów i wszystkie wymagane pliki, poniżej nie są wymagane żadne dodatkowe opcje</string>
     <string name="set_current">Aktualny zestaw</string>
     <string name="set_delete_info">Usuń stare zestawy</string>
     <string name="set_help">Przeciągnij piosenki, aby zmienić ich kolejność w zestawie</string>
+    <string name="set_import">Importuj setlistę</string>
     <string name="set_inline">Zestaw wbudowany</string>
     <string name="set_inline_info">Pokaż setlistę na ekranie obok okna piosenki</string>
     <string name="set_inline_showcase">Jest to zestaw wbudowany, który umożliwia podgląd setlisty podczas występu.  Ustawienia można zmienić w Ustawienia / Wyświetlacz / Zestaw wbudowany.</string>
     <string name="set_is_empty">W zestawie nie ma żadnych przedmiotów</string>
     <string name="set_item_info">Możesz zmienić katalog/nazwę pliku piosenki załadowanego z zestawu, a także zmienić tonację do wyświetlania (w razie potrzeby wykonuje tymczasową transpozycję piosenki na urządzeniu)</string>
     <string name="set_item_removed">Element usunięty z zestawu</string>
+    <string name="set_list">Setlista</string>
+    <string name="set_list_separate">Ustaw pliki list</string>
     <string name="set_load_first">Otwórz załadowany zestaw na pierwszym elemencie</string>
     <string name="set_load_first_info">Zawsze otwieraj pierwszy element zestawu. Jeśli wyłączone, zestaw spróbuje otworzyć się na aktualnie załadowanej piosence, jeśli znajduje się w zestawie.</string>
     <string name="set_load_info">Załaduj wcześniej zapisany zestaw</string>
@@ -829,6 +852,7 @@
     <string name="set_new_info">Usuń wszystkie piosenki z bieżącego zestawu</string>
     <string name="set_packaged_opensongapp">Spakowany plik zestawu OpenSongApp</string>
     <string name="set_packaged_opensongapp_info">Spowoduje to utworzenie niestandardowego pliku zip zawierającego plik zestawu i wszystkie pliki OpenSong, PDF lub obrazy, do których odwołuje się zestaw.  Można to udostępnić innym użytkownikom OpenSongApp</string>
+    <string name="set_packages">Kompletne pakiety zestawów</string>
     <string name="set_rebuild">Zestaw do przebudowy</string>
     <string name="set_rebuild_info">Odbuduj zestaw z ostatniej udanej zmiany (użyj, jeśli podejrzewasz, że wystąpił problem z zestawem)</string>
     <string name="set_save_info">Zapisz bieżący zestaw do wykorzystania w przyszłości</string>
@@ -872,6 +896,7 @@
     <string name="song_duration">Czas trwania piosenki</string>
     <string name="song_features">Funkcje piosenki</string>
     <string name="song_features_warning">Te wartości najlepiej ustawić za pomocą dedykowanych opcji funkcji piosenki w menu ustawień. Najpierw zapisz piosenkę. Możesz jednak ręcznie edytować wartości tutaj.</string>
+    <string name="song_files_separate">Pliki utworów</string>
     <string name="song_menu_checkboxes">Pokaż zaznaczone pola wyboru w menu piosenki</string>
     <string name="song_menu_subtitle_size">Rozmiar podtytułu elementu menu piosenki</string>
     <string name="song_menu_title_size">Rozmiar tytułu elementu menu piosenki</string>
@@ -947,6 +972,7 @@
     <string name="text_extract">Wyodrębnij tekst z pliku (OCR)</string>
     <string name="text_extract_check">OpenSongApp spróbuje automatycznie znaleźć zawartość piosenki, jednak możesz to sprawdzić ręcznie, klikając ten przycisk.</string>
     <string name="text_extract_website">Tekst piosenki znaleziony na tej stronie. Kliknij tutaj, aby wyodrębnić.</string>
+    <string name="text_file_info">Plik, który można otworzyć i przeglądać w większości aplikacji</string>
     <string name="text_size">Rozmiar czcionki</string>
     <string name="theme">Motyw</string>
     <string name="theme_choose">Przełącz motyw</string>
@@ -956,6 +982,7 @@
     <string name="theme_edit">Edytuj lub zmień bieżący motyw</string>
     <string name="theme_exists">Ten motyw już istnieje.</string>
     <string name="theme_light">Jasny motyw</string>
+    <string name="theme_pdf_image">Motyw dla pliku PDF/obrazu</string>
     <string name="time">Czas</string>
     <string name="time_format">24 godziny</string>
     <string name="time_mins">Minuty</string>

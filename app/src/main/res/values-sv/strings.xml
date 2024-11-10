@@ -36,6 +36,7 @@
     <string name="alphabetical_level2">Två tecken alfabetiskt index</string>
     <string name="alphabetical_level2_info">Genom att klicka på ett objekt i det alfabetiska indexet växlas det mellan ett och två teckens alfabetiskt index</string>
     <string name="alphabetical_sort">Placera objekt i alfabetisk ordning</string>
+    <string name="app_specific_file">En fil som är specifik för OpenSongApp</string>
     <string name="appearance_change">Justerar utseendet</string>
     <string name="apply_changes">Applicera förändringar</string>
     <string name="are_you_sure">"Är du säker?"</string>
@@ -182,6 +183,7 @@
     <string name="chordinator">Använder ackordextraktionskod från Chordinator Augmented från Paul Evans.  Används med tillstånd</string>
     <string name="chordinator_info">Den här metoden försöker hitta ackordark automatiskt, men den misslyckas, du kan extrahera innehåll manuellt med hjälp av markerings- och kopieringsmetoden som beskrivs nedan</string>
     <string name="chordline_scale">"Skala ackord"</string>
+    <string name="chordpro_file_info">En fil som kan importeras till många sångboksapplikationer</string>
     <string name="chords">"Chords"</string>
     <string name="chords_found">Alla ackord som finns i låttexten</string>
     <string name="chorus">"Kör"</string>
@@ -291,6 +293,7 @@
     <string name="delete_folder_info">Ta bort låtens underkatalog</string>
     <string name="delete_folder_warning">Om du tar bort den här underkatalogen raderas också alla låtar eller mappar som den innehåller. Du kan inte ångra den här ändringen!</string>
     <string name="delete_song_warning">Du kan inte ångra den här åtgärden. Se till att du har skapat en säkerhetskopia för säkerhets skull!</string>
+    <string name="desktop_specific_file">En fil som är specifik för skrivbordsversionen av OpenSong</string>
     <string name="device">Apparat</string>
     <string name="display">"Visa"</string>
     <string name="display_settings">Ändra visningsinställningar (vad du ser på skärmen)</string>
@@ -326,11 +329,13 @@
     <string name="export_chordpro">"ChordPro-låten (.cho)"</string>
     <string name="export_convert_song">OpenSong-formaterade låtar kan också konverteras till följande format</string>
     <string name="export_current_format">Låtar i deras nuvarande format</string>
+    <string name="export_current_format_info">En kopia av låten i dess nuvarande format (OpenSong, PDF eller bild)</string>
     <string name="export_current_set">Dela den aktuella uppsättningen</string>
     <string name="export_current_song">"Dela den aktuella låten"</string>
     <string name="export_desktop">"Skrivbordsfil (ingen filtillägg)"</string>
     <string name="export_image">Bild (.png)</string>
     <string name="export_include_set_songs">Inkludera låtar som identifierats i uppsättningen</string>
+    <string name="export_include_set_songs_info">Detta gör att låtar kan inkluderas i alternativen Exportera och Skriv ut</string>
     <string name="export_onsong">"OnSong Song (.onsong)"</string>
     <string name="export_ost">"OpenSongApp-låt (.ost)"</string>
     <string name="export_set">"OpenSongApp set (.osts)"</string>
@@ -430,6 +435,7 @@
     <string name="image">"Bild"</string>
     <string name="image_adjust">Justera bilden (beskära och rotera)</string>
     <string name="image_change">Klicka på bilden för att ändra</string>
+    <string name="image_file_info">OpenSongApp-filen konverteras till en bildfil</string>
     <string name="image_slide">"Bildspel"</string>
     <string name="immersive_mode">Uppslukande läge</string>
     <string name="immersive_mode_info">Dölj navigerings- och statusfält för att använda mer av din skärm</string>
@@ -446,6 +452,10 @@
     <string name="imported">Importerade</string>
     <string name="imported_values">Importerade värden</string>
     <string name="inc_autoscroll_speed">"Öka Autoscroll Speed"</string>
+    <string name="included_songs">Inkluderade låtar</string>
+    <string name="included_songs_already_have">Du har redan det här objektet i din databas</string>
+    <string name="included_songs_import">Importera valda låtar</string>
+    <string name="included_songs_warning">Om du importerar objekt som redan finns i din databas kommer din version att ersättas av den importerade versionen.  Dessa låtar identifieras med ett varningsmeddelande och är inte valda som standard</string>
     <string name="index_songs">Indexera låtar</string>
     <string name="index_songs_end">"Alla låtar har blivit fullt indexerade"</string>
     <string name="index_songs_error">"Det uppstod ett fel vid att bygga din sökdatabas"</string>
@@ -473,6 +483,8 @@
     <string name="invert_PDF_info">De flesta PDF-dokument har en ljus bakgrund och mörk text. Om du inverterar färgerna kommer detta att få en mörk bakgrund och ljus text som liknar ett mörkt eller natttema.</string>
     <string name="is_not_set">"Inte inställd"</string>
     <string name="item">"Artikel"</string>
+    <string name="justchords">JustChords-fil (.justchords)</string>
+    <string name="justchords_file_info">Ett filformat specifikt för JustChords på iOS</string>
     <string name="keep_multiline">"Håll multilinkompakt "</string>
     <string name="keep_multiline_info">Visa låtar som innehåller kombinerade verser som de visas i sångredigeringsfönstret.</string>
     <string name="key">"Nyckel"</string>
@@ -539,6 +551,7 @@
     <string name="menu_song_info">Använd den här knappen visa och hantera dina låtar</string>
     <string name="menu_song_order">Hur ska låtar listas i menyn?</string>
     <string name="merged_text_file">Sammanslagen textfil</string>
+    <string name="merged_text_file_info">En enda textfil med alla objekt sammanslagna.  Användbar för import till ett dokument när du producerar en papperssångbok</string>
     <string name="metronome">"Metronom"</string>
     <string name="metronome_autostart">Autostart metronom</string>
     <string name="metronome_autostart_info">Håll metronomen igång när du byter låt</string>
@@ -629,6 +642,7 @@
     <string name="okay">Ok</string>
     <string name="on">På</string>
     <string name="online">Uppkopplad</string>
+    <string name="onsong_file_info">En fil som kan importeras till OnSong på iOS-enheter</string>
     <string name="onsong_import">"Importera OnSong backup-fil"</string>
     <string name="onsong_import_folder">Välj en mapp för att spara importerade låtar</string>
     <string name="onsong_import_folder_info">Det rekommenderade alternativet är att importera till en separat OnSong-mapp. Du kan alltid flytta låtar till andra mappar senare.</string>
@@ -676,6 +690,7 @@
     <string name="password">Lösenord</string>
     <string name="pause">Paus</string>
     <string name="paypal_description">Skicka mig en donation om du tycker att appen är användbar</string>
+    <string name="pdf_file_info">OpenSongApp-filen konverteras till ett PDF-dokument</string>
     <string name="pdf_horizontal">Visa PDF-sidor horisontellt</string>
     <string name="pdf_horizontal_info">När autoskalning är inställd på fullständig och enheten är i liggande orientering visas PDF-sidor sida vid sida (skalad efter höjd)</string>
     <string name="pdf_preview_not_allowed">Förhandsgranskning av PDF-filer direkt stöds inte i många mobila webbläsare, men du kan öppna filen med knappen nedan.</string>
@@ -788,6 +803,7 @@
     <string name="scaling">Skalning</string>
     <string name="scaling_info">Autoskalningsinställningar och sektionsskalning</string>
     <string name="screenshot">Skärmdump</string>
+    <string name="screenshot_info">En skärmdump av hur låten visas på din enhet (baserat på ditt app-tema)</string>
     <string name="scripture">Skriften</string>
     <string name="scroll">Skrolla</string>
     <string name="scroll_amount">"Rulla beloppet"</string>
@@ -807,15 +823,22 @@
     <string name="select_page">"Välj sida"</string>
     <string name="set">Uppsättning</string>
     <string name="set_add">Lägg till i set</string>
+    <string name="set_bundle_justchords">JustChords set bunt</string>
+    <string name="set_bundle_opensongapp">OpenSongApp-paket</string>
+    <string name="set_bundle_opensongapp_import">Importera uppsättningspaket (.ossb)</string>
+    <string name="set_bundle_opensongapp_info">Om du delar en uppsättning med andra OpenSongApp-användare är detta den föredragna metoden.  Den innehåller setlistan och alla filer som krävs, du behöver inga ytterligare alternativ nedan</string>
     <string name="set_current">"Aktuell uppsättning"</string>
     <string name="set_delete_info">Ta bort gamla uppsättningar</string>
     <string name="set_help">"Dra sånger runt för att ändra ordning på din uppsättning"</string>
+    <string name="set_import">Importera setlista</string>
     <string name="set_inline">Inline set</string>
     <string name="set_inline_info">Visa setlistan på skärmen bredvid låtfönstret</string>
     <string name="set_inline_showcase">Detta är den infogade uppsättningen som gör det möjligt att se setlistan medan du uppträder.  Du kan ändra inställningarna i Inställningar / Display / Inline-uppsättning.</string>
     <string name="set_is_empty">Det finns inga objekt i ditt set</string>
     <string name="set_item_info">Du kan ändra mappen / filnamnet på låten som laddas från uppsättningen och du kan också ändra tangenten för låtvisning (detta utför en tillfällig transponering av låten på din enhet om det behövs)</string>
     <string name="set_item_removed">Objekt borttaget från uppsättningen</string>
+    <string name="set_list">Setlist</string>
+    <string name="set_list_separate">Ställ in listfiler</string>
     <string name="set_load_first">Öppna den inlästa uppsättningen vid det första objektet</string>
     <string name="set_load_first_info">Öppna alltid det första setobjektet.  Om den är avstängd försöker uppsättningen öppnas vid den laddade låten om den finns i uppsättningen.</string>
     <string name="set_load_info">Ladda en tidigare sparad uppsättning</string>
@@ -829,6 +852,7 @@
     <string name="set_new_info">Ta bort alla låtar från den aktuella uppsättningen</string>
     <string name="set_packaged_opensongapp">Förpackad OpenSongApp-uppsättningsfil</string>
     <string name="set_packaged_opensongapp_info">Detta skapar en anpassad zip-fil som innehåller uppsättningsfilen och alla OpenSong-, PDF- eller bildfiler som refereras till i uppsättningen.  Detta kan delas med andra OpenSongApp-användare</string>
+    <string name="set_packages">Kompletta set paket</string>
     <string name="set_rebuild">Bygg om uppsättning</string>
     <string name="set_rebuild_info">Återskapa uppsättningen från den senaste ändringen (använd om du misstänker att det finns ett problem med uppsättningen)</string>
     <string name="set_save_info">Spara den aktuella uppsättningen för framtida bruk</string>
@@ -872,6 +896,7 @@
     <string name="song_duration">Song duration</string>
     <string name="song_features">Låtfunktioner</string>
     <string name="song_features_warning">Dessa värden ställs bäst in med de dedikerade sångfunktionsalternativen i inställningsmenyn. Spara låten först. Du kan dock redigera värdena manuellt här.</string>
+    <string name="song_files_separate">Låtfiler</string>
     <string name="song_menu_checkboxes">"Visa inställda kryssrutor i låtmenyn"</string>
     <string name="song_menu_subtitle_size">Sångmenyalternativ undertextstorlek</string>
     <string name="song_menu_title_size">Sångmenyobjektets titelstorlek</string>
@@ -947,6 +972,7 @@
     <string name="text_extract">Extrahera text från fil (OCR)</string>
     <string name="text_extract_check">OpenSongApp kommer att försöka hitta låtinnehåll automatiskt, men du kan kontrollera manuellt genom att klicka på den här knappen.</string>
     <string name="text_extract_website">Låttext finns på den här sidan. Klicka här för att extrahera.</string>
+    <string name="text_file_info">En fil som kan öppnas och visas av de flesta applikationer</string>
     <string name="text_size">Textstorlek</string>
     <string name="theme">"Tema"</string>
     <string name="theme_choose">"Byt tema"</string>
@@ -956,6 +982,7 @@
     <string name="theme_edit">Redigera eller ändra aktuellt tema</string>
     <string name="theme_exists">Det temat finns redan</string>
     <string name="theme_light">"Lätt tema"</string>
+    <string name="theme_pdf_image">Tema för PDF/Bild</string>
     <string name="time">"Tid"</string>
     <string name="time_format">"24h"</string>
     <string name="time_mins">Minuter</string>

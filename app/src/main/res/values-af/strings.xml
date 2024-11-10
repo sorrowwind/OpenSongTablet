@@ -36,6 +36,7 @@
     <string name="alphabetical_level2">Två tecken alfabetiskt index</string>
     <string name="alphabetical_level2_info">Deur op \'n item in die alfabetiese indeks te klik, sal tussen een en twee karakters alfabetiese indeks verander</string>
     <string name="alphabetical_sort">Plaas items in alfabetiese volgorde</string>
+    <string name="app_specific_file">\'n Lêer spesifiek vir OpenSongApp</string>
     <string name="appearance_change">Pas voorkoms aan</string>
     <string name="apply_changes">Pas veranderinge toe</string>
     <string name="are_you_sure">"Is jy seker?"</string>
@@ -182,6 +183,7 @@
     <string name="chordinator">Gebruik akkoordontginningskode van Chordinator Augmented van Paul Evans. Gebruik met toestemming</string>
     <string name="chordinator_info">Hierdie metode sal probeer om akkoordblaaie outomaties te vind, maar dit is onsuksesvol, u kan die inhoud handmatig onttrek met behulp van die onderstaande kies- en kopieermetode</string>
     <string name="chordline_scale">"Skaal akkoorde"</string>
+    <string name="chordpro_file_info">\'n Lêer wat in talle liedboektoepassings ingevoer kan word</string>
     <string name="chords">Akkoorde</string>
     <string name="chords_found">Alle akkoorde gevind in die liedjie lirieke</string>
     <string name="chorus">Koor</string>
@@ -291,6 +293,7 @@
     <string name="delete_folder_info">Vee liedjie subgids uit</string>
     <string name="delete_folder_warning">As u hierdie subgids verwyder, sal dit ook liedjies of vouers wat daarin is, verwyder. U kan nie hierdie verandering ongedaan maak nie!</string>
     <string name="delete_song_warning">Jy kan nie hierdie handeling ontdoen nie. Maak asseblief seker dat jy \'n rugsteun geskep het vir ingeval!</string>
+    <string name="desktop_specific_file">\'n Lêer spesifiek vir die rekenaarweergawe van OpenSong</string>
     <string name="device">Toestel</string>
     <string name="display">Vertoon</string>
     <string name="display_settings">Verander die skerminstellings (wat u op die skerm sien)</string>
@@ -326,11 +329,13 @@
     <string name="export_chordpro">"ChordPro liedjie (.cho)"</string>
     <string name="export_convert_song">OpenSong-geformateerde liedjies kan ook na die volgende formate omgeskakel word</string>
     <string name="export_current_format">Liedjies in hul huidige formaat</string>
+    <string name="export_current_format_info">\'n Kopie van die liedjie in sy huidige formaat (OpenSong, PDF of beeld)</string>
     <string name="export_current_set">Deel die huidige stel</string>
     <string name="export_current_song">"Deel die huidige liedjie"</string>
     <string name="export_desktop">"Desktop lêer (geen lêer uitbreiding)"</string>
     <string name="export_image">Prent (.png)</string>
     <string name="export_include_set_songs">Sluit liedjies in wat in die stel geïdentifiseer is</string>
+    <string name="export_include_set_songs_info">Dit laat liedjies toe om by die Uitvoer- en Druk-opsies ingesluit te word</string>
     <string name="export_onsong">"On song song (.onsong)"</string>
     <string name="export_ost">"OpenSongApp liedjie (.ost)"</string>
     <string name="export_set">"OpenSongApp stel (.osts)"</string>
@@ -430,6 +435,7 @@
     <string name="image">"Image"</string>
     <string name="image_adjust">Verstel beeld (sny en draai)</string>
     <string name="image_change">Klik op die prent om te verander</string>
+    <string name="image_file_info">Die OpenSongApp-lêer is omgeskakel na \'n beeldlêer</string>
     <string name="image_slide">"Image skyfievertoning"</string>
     <string name="immersive_mode">Immersiewe modus</string>
     <string name="immersive_mode_info">Versteek navigasie- en statusbalke om meer van jou skerm te gebruik</string>
@@ -446,6 +452,10 @@
     <string name="imported">Ingevoer</string>
     <string name="imported_values">Ingevoerde waardes</string>
     <string name="inc_autoscroll_speed">"Verhoog Autoscroll Spoed"</string>
+    <string name="included_songs">Ingesluit liedjies</string>
+    <string name="included_songs_already_have">Jy het reeds hierdie item in jou databasis</string>
+    <string name="included_songs_import">Voer geselekteerde liedjies in</string>
+    <string name="included_songs_warning">As u items invoer wat reeds in u databasis bestaan, sal u weergawe deur die ingevoerde weergawe vervang word.  Hierdie liedjies word met \'n waarskuwingsboodskap geïdentifiseer en word nie by verstek gekies nie</string>
     <string name="index_songs">Indeks liedjies</string>
     <string name="index_songs_end">"Alle liedjies is ten volle geïndekseer"</string>
     <string name="index_songs_error">"Daar was \'n fout bou jou soektog databasis"</string>
@@ -473,6 +483,8 @@
     <string name="invert_PDF_info">Die meeste PDF-dokumente het \'n ligte agtergrond en donker teks. As u die kleure omkeer, sal dit \'n donker agtergrond en ligte teks hê wat soortgelyk is aan \'n donker of nagtema.</string>
     <string name="is_not_set">"Nie ingestel"</string>
     <string name="item">"Item"</string>
+    <string name="justchords">JustChords-lêer (.justchords)</string>
+    <string name="justchords_file_info">\'n Lêerformaat spesifiek vir JustChords op iOS</string>
     <string name="keep_multiline">Hou multiline kompak</string>
     <string name="keep_multiline_info">Vertoon liedjies wat gekombineerde verse bevat soos dit in die liedjie wysig venster verskyn.</string>
     <string name="key">"Sleutel"</string>
@@ -539,6 +551,7 @@
     <string name="menu_song_info">Gebruik hierdie knoppie sien en bestuur jou liedjies</string>
     <string name="menu_song_order">Hoe moet liedjies in die spyskaart gelys word?</string>
     <string name="merged_text_file">Saamgevoegde tekslêer</string>
+    <string name="merged_text_file_info">\'n Enkele tekslêer met alle items saamgevoeg.  Nuttig vir invoer in \'n dokument wanneer \'n papierliedjieboek vervaardig word</string>
     <string name="metronome">"Metronoom"</string>
     <string name="metronome_autostart">Outostart metronoom</string>
     <string name="metronome_autostart_info">Hou metronoom aan die gang wanneer jy van liedjies verander</string>
@@ -629,6 +642,7 @@
     <string name="okay">Goed</string>
     <string name="on">Op</string>
     <string name="online">Aanlyn</string>
+    <string name="onsong_file_info">\'n Lêer wat in OnSong op iOS-toestelle ingevoer kan word</string>
     <string name="onsong_import">"Invoer OnSong rugsteunlêer"</string>
     <string name="onsong_import_folder">Kies \'n gids om ingevoerde liedjies te stoor</string>
     <string name="onsong_import_folder_info">Die aanbevole opsie is om in \'n aparte OnSong-lêergids in te voer. Jy kan altyd later liedjies na ander dopgehou skuif.</string>
@@ -676,6 +690,7 @@
     <string name="password">Wagwoord</string>
     <string name="pause">Pouse</string>
     <string name="paypal_description">Stuur vir my \'n skenking as jy die toepassing nuttig vind</string>
+    <string name="pdf_file_info">Die OpenSongApp-lêer is omgeskakel na \'n PDF-dokument</string>
     <string name="pdf_horizontal">Vertoon PDF-bladsye horisontaal</string>
     <string name="pdf_horizontal_info">Wanneer outoskaal op volle gestel is en die toestel in landskaporiëntasie is, sal PDF-bladsye langs mekaar gewys word (afgeskaal volgens hoogte)</string>
     <string name="pdf_preview_not_allowed">Die voorskou van PDF-lêers word nie op baie mobiele webblaaiers ondersteun nie, maar u kan die lêer oopmaak met die onderstaande knoppie.</string>
@@ -788,6 +803,7 @@
     <string name="scaling">Skaal</string>
     <string name="scaling_info">Outoskaal instellings en seksie skaal</string>
     <string name="screenshot">Skermskoot</string>
+    <string name="screenshot_info">\'n Skermskoot van hoe die liedjie op jou toestel verskyn (gebaseer op jou programtema)</string>
     <string name="scripture">"Skrif"</string>
     <string name="scroll">Blaai</string>
     <string name="scroll_amount">"Scroll bedrag"</string>
@@ -807,15 +823,22 @@
     <string name="select_page">"Kies bladsy"</string>
     <string name="set">Stel</string>
     <string name="set_add">Voeg by stel</string>
+    <string name="set_bundle_justchords">JustChords stel bundel</string>
+    <string name="set_bundle_opensongapp">OpenSongApp stel bundel</string>
+    <string name="set_bundle_opensongapp_import">Voer stelbundel in (.ossb)</string>
+    <string name="set_bundle_opensongapp_info">As jy \'n stel met ander OpenSongApp-gebruikers deel, is dit die voorkeurmetode.  Dit bevat die stellys en alle lêers wat benodig word, jy benodig geen bykomende opsies hieronder nie</string>
     <string name="set_current">"Huidige stel"</string>
     <string name="set_delete_info">Vee ou stelle uit</string>
     <string name="set_help">"Sleep liedjies rondom die einde van jou stel om te verander"</string>
+    <string name="set_import">Voer stellys in</string>
     <string name="set_inline">Inlyn stel</string>
     <string name="set_inline_info">Wys die stellys op die skerm langs die liedjievenster</string>
     <string name="set_inline_showcase">This is the inline set which allows a view of the setlist while you are performing.  You can change the settings in Settings / Display / Inline set.</string>
     <string name="set_is_empty">Daar is geen items in jou stel nie</string>
     <string name="set_item_info">U kan die vouer/lêernaam van die liedjie wat uit die stel gelaai is, verander, en u kan ook die sleutel vir die vertoon van die liedjie verander (dit voer \'n tydelike transponeer van die liedjie op u toestel uit indien nodig)</string>
     <string name="set_item_removed">Item verwyder van stel</string>
+    <string name="set_list">Stellys</string>
+    <string name="set_list_separate">Stel lys lêers</string>
     <string name="set_load_first">Maak die gelaaide stel by die eerste item oop</string>
     <string name="set_load_first_info">Maak altyd die eerste stelitem oop.  As dit afgeskakel is, sal die stel probeer om by die tans gelaaide liedjie oop te maak as dit in die stel is.</string>
     <string name="set_load_info">Laai \'n voorheen gestoorde stel</string>
@@ -829,6 +852,7 @@
     <string name="set_new_info">Verwyder alle liedjies uit die huidige stel</string>
     <string name="set_packaged_opensongapp">Verpakte OpenSongApp-stellêer</string>
     <string name="set_packaged_opensongapp_info">Dit skep \'n pasgemaakte zip-lêer wat die stellêer en alle OpenSong-, PDF- of beeldlêers bevat waarna in die stel verwys word.  Dit kan met ander OpenSongApp-gebruikers gedeel word</string>
+    <string name="set_packages">Voltooi stel pakkette</string>
     <string name="set_rebuild">Herbou stel</string>
     <string name="set_rebuild_info">Herbou die stel vanaf die laaste suksesvolle verandering (gebruik as u vermoed dat daar \'n probleem met u stel is)</string>
     <string name="set_save_info">Stoor die huidige stel vir toekomstige gebruik</string>
@@ -872,6 +896,7 @@
     <string name="song_duration">Lied duur</string>
     <string name="song_features">Lied kenmerke</string>
     <string name="song_features_warning">Hierdie waardes word die beste gestel deur die toegewyde liedjie-funksie-opsies in die instellingskieslys te gebruik. Stoor eers die liedjie. U kan egter die waardes hier handmatig wysig.</string>
+    <string name="song_files_separate">Liedjie lêers</string>
     <string name="song_menu_checkboxes">"Wys verstek bokse in die lied menu"</string>
     <string name="song_menu_subtitle_size">Song-kieslys-item ondertitelgrootte</string>
     <string name="song_menu_title_size">Liedjie kieslys item titel grootte</string>
@@ -947,6 +972,7 @@
     <string name="text_extract">Onttrek teks uit lêer (OCR)</string>
     <string name="text_extract_check">OpenSongApp sal probeer om liedjie-inhoud outomaties te vind, maar jy kan handmatig kontroleer deur op hierdie knoppie te klik.</string>
     <string name="text_extract_website">Liedjie teks gevind op hierdie bladsy. Klik hier om te onttrek.</string>
+    <string name="text_file_info">\'n Lêer wat deur die meeste toepassings oopgemaak en bekyk kan word</string>
     <string name="text_size">Teks grootte</string>
     <string name="theme">"Tema"</string>
     <string name="theme_choose">"Skakel Tema"</string>
@@ -956,6 +982,7 @@
     <string name="theme_edit">Wysig of verander huidige tema</string>
     <string name="theme_exists">Daardie tema bestaan reeds.</string>
     <string name="theme_light">"Lig tema"</string>
+    <string name="theme_pdf_image">Tema vir PDF/Beeld</string>
     <string name="time">Tyd</string>
     <string name="time_format">"24 uur"</string>
     <string name="time_mins">Minute</string>

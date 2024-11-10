@@ -36,6 +36,7 @@
     <string name="alphabetical_level2">Két karakteres alfabetikus index</string>
     <string name="alphabetical_level2_info">Az alfabetikus index egy elemére kattintva válthat egy és két karakteres alfabetikus index között</string>
     <string name="alphabetical_sort">Tedd az elemeket ábécé sorrendbe</string>
+    <string name="app_specific_file">Az OpenSongApp-ra jellemző fájl</string>
     <string name="appearance_change">Beállítja a megjelenést</string>
     <string name="apply_changes">Módosítások elfogadása</string>
     <string name="are_you_sure">"Biztos benne?"</string>
@@ -182,6 +183,7 @@
     <string name="chordinator">A Paul Evans Chordinator Augmented akkordkinyerési kódját használja.  Engedéllyel használva</string>
     <string name="chordinator_info">Ez a módszer megpróbálja automatikusan megtalálni az akkordlapokat, de sikertelen, manuálisan kibonthatja a tartalmat az alább leírt kiválasztási és másolási módszerrel</string>
     <string name="chordline_scale">"Scale akkordok"</string>
+    <string name="chordpro_file_info">Számos daloskönyv-alkalmazásba importálható fájl</string>
     <string name="chords">Akkordok</string>
     <string name="chords_found">A dalszövegekben található összes akkord</string>
     <string name="chorus">Kórus</string>
@@ -291,6 +293,7 @@
     <string name="delete_folder_info">Törölje a dal alkönyvtárát</string>
     <string name="delete_folder_warning">Ha törli ezt az alkönyvtárat, akkor a benne lévő dalok és mappák is törlődnek. Ez a módosítás nem vonható vissza! Kérjük, győződjön meg róla, hogy az ÖSSZES fájlról biztonsági másolatot készített és mentett, mielőtt továbblép!!!</string>
     <string name="delete_song_warning">Ez a művelet nem vonható vissza. Kérjük, minden esetre készítsen biztonsági másolatot!</string>
+    <string name="desktop_specific_file">Az OpenSong asztali verziójára jellemző fájl</string>
     <string name="device">Eszköz</string>
     <string name="display">Képernyő</string>
     <string name="display_settings">Megjelenítési beállítások módosítása (amit a képernyőn lát)</string>
@@ -326,11 +329,13 @@
     <string name="export_chordpro">"ChordPro dal (.cho)"</string>
     <string name="export_convert_song">Az OpenSong formátumú dalok a következő formátumokba is konvertálhatók</string>
     <string name="export_current_format">Dalok jelenlegi formátumukban</string>
+    <string name="export_current_format_info">A dal másolata jelenlegi formátumában (OpenSong, PDF vagy kép)</string>
     <string name="export_current_set">Ossza meg az aktuális készletet</string>
     <string name="export_current_song">"Ossza meg az aktuális zeneszám"</string>
     <string name="export_desktop">"Asztali fájl (nincs fájlkiterjesztés)"</string>
     <string name="export_image">Kép (.png)</string>
     <string name="export_include_set_songs">Tartalmazza a készletben azonosított dalokat</string>
+    <string name="export_include_set_songs_info">Ez lehetővé teszi a dalok felvételét az Exportálás és Nyomtatás opciókba</string>
     <string name="export_onsong">"OnSong dal (.onsong)"</string>
     <string name="export_ost">"OpenSongApp dal (ost)"</string>
     <string name="export_set">"OpenSongApp szett (.osts)"</string>
@@ -430,6 +435,7 @@
     <string name="image">"Kép"</string>
     <string name="image_adjust">Kép beállítása (körülvágás és forgatás)</string>
     <string name="image_change">Kattints a képre a változtatáshoz</string>
+    <string name="image_file_info">Az OpenSongApp fájl képfájllá konvertálva</string>
     <string name="image_slide">Kép slideshow</string>
     <string name="immersive_mode">Magával ragadó mód</string>
     <string name="immersive_mode_info">A navigáció és az állapotsorok elrejtése, hogy többet használhasson a kijelzőből</string>
@@ -446,6 +452,10 @@
     <string name="imported">Importált</string>
     <string name="imported_values">Importált értékek</string>
     <string name="inc_autoscroll_speed">"Növelje az Autoscroll sebességet"</string>
+    <string name="included_songs">Mellékelt dalok</string>
+    <string name="included_songs_already_have">Ez az elem már szerepel az adatbázisában</string>
+    <string name="included_songs_import">Importálja a kiválasztott dalokat</string>
+    <string name="included_songs_warning">Az adatbázisban már meglévő elemek importálása esetén az Ön verziója lecserélődik az importált verzióra.  Ezeket a dalokat figyelmeztető üzenet jelzi, és alapértelmezés szerint nincsenek kiválasztva</string>
     <string name="index_songs">Dalok indexelése</string>
     <string name="index_songs_end">"Minden dal már teljesen indexelt"</string>
     <string name="index_songs_error">"Hiba az épület a keresést az adatbázisban"</string>
@@ -473,6 +483,8 @@
     <string name="invert_PDF_info">A legtöbb PDF-dokumentum világos háttérrel és sötét szöveggel rendelkezik. A színek megfordítása sötét hátteret és világos szöveget eredményez, amely hasonló a sötét vagy éjszakai témához.</string>
     <string name="is_not_set">"Nincs beállítva"</string>
     <string name="item">"Alkatrész"</string>
+    <string name="justchords">JustChords fájl (.justchords)</string>
+    <string name="justchords_file_info">A JustChordsra jellemző fájlformátum iOS rendszeren</string>
     <string name="keep_multiline">Tartsa a többsoros kompakt</string>
     <string name="keep_multiline_info">A kombinált verseket tartalmazó dalok megjelenítése a dal szerkesztő ablakában.</string>
     <string name="key">"Kulcs"</string>
@@ -539,6 +551,7 @@
     <string name="menu_song_info">Ezzel a gombbal megtekintheti és kezelheti dalait</string>
     <string name="menu_song_order">Hogyan kell a dalokat felsorolni a menüben?</string>
     <string name="merged_text_file">Egyesített szövegfájl</string>
+    <string name="merged_text_file_info">Egyetlen szöveges fájl az összes elem egyesítve.  Hasznos dokumentumba történő importáláshoz papír énekeskönyv készítése során</string>
     <string name="metronome">"Metronóm"</string>
     <string name="metronome_autostart">Metronóm automatikus indítása</string>
     <string name="metronome_autostart_info">A metronóm folyamatosan fut, amikor dalokat vált</string>
@@ -629,6 +642,7 @@
     <string name="okay">Rendben</string>
     <string name="on">Be</string>
     <string name="online">Online</string>
+    <string name="onsong_file_info">Egy fájl, amely importálható az OnSongba iOS-eszközökön</string>
     <string name="onsong_import">"Import OnSong biztonsági mentés"</string>
     <string name="onsong_import_folder">Válasszon mappát az importált dalok mentéséhez</string>
     <string name="onsong_import_folder_info">Az ajánlott lehetőség egy külön OnSong mappába történő importálás. Később bármikor áthelyezheti a dalokat más mappákba.</string>
@@ -676,6 +690,7 @@
     <string name="password">Jelszó</string>
     <string name="pause">Szünet</string>
     <string name="paypal_description">Ha hasznosnak találja az alkalmazást, küldjön adományt</string>
+    <string name="pdf_file_info">Az OpenSongApp fájl PDF-dokumentummá konvertálva</string>
     <string name="pdf_horizontal">PDF-oldalak vízszintes megjelenítése</string>
     <string name="pdf_horizontal_info">Ha az automatikus méretezés teljes értékre van állítva, és az eszköz fekvő tájolású, a PDF-oldalak egymás mellett jelennek meg (magasság szerint méretezve)</string>
     <string name="pdf_preview_not_allowed">A PDF-fájlok közvetlen előnézetének megtekintését számos mobil webböngésző nem támogatja, de az alábbi gombbal megnyithatja a fájlt.</string>
@@ -788,6 +803,7 @@
     <string name="scaling">Méretezés</string>
     <string name="scaling_info">Automatikus méretezési beállítások és szakaszméretezés</string>
     <string name="screenshot">Pillanatkép</string>
+    <string name="screenshot_info">Képernyőkép arról, hogyan jelenik meg a dal az eszközön (az alkalmazás témája alapján)</string>
     <string name="scripture">"Szentírás"</string>
     <string name="scroll">Tekercs</string>
     <string name="scroll_amount">"Scroll összeg"</string>
@@ -807,15 +823,22 @@
     <string name="select_page">"Válassza ki az oldal"</string>
     <string name="set">Készlet</string>
     <string name="set_add">Hozzáad a készlethez</string>
+    <string name="set_bundle_justchords">JustChords készletcsomag</string>
+    <string name="set_bundle_opensongapp">OpenSongApp készletcsomag</string>
+    <string name="set_bundle_opensongapp_import">Készletcsomag importálása (.ossb)</string>
+    <string name="set_bundle_opensongapp_info">Ha megoszt egy készletet más OpenSongApp-felhasználókkal, ez az előnyben részesített módszer.  Tartalmazza a készletlistát és az összes szükséges fájlt, az alábbiakban nincs szükség további opciókra</string>
     <string name="set_current">"Aktuális készlet"</string>
     <string name="set_delete_info">Törölje a régi készleteket</string>
     <string name="set_help">"Drag dalok körül, hogy a sorrend megváltoztatása a beállított"</string>
+    <string name="set_import">Beállításlista importálása</string>
     <string name="set_inline">Inline készlet</string>
     <string name="set_inline_info">Jelenítse meg a setlist listát a dal ablaka melletti képernyőn</string>
     <string name="set_inline_showcase">Ez az inline készlet, amely lehetővé teszi a setlist megtekintését előadás közben.  A beállításokat a Beállítások / Kijelző / Inline készlet menüpontban módosíthatja.</string>
     <string name="set_is_empty">Nincsenek tárgyak a készletben</string>
     <string name="set_item_info">Megváltoztathatja a készletből betöltött dal mappáját/fájlnevét, és megváltoztathatja a dal megjelenítésének gombját is (ez szükség esetén elvégzi a dal ideiglenes átültetését az eszközön)</string>
     <string name="set_item_removed">A készletből eltávolított elem</string>
+    <string name="set_list">Setlist</string>
+    <string name="set_list_separate">Listafájlok beállítása</string>
     <string name="set_load_first">Nyissa ki a betöltött készletet az első elemnél</string>
     <string name="set_load_first_info">Mindig nyissa meg az első beállított elemet.  Ha ki van kapcsolva, a szett megpróbálja megnyitni az aktuálisan betöltött dalt, ha az a készletben van.</string>
     <string name="set_load_info">Töltsön be egy korábban mentett készletet</string>
@@ -829,6 +852,7 @@
     <string name="set_new_info">Az összes dal eltávolítása az aktuális készletből</string>
     <string name="set_packaged_opensongapp">Csomagolt OpenSongApp készletfájl</string>
     <string name="set_packaged_opensongapp_info">Ezzel létrehoz egy egyéni zip fájlt, amely tartalmazza a készletfájlt és a készletben hivatkozott összes OpenSong-, PDF- vagy képfájlt.  Ez megosztható más OpenSongApp-felhasználókkal</string>
+    <string name="set_packages">Komplett csomagok</string>
     <string name="set_rebuild">Átépítési készlet</string>
     <string name="set_rebuild_info">Építsd újra a készletet a legutóbbi sikeres módosításból (akkor használd, ha azt gyanítod, hogy probléma van a készlettel)</string>
     <string name="set_save_info">Mentse el az aktuális készletet későbbi használatra</string>
@@ -872,6 +896,7 @@
     <string name="song_duration">Song időtartama</string>
     <string name="song_features">A dal jellemzői</string>
     <string name="song_features_warning">Ezeket az értékeket a legjobban a beállítások menüben található dal funkció opcióival lehet beállítani. Először mentse el a dalt. Itt azonban manuálisan is szerkesztheti az értékeket.</string>
+    <string name="song_files_separate">Dalfájlok</string>
     <string name="song_menu_checkboxes">"Itt található készlet jelölőnégyzetet dal menü"</string>
     <string name="song_menu_subtitle_size">Dal menüelem felirat mérete</string>
     <string name="song_menu_title_size">Dal menüpont címének mérete</string>
@@ -947,6 +972,7 @@
     <string name="text_extract">Szöveg kibontása fájlból (OCR)</string>
     <string name="text_extract_check">Az OpenSongApp automatikusan megpróbálja megkeresni a dal tartalmát, azonban erre a gombra kattintva manuálisan is ellenőrizheti.</string>
     <string name="text_extract_website">A dal szövege ezen az oldalon található. Kattintson ide a kibontáshoz.</string>
+    <string name="text_file_info">A legtöbb alkalmazás által megnyitható és megtekinthető fájl</string>
     <string name="text_size">Szövegméret</string>
     <string name="theme">"Témák"</string>
     <string name="theme_choose">"Változik téma"</string>
@@ -956,6 +982,7 @@
     <string name="theme_edit">Szerkessze vagy módosítsa az aktuális témát</string>
     <string name="theme_exists">Ez a téma már létezik.</string>
     <string name="theme_light">"Light téma"</string>
+    <string name="theme_pdf_image">PDF/kép téma</string>
     <string name="time">"Idő"</string>
     <string name="time_format">"24 órás"</string>
     <string name="time_mins">Percek</string>

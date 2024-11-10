@@ -36,6 +36,7 @@
     <string name="alphabetical_level2">Αλφαβητικό ευρετήριο δύο χαρακτήρων</string>
     <string name="alphabetical_level2_info">Κάνοντας κλικ σε ένα στοιχείο στο αλφαβητικό ευρετήριο θα γίνει εναλλαγή μεταξύ ενός και δύο χαρακτήρων αλφαβητικού ευρετηρίου</string>
     <string name="alphabetical_sort">Βάλτε τα στοιχεία σε αλφαβητική σειρά</string>
+    <string name="app_specific_file">Ένα αρχείο συγκεκριμένο για το OpenSongApp</string>
     <string name="appearance_change">Ρυθμίζει την εμφάνιση</string>
     <string name="apply_changes">Εφαρμόστε αλλαγές</string>
     <string name="are_you_sure">"Είσαι σίγουρος;"</string>
@@ -182,6 +183,7 @@
     <string name="chordinator">Χρησιμοποιεί κώδικα εξαγωγής συγχορδιών από το Chordinator Augmented από τον Paul Evans.  Χρησιμοποιείται με άδεια</string>
     <string name="chordinator_info">Αυτή η μέθοδος θα προσπαθήσει να βρει αυτόματα φύλλα χορδών, αλλά δεν είναι επιτυχής, μπορείτε να εξαγάγετε περιεχόμενο με μη αυτόματο τρόπο χρησιμοποιώντας τη μέθοδο επιλογής και αντιγραφής που περιγράφεται παρακάτω</string>
     <string name="chordline_scale">"Χορδές κλίμακας"</string>
+    <string name="chordpro_file_info">Ένα αρχείο που μπορεί να εισαχθεί σε πολλές εφαρμογές τραγουδιών</string>
     <string name="chords">"Συγχορδίες"</string>
     <string name="chords_found">Όλες οι συγχορδίες που βρέθηκαν στους στίχους του τραγουδιού</string>
     <string name="chorus">"Ρεφρέν"</string>
@@ -291,6 +293,7 @@
     <string name="delete_folder_info">Διαγραφή υποκαταλόγου τραγουδιών</string>
     <string name="delete_folder_warning">Εάν διαγράψετε αυτόν τον υποκατάλογο, θα διαγραφούν επίσης και τυχόν τραγούδια ή φάκελοι που περιέχει. Δεν μπορείτε να αναιρέσετε αυτήν την αλλαγή! Βεβαιωθείτε ότι έχετε δημιουργήσει και αποθηκεύσει αντίγραφα ασφαλείας ΟΛΩΝ των αρχείων σας πριν συνεχίσετε!!!</string>
     <string name="delete_song_warning">Δεν μπορείτε να αναιρέσετε αυτήν την ενέργεια. Βεβαιωθείτε ότι έχετε δημιουργήσει ένα αντίγραφο ασφαλείας για παν ενδεχόμενο!</string>
+    <string name="desktop_specific_file">Ένα αρχείο συγκεκριμένο για την έκδοση desktop του OpenSong</string>
     <string name="device">Συσκευή</string>
     <string name="display">"Εμφάνιση"</string>
     <string name="display_settings">Αλλαγή ρυθμίσεων εμφάνισης (αυτό που βλέπετε στην οθόνη)</string>
@@ -326,11 +329,13 @@
     <string name="export_chordpro">"Τραγούδι ChordPro (.cho)"</string>
     <string name="export_convert_song">Τα τραγούδια με μορφή OpenSong μπορούν επίσης να μετατραπούν στις ακόλουθες μορφές</string>
     <string name="export_current_format">Τραγούδια στην τρέχουσα μορφή τους</string>
+    <string name="export_current_format_info">Ένα αντίγραφο του τραγουδιού στην τρέχουσα μορφή του (OpenSong, PDF ή εικόνα)</string>
     <string name="export_current_set">Μοιραστείτε το τρέχον σύνολο</string>
     <string name="export_current_song">"Share the current song"</string>
     <string name="export_desktop">"Επιφάνεια εργασίας (χωρίς επέκταση αρχείου)"</string>
     <string name="export_image">Εικόνα (.png)</string>
     <string name="export_include_set_songs">Συμπεριλάβετε τραγούδια που προσδιορίζονται στο σετ</string>
+    <string name="export_include_set_songs_info">Αυτό επιτρέπει στα τραγούδια να συμπεριλαμβάνονται στις επιλογές Εξαγωγή και Εκτύπωση</string>
     <string name="export_onsong">"OnSong τραγούδι (.ong)"</string>
     <string name="export_ost">"Τραγούδι OpenSongApp (.ost)"</string>
     <string name="export_set">"Σετ OpenSongApp (.osts)"</string>
@@ -430,6 +435,7 @@
     <string name="image">"Εικόνα"</string>
     <string name="image_adjust">Προσαρμογή εικόνας (περικοπή και περιστροφή)</string>
     <string name="image_change">Κάντε κλικ στην εικόνα για αλλαγή</string>
+    <string name="image_file_info">Το αρχείο OpenSongApp μετατράπηκε σε αρχείο εικόνας</string>
     <string name="image_slide">"Image slideshow"</string>
     <string name="immersive_mode">Καθηλωτική λειτουργία</string>
     <string name="immersive_mode_info">Απόκρυψη γραμμών πλοήγησης και κατάστασης για να χρησιμοποιήσετε περισσότερο την οθόνη σας</string>
@@ -446,6 +452,10 @@
     <string name="imported">Εισαγόμενος</string>
     <string name="imported_values">Εισαγόμενες τιμές</string>
     <string name="inc_autoscroll_speed">"Αυξήστε την ταχύτητα αυτόματης κύλισης"</string>
+    <string name="included_songs">Περιλαμβάνονται τραγούδια</string>
+    <string name="included_songs_already_have">Έχετε ήδη αυτό το στοιχείο στη βάση δεδομένων σας</string>
+    <string name="included_songs_import">Εισαγωγή επιλεγμένων τραγουδιών</string>
+    <string name="included_songs_warning">Η εισαγωγή στοιχείων που υπάρχουν ήδη στη βάση δεδομένων σας θα έχει ως αποτέλεσμα την αντικατάσταση της έκδοσής σας από την εισαγόμενη έκδοση.  Αυτά τα τραγούδια προσδιορίζονται με ένα προειδοποιητικό μήνυμα και δεν επιλέγονται από προεπιλογή</string>
     <string name="index_songs">Τραγούδια ευρετηρίου</string>
     <string name="index_songs_end">"Όλα τα τραγούδια έχουν καταχωρηθεί"</string>
     <string name="index_songs_error">"Υπήρξε ένα πρόβλημα με την δημιουργία της βάσης αναζήτησης"</string>
@@ -473,6 +483,8 @@
     <string name="invert_PDF_info">Τα περισσότερα έγγραφα PDF έχουν ανοιχτό φόντο και σκούρο κείμενο. Η αντιστροφή των χρωμάτων θα κάνει αυτό να έχει σκούρο φόντο και ανοιχτό κείμενο παρόμοιο με ένα σκοτεινό ή νυχτερινό θέμα.</string>
     <string name="is_not_set">"Not set"</string>
     <string name="item">"Item"</string>
+    <string name="justchords">Αρχείο JustChords (.justchords)</string>
+    <string name="justchords_file_info">Μια μορφή αρχείου συγκεκριμένη για το JustChords στο iOS</string>
     <string name="keep_multiline">Διατηρήστε συμπαγές πολυγραμμικό</string>
     <string name="keep_multiline_info">Εμφανίστε τραγούδια που περιέχουν συνδυασμένους στίχους όπως εμφανίζονται στο παράθυρο επεξεργασίας τραγουδιού.</string>
     <string name="key">"Key"</string>
@@ -539,6 +551,7 @@
     <string name="menu_song_info">Χρησιμοποιήστε αυτό το κουμπί προβολή και διαχείριση των τραγουδιών σας</string>
     <string name="menu_song_order">Πώς πρέπει να εμφανίζονται τα τραγούδια στο μενού;</string>
     <string name="merged_text_file">Συγχωνευμένο αρχείο κειμένου</string>
+    <string name="merged_text_file_info">Ένα ενιαίο αρχείο κειμένου με όλα τα στοιχεία συγχωνευμένα.  Χρήσιμο για εισαγωγή σε ένα έγγραφο κατά την παραγωγή ενός χάρτινου βιβλίου τραγουδιών</string>
     <string name="metronome">"Metronome"</string>
     <string name="metronome_autostart">Μετρονόμος αυτόματης εκκίνησης</string>
     <string name="metronome_autostart_info">Διατηρήστε τον μετρονόμο σε λειτουργία όταν αλλάζετε τραγούδια</string>
@@ -629,6 +642,7 @@
     <string name="okay">Εντάξει</string>
     <string name="on">On</string>
     <string name="online">Σε σύνδεση</string>
+    <string name="onsong_file_info">Ένα αρχείο που μπορεί να εισαχθεί στο OnSong σε συσκευές iOS</string>
     <string name="onsong_import">"Import OnSong backup file"</string>
     <string name="onsong_import_folder">Επιλέξτε ένα φάκελο για να αποθηκεύσετε εισηγμένα τραγούδια</string>
     <string name="onsong_import_folder_info">Η προτεινόμενη επιλογή είναι η εισαγωγή σε έναν ξεχωριστό φάκελο OnSong. Μπορείτε πάντα να μετακινήσετε τραγούδια σε άλλους φακέλους αργότερα.</string>
@@ -676,6 +690,7 @@
     <string name="password">Κωδικός πρόσβασης</string>
     <string name="pause">Παύση</string>
     <string name="paypal_description">Στείλτε μου μια δωρεά εάν βρίσκετε την εφαρμογή χρήσιμη</string>
+    <string name="pdf_file_info">Το αρχείο OpenSongApp μετατράπηκε σε έγγραφο PDF</string>
     <string name="pdf_horizontal">Εμφάνιση σελίδων PDF οριζόντια</string>
     <string name="pdf_horizontal_info">Όταν η αυτόματη κλίμακα έχει οριστεί σε πλήρη και η συσκευή βρίσκεται σε οριζόντιο προσανατολισμό, οι σελίδες PDF θα εμφανίζονται δίπλα-δίπλα (κλιμακούμενες κατά ύψος)</string>
     <string name="pdf_preview_not_allowed">Η προεπισκόπηση αρχείων PDF απευθείας δεν υποστηρίζεται σε πολλά προγράμματα περιήγησης ιστού για κινητά, αλλά μπορείτε να ανοίξετε το αρχείο χρησιμοποιώντας το παρακάτω κουμπί.</string>
@@ -788,6 +803,7 @@
     <string name="scaling">Απολέπιση</string>
     <string name="scaling_info">Ρυθμίσεις αυτόματης κλίμακας και κλιμάκωση τομών</string>
     <string name="screenshot">Στιγμιότυπο οθόνης</string>
+    <string name="screenshot_info">Ένα στιγμιότυπο οθόνης του τρόπου με τον οποίο εμφανίζεται το τραγούδι στη συσκευή σας (με βάση το θέμα της εφαρμογής σας)</string>
     <string name="scripture">"Scripture"</string>
     <string name="scroll">Πάπυρος</string>
     <string name="scroll_amount">"Μετακινήστε το ποσό"</string>
@@ -807,15 +823,22 @@
     <string name="select_page">"Επιλογή σελίφας"</string>
     <string name="set">Σeipa</string>
     <string name="set_add">Πρόσθεσε στο σύνολο</string>
+    <string name="set_bundle_justchords">Πακέτο σετ JustChords</string>
+    <string name="set_bundle_opensongapp">Πακέτο σετ OpenSongApp</string>
+    <string name="set_bundle_opensongapp_import">Εισαγωγή πακέτου συνόλου (.ossb)</string>
+    <string name="set_bundle_opensongapp_info">Εάν μοιράζεστε ένα σύνολο με άλλους χρήστες του OpenSongApp, αυτή είναι η προτιμώμενη μέθοδος.  Περιέχει τη λίστα συνόλων και όλα τα απαιτούμενα αρχεία, δεν χρειάζεστε επιπλέον επιλογές παρακάτω</string>
     <string name="set_current">"Current set"</string>
     <string name="set_delete_info">Διαγράψτε παλιά σετ</string>
     <string name="set_help">"Drag songs around to change the order of your set"</string>
+    <string name="set_import">Εισαγωγή λίστας συνόλου</string>
     <string name="set_inline">Ενσωματωμένο σετ</string>
     <string name="set_inline_info">Εμφάνιση του setlist στην οθόνη δίπλα στο παράθυρο τραγουδιών</string>
     <string name="set_inline_showcase">Αυτό είναι το ενσωματωμένο σύνολο που επιτρέπει την προβολή του setlist ενώ παίζετε.  Μπορείτε να αλλάξετε τις ρυθμίσεις στις Ρυθμίσεις / Οθόνη / Ενσωματωμένο σύνολο.</string>
     <string name="set_is_empty">Δεν υπάρχουν στοιχεία στο σετ σας</string>
     <string name="set_item_info">Μπορείτε να αλλάξετε το όνομα φακέλου/αρχείου του τραγουδιού που φορτώθηκε από το σετ και μπορείτε επίσης να αλλάξετε το πλήκτρο για την εμφάνιση του τραγουδιού (αυτό εκτελεί προσωρινή αντιμετάθεση του τραγουδιού στη συσκευή σας, εάν απαιτείται)</string>
     <string name="set_item_removed">Στοιχείο που αφαιρέθηκε από το σετ</string>
+    <string name="set_list">Setlist</string>
+    <string name="set_list_separate">Ορισμός αρχείων λίστας</string>
     <string name="set_load_first">Ανοίξτε το φορτωμένο σύνολο στο πρώτο στοιχείο</string>
     <string name="set_load_first_info">Να ανοίγετε πάντα το πρώτο στοιχείο σετ.  Εάν είναι απενεργοποιημένο, το σετ θα επιχειρήσει να ανοίξει στο τρέχον φορτωμένο τραγούδι, εάν βρίσκεται στο σετ.</string>
     <string name="set_load_info">Φορτώστε ένα προηγουμένως αποθηκευμένο σύνολο</string>
@@ -829,6 +852,7 @@
     <string name="set_new_info">Καταργήστε όλα τα τραγούδια από το τρέχον σετ</string>
     <string name="set_packaged_opensongapp">Συσκευασμένο αρχείο συνόλου OpenSongApp</string>
     <string name="set_packaged_opensongapp_info">Αυτό δημιουργεί ένα προσαρμοσμένο αρχείο zip που περιέχει το σύνολο αρχείου και όλα τα αρχεία OpenSong, PDF ή εικόνας που αναφέρονται στο σετ.  Αυτό μπορεί να κοινοποιηθεί με άλλους χρήστες του OpenSongApp</string>
+    <string name="set_packages">Ολοκληρωμένα σετ πακέτα</string>
     <string name="set_rebuild">Σετ ανακατασκευής</string>
     <string name="set_rebuild_info">Δημιουργήστε ξανά το σύνολο από την τελευταία επιτυχημένη αλλαγή (χρησιμοποιήστε το αν υποψιάζεστε ότι υπάρχει πρόβλημα με το σύνολο σας)</string>
     <string name="set_save_info">Αποθηκεύστε το τρέχον σύνολο για μελλοντική χρήση</string>
@@ -872,6 +896,7 @@
     <string name="song_duration">Song duration</string>
     <string name="song_features">Χαρακτηριστικά τραγουδιού</string>
     <string name="song_features_warning">Αυτές οι τιμές ρυθμίζονται καλύτερα χρησιμοποιώντας τις αποκλειστικές επιλογές δυνατοτήτων τραγουδιού στο μενού ρυθμίσεων. Αποθηκεύστε πρώτα το τραγούδι. Μπορείτε, ωστόσο, να επεξεργαστείτε με μη αυτόματο τρόπο τις τιμές εδώ.</string>
+    <string name="song_files_separate">Αρχεία τραγουδιών</string>
     <string name="song_menu_checkboxes">"Εμφάνιση των πλαισίων ελέγχου στο μενού τραγουδιών"</string>
     <string name="song_menu_subtitle_size">Μέγεθος υποτίτλων στοιχείου μενού τραγουδιού</string>
     <string name="song_menu_title_size">Μέγεθος τίτλου στοιχείου μενού τραγουδιού</string>
@@ -947,6 +972,7 @@
     <string name="text_extract">Εξαγωγή κειμένου από αρχείο (OCR)</string>
     <string name="text_extract_check">Το OpenSongApp θα προσπαθήσει να βρει αυτόματα το περιεχόμενο του τραγουδιού, ωστόσο, μπορείτε να το ελέγξετε χειροκίνητα κάνοντας κλικ σε αυτό το κουμπί.</string>
     <string name="text_extract_website">Το κείμενο του τραγουδιού βρίσκεται σε αυτή τη σελίδα. Κάντε κλικ εδώ για εξαγωγή.</string>
+    <string name="text_file_info">Ένα αρχείο που μπορεί να ανοίξει και να προβληθεί από τις περισσότερες εφαρμογές</string>
     <string name="text_size">Μέγεθος κειμένου</string>
     <string name="theme">"Theme"</string>
     <string name="theme_choose">"Αλλαγή θέματος"</string>
@@ -956,6 +982,7 @@
     <string name="theme_edit">Επεξεργαστείτε ή αλλάξτε το τρέχον θέμα</string>
     <string name="theme_exists">Αυτό το θέμα υπάρχει ήδη.</string>
     <string name="theme_light">"Light theme"</string>
+    <string name="theme_pdf_image">Θέμα για PDF/Εικόνα</string>
     <string name="time">"Χρόνος"</string>
     <string name="time_format">"24 ώρες"</string>
     <string name="time_mins">Λεπτά</string>

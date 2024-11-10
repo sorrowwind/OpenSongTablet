@@ -36,6 +36,7 @@
     <string name="alphabetical_level2">Двухсимвольный алфавитный указатель</string>
     <string name="alphabetical_level2_info">Щелчок по элементу в алфавитном указателе будет переключаться между односимвольным и двухсимвольным алфавитным указателем.</string>
     <string name="alphabetical_sort">Расположите элементы в алфавитном порядке</string>
+    <string name="app_specific_file">Файл, специфичный для OpenSongApp.</string>
     <string name="appearance_change">Настройка внешнего вида</string>
     <string name="apply_changes">Применить изменения</string>
     <string name="are_you_sure">"Вы уверены? "</string>
@@ -182,6 +183,7 @@
     <string name="chordinator">Использует код извлечения аккордов из Chordinator Augmented от Пола Эванса.  Используется с разрешения</string>
     <string name="chordinator_info">Этот метод попытается автоматически найти листы аккордов, но это не увенчается успехом, вы можете вручную извлечь содержимое, используя метод выбора и копирования, описанный ниже</string>
     <string name="chordline_scale">"Размер шрифта аккордов"</string>
+    <string name="chordpro_file_info">Файл, который можно импортировать в многочисленные приложения песенников.</string>
     <string name="chords">Аккорды</string>
     <string name="chords_found">Все аккорды, найденные в тексте песни</string>
     <string name="chorus">Припев</string>
@@ -291,6 +293,7 @@
     <string name="delete_folder_info">Удалить подкаталог песни</string>
     <string name="delete_folder_warning">Если вы удалите этот подкаталог, это также приведет к удалению всех песен или папок, которые в нем содержатся. Вы не можете отменить это изменение!</string>
     <string name="delete_song_warning">Вы не можете отменить это действие. Пожалуйста, убедитесь, что вы создали резервную копию на всякий случай!</string>
+    <string name="desktop_specific_file">Файл, специфичный для настольной версии OpenSong.</string>
     <string name="device">Устройство</string>
     <string name="display">Отображение</string>
     <string name="display_settings">Изменить настройки отображения (то, что вы видите на экране)</string>
@@ -326,11 +329,13 @@
     <string name="export_chordpro">Файл в формате ChordPro (.cho)</string>
     <string name="export_convert_song">Песни в формате OpenSong также можно преобразовать в следующие форматы</string>
     <string name="export_current_format">Песни в их текущем формате</string>
+    <string name="export_current_format_info">Копия песни в текущем формате (OpenSong, PDF или изображение).</string>
     <string name="export_current_set">Поделиться текущим сетом</string>
     <string name="export_current_song">Поделиться текущей песней</string>
     <string name="export_desktop">Файл компьютерной версии OpenSong (без расширения)"</string>
     <string name="export_image">Изображение (.png)</string>
     <string name="export_include_set_songs">Также экспортировать песни, занесенные в сет</string>
+    <string name="export_include_set_songs_info">Это позволяет включать песни в параметры экспорта и печати.</string>
     <string name="export_onsong">Файл в формате OnSong (.onsong)</string>
     <string name="export_ost">Файл в формате OpenSongApp (.ost)</string>
     <string name="export_set">Сет OpenSongApp (.osts)</string>
@@ -430,6 +435,7 @@
     <string name="image">Изображение</string>
     <string name="image_adjust">Настройка изображения (обрезка и поворот)</string>
     <string name="image_change">Нажмите на изображение, чтобы изменить</string>
+    <string name="image_file_info">Файл OpenSongApp, преобразованный в файл изображения.</string>
     <string name="image_slide">Слайдшоу изображений</string>
     <string name="immersive_mode">Иммерсивный режим</string>
     <string name="immersive_mode_info">Скрывает навигацию и строки состояния, чтобы использовать большее пространство экрана</string>
@@ -446,6 +452,10 @@
     <string name="imported">Импортный</string>
     <string name="imported_values">Импортируемые значения</string>
     <string name="inc_autoscroll_speed">Увеличить скорость автопрокрутки</string>
+    <string name="included_songs">Включенные песни</string>
+    <string name="included_songs_already_have">Этот товар уже есть в вашей базе данных</string>
+    <string name="included_songs_import">Импортировать выбранные песни</string>
+    <string name="included_songs_warning">Импорт элементов, которые уже существуют в вашей базе данных, приведет к замене вашей версии импортированной версией.  Эти песни обозначаются предупреждающим сообщением и не выбираются по умолчанию.</string>
     <string name="index_songs">Обновление каталога песен</string>
     <string name="index_songs_end">Все песни проиндексированы</string>
     <string name="index_songs_error">Ошибка построения базы перечня песен</string>
@@ -473,6 +483,8 @@
     <string name="invert_PDF_info">Большинство PDF-документов имеют светлый фон и темный текст. Инверсия цветов сделает темный фон и светлый текст, похожий на темную или ночную тему.</string>
     <string name="is_not_set">Не установлено</string>
     <string name="item">Элемент</string>
+    <string name="justchords">Файл JustChords (.justchords)</string>
+    <string name="justchords_file_info">Формат файла, специфичный для JustChords на iOS.</string>
     <string name="keep_multiline">Ужатие многострочного текста</string>
     <string name="keep_multiline_info">Отображение песен, содержащих совмещенные куплеты, в том виде, в котором они отображаются в окне редактирования песни.</string>
     <string name="key">Тональность</string>
@@ -539,6 +551,7 @@
     <string name="menu_song_info">Нажмите эту кнопку для просмотра и управления своими песнями</string>
     <string name="menu_song_order">Как песни должны быть упорядочены в меню?</string>
     <string name="merged_text_file">Объединенный текстовый файл</string>
+    <string name="merged_text_file_info">Единый текстовый файл со всеми объединенными элементами.  Полезно для импорта в документ при создании бумажного песенника.</string>
     <string name="metronome">Метроном</string>
     <string name="metronome_autostart">Автозапуск метронома</string>
     <string name="metronome_autostart_info">Держать метроном включенным при смене песен</string>
@@ -629,6 +642,7 @@
     <string name="okay">ОК</string>
     <string name="on">Вкл</string>
     <string name="online">Онлайн</string>
+    <string name="onsong_file_info">Файл, который можно импортировать в OnSong на устройствах iOS.</string>
     <string name="onsong_import">"Импорт файла резервной копии OnSong"</string>
     <string name="onsong_import_folder">Выберите папку для сохранения импортированных песен</string>
     <string name="onsong_import_folder_info">Рекомендуемый вариант — импортировать в отдельную папку OnSong. Вы всегда можете переместить песни в другие папки.</string>
@@ -676,6 +690,7 @@
     <string name="password">Пароль</string>
     <string name="pause">Пауза</string>
     <string name="paypal_description">Пожалуйста, сделайте пожертвование автору, если приложение оказалось для Вас полезным</string>
+    <string name="pdf_file_info">Файл OpenSongApp преобразован в PDF-документ.</string>
     <string name="pdf_horizontal">Горизонтальное отображение PDF-страниц</string>
     <string name="pdf_horizontal_info">Если автомасштаб установлен на полный и устройство находится в альбомной ориентации, страницы PDF будут отображаться рядом друг с другом (масштабироваться по высоте)</string>
     <string name="pdf_preview_not_allowed">Предварительный просмотр PDF-файлов напрямую не поддерживается во многих мобильных веб-браузерах, но вы можете открыть файл с помощью кнопки ниже.</string>
@@ -788,6 +803,7 @@
     <string name="scaling">Масштабирование</string>
     <string name="scaling_info">Настройки автомасштабирования и масштабирования раздела</string>
     <string name="screenshot">Скриншот</string>
+    <string name="screenshot_info">Скриншот того, как песня отображается на вашем устройстве (в зависимости от темы вашего приложения).</string>
     <string name="scripture">Cвященное писание</string>
     <string name="scroll">Прокрутка</string>
     <string name="scroll_amount">Интервал прокрутки</string>
@@ -807,15 +823,22 @@
     <string name="select_page">Выбрать страницу</string>
     <string name="set">Сет</string>
     <string name="set_add">Добавить в сет</string>
+    <string name="set_bundle_justchords">Набор JustChords</string>
+    <string name="set_bundle_opensongapp">Комплект OpenSongApp</string>
+    <string name="set_bundle_opensongapp_import">Импортировать пакет набора (.ossb)</string>
+    <string name="set_bundle_opensongapp_info">Если вы делитесь набором с другими пользователями OpenSongApp, это предпочтительный метод.  Он содержит список наборов и все необходимые файлы, никаких дополнительных опций ниже не требуется.</string>
     <string name="set_current">Текущий сет</string>
     <string name="set_delete_info">Удалить старые сеты</string>
     <string name="set_help">Чтобы изменить порядок песен в сете, перемещайте их, удерживая пальцем</string>
+    <string name="set_import">Импортировать сетлист</string>
     <string name="set_inline">Встроенный сет</string>
     <string name="set_inline_info">Показать сет-лист на экране рядом с окном песни</string>
     <string name="set_inline_showcase">Это встроенный набор, который позволяет просматривать сет-лист во время выступления.  Вы можете изменить настройки в разделе Настройки / Дисплей / Встроенная настройка.</string>
     <string name="set_is_empty">В вашем наборе нет предметов</string>
     <string name="set_item_info">Вы можете изменить имя папки/файла песни, загруженной из сета, а также изменить тональность песни ТОЛЬКО для текущего отображения в сете (транспозиция песни в самой базе при этом не меняется)</string>
     <string name="set_item_removed">Предмет удален из набора</string>
+    <string name="set_list">Сетлист</string>
+    <string name="set_list_separate">Установить файлы списка</string>
     <string name="set_load_first">Откройте загруженный набор на первом элементе</string>
     <string name="set_load_first_info">Всегда открывайте первый элемент набора.  Если этот параметр выключен, набор попытается открыться на загруженной в данный момент песне, если она есть в наборе.</string>
     <string name="set_load_info">Загрузить ранее сохраненный сет</string>
@@ -829,6 +852,7 @@
     <string name="set_new_info">Удалить все песни из текущего сета</string>
     <string name="set_packaged_opensongapp">Упакованный установочный файл OpenSongApp</string>
     <string name="set_packaged_opensongapp_info">При этом создается пользовательский zip-файл, содержащий файл набора и все файлы OpenSong, PDF или изображения, на которые есть ссылки в наборе.  Этим можно поделиться с другими пользователями OpenSongApp.</string>
+    <string name="set_packages">Полный набор пакетов</string>
     <string name="set_rebuild">Набор для перестроения</string>
     <string name="set_rebuild_info">Перестройте набор с момента последнего успешного изменения (используйте, если вы подозреваете, что с вашим набором возникла проблема)</string>
     <string name="set_save_info">Сохранить текущий сет для последующего использования</string>
@@ -872,6 +896,7 @@
     <string name="song_duration">Продолжительность песни</string>
     <string name="song_features">Особые параметры песни</string>
     <string name="song_features_warning">Эти значения лучше всего настраивать с помощью специального пункта "Особые параметры песни" в меню настроек. Сначала сохраните песню. Тем не менее, вы можете вручную редактировать значения здесь</string>
+    <string name="song_files_separate">Файлы песен</string>
     <string name="song_menu_checkboxes">Показывать флажки (галочки) в меню песен</string>
     <string name="song_menu_subtitle_size">Размер пункта субтитров в меню песен</string>
     <string name="song_menu_title_size">Размер заголовка пункта в меню песен</string>
@@ -947,6 +972,7 @@
     <string name="text_extract">Извлечь текст из файла (OCR)</string>
     <string name="text_extract_check">OpenSongApp попытается найти содержимое песни автоматически, однако вы можете проверить это вручную, нажав эту кнопку.</string>
     <string name="text_extract_website">Текст песни найден на этой странице. Нажмите здесь, чтобы извлечь.</string>
+    <string name="text_file_info">Файл, который можно открыть и просмотреть большинством приложений.</string>
     <string name="text_size">Размер текста</string>
     <string name="theme">Тема</string>
     <string name="theme_choose">Переключение темы</string>
@@ -956,6 +982,7 @@
     <string name="theme_edit">Редактировать или изменить текущую тему</string>
     <string name="theme_exists">Такая тема уже есть</string>
     <string name="theme_light">Светлая тема</string>
+    <string name="theme_pdf_image">Тема для PDF/изображения</string>
     <string name="time">Bремя</string>
     <string name="time_format">24 часа</string>
     <string name="time_mins">Минуты</string>

@@ -36,6 +36,7 @@
     <string name="alphabetical_level2">Dvoslovni abecedni indeks</string>
     <string name="alphabetical_level2_info">Klikom na stavku u abecednom indeksu prebacujete se između jednog i dvoslovnog abecednog indeksa</string>
     <string name="alphabetical_sort">Stavite stavke po abecednom redu</string>
+    <string name="app_specific_file">Fajl specifičan za OpenSongApp</string>
     <string name="appearance_change">Prilagođava izgled</string>
     <string name="apply_changes">Primenite izmene</string>
     <string name="are_you_sure">Da li ste sigurni?</string>
@@ -182,6 +183,7 @@
     <string name="chordinator">Koristi kod za vađenje akorda iz Chordinatora Augmented od Paul Evans.  Koristi se po dozvoli</string>
     <string name="chordinator_info">Ovaj metod će pokušati da automatski pronađe listove akorda, ali je neuspešan, možete ručno izdvojiti sadržaj pomoću dole opisanog metoda izbora i kopiranja</string>
     <string name="chordline_scale">Skaliranje akorda</string>
+    <string name="chordpro_file_info">Datoteka koja se može uvesti u brojne aplikacije za knjigu pesama</string>
     <string name="chords">Akordi</string>
     <string name="chords_found">Svi akordi se nalaze u tekstu pesme</string>
     <string name="chorus">Refren</string>
@@ -291,6 +293,7 @@
     <string name="delete_folder_info">Izbrišite poddirektorijum pesme</string>
     <string name="delete_folder_warning">Ako izbrišete ovaj poddirektorijum, izbrisaće se i sve pesme ili fascikle koje sadrži. Ne možete da opozovete ovu promenu!</string>
     <string name="delete_song_warning">Ne možete poništiti ovu radnju. Uverite se da ste napravili rezervnu kopiju za svaki slučaj!</string>
+    <string name="desktop_specific_file">Fajl specifičan za desktop verziju OpenSong</string>
     <string name="device">Uređaj</string>
     <string name="display">Prikaz</string>
     <string name="display_settings">Promenite podešavanja prikaza (ono što vidite na ekranu)</string>
@@ -326,11 +329,13 @@
     <string name="export_chordpro">ChordPro song (.cho)</string>
     <string name="export_convert_song">Pesme u OpenSong formatu takođe se mogu konvertovati u sledeće formate</string>
     <string name="export_current_format">Pesme u trenutnom formatu</string>
+    <string name="export_current_format_info">Kopija pesme u trenutnom formatu (OpenSong, PDF ili slika)</string>
     <string name="export_current_set">Podelite trenutni skup</string>
     <string name="export_current_song">Podeliti trenutnu pesmu</string>
     <string name="export_desktop">Desktop file (no file extension)</string>
     <string name="export_image">Slika (.png)</string>
     <string name="export_include_set_songs">Uključite pesme identifikovane u kompletu</string>
+    <string name="export_include_set_songs_info">Ovo omogućava da pesme budu uključene u opcije izvoza i štampanja</string>
     <string name="export_onsong">OnSong song (.onsong)</string>
     <string name="export_ost">OpenSongApp song (.ost)</string>
     <string name="export_set">OpenSongApp set (.osts)</string>
@@ -430,6 +435,7 @@
     <string name="image">Slika</string>
     <string name="image_adjust">Podesi sliku (izrezivanje i rotiranje)</string>
     <string name="image_change">Kliknite na sliku da biste je promenili</string>
+    <string name="image_file_info">OpenSongApp datoteka pretvorena u slikovnu datoteku</string>
     <string name="image_slide">Slajd-šou slika</string>
     <string name="immersive_mode">Imerzivni režim</string>
     <string name="immersive_mode_info">Skrivanje trake za navigaciju i statusa da biste koristili veći deo ekrana</string>
@@ -446,6 +452,10 @@
     <string name="imported">Uvezene</string>
     <string name="imported_values">Uvezene vrednosti</string>
     <string name="inc_autoscroll_speed">Uvećati brzinu automatskog pomeranja</string>
+    <string name="included_songs">Uključene pesme</string>
+    <string name="included_songs_already_have">Već imate ovu stavku u vašoj bazi podataka</string>
+    <string name="included_songs_import">Uvoz izabranih pesama</string>
+    <string name="included_songs_warning">Uvoz stavki koje već postoje u vašoj bazi podataka će prouzrokovati da vaša verzija bude zamenjena uvezenom verzijom.  Ove pesme su identifikovani sa porukom upozorenja i nisu izabrani podrazumevano</string>
     <string name="index_songs">Indeksiranje pesama</string>
     <string name="index_songs_end">Sve pesme su indeksirane</string>
     <string name="index_songs_error">Desio se problem tokom indeksiranja baze pesama</string>
@@ -473,6 +483,8 @@
     <string name="invert_PDF_info">Većina PDF dokumenata ima svetlu pozadinu i tamni tekst. Invertovanjem boja će ovo imati tamnu pozadinu i svetli tekst sličan tamnoj ili noćnoj temi.</string>
     <string name="is_not_set">Nije zadato</string>
     <string name="item">Stavka</string>
+    <string name="justchords">JustChords fajl (.justchords)</string>
+    <string name="justchords_file_info">Format datoteke specifičan za JustChords na iOS-u</string>
     <string name="keep_multiline">Zadržite višeslojno kompaktno</string>
     <string name="keep_multiline_info">Prikažite pesme koje sadrže kombinovane stihove onako kako se pojavljuju u prozoru za uređivanje pesme.</string>
     <string name="key">Tonalitet</string>
@@ -539,6 +551,7 @@
     <string name="menu_song_info">Koristite ovo dugme za pregled i upravljanje svojim pesmama</string>
     <string name="menu_song_order">Kako pesme treba da budu navedene u meniju?</string>
     <string name="merged_text_file">Spojena tekstualna datoteka</string>
+    <string name="merged_text_file_info">Jedan tekstualni fajl sa svim spojenim stavkama.  Korisno za uvoz u dokument prilikom izrade papirne knjige pesama</string>
     <string name="metronome">Metronom</string>
     <string name="metronome_autostart">Autostart metronom</string>
     <string name="metronome_autostart_info">Neka metronom radi kada menjate pesme</string>
@@ -629,6 +642,7 @@
     <string name="okay">Ok</string>
     <string name="on">Uklj</string>
     <string name="online">Online</string>
+    <string name="onsong_file_info">Datoteka koja se može uvesti u OnSong na iOS uređajima</string>
     <string name="onsong_import">Uvezi OnSong rezervnu kopiju</string>
     <string name="onsong_import_folder">Izaberite fasciklu za čuvanje uvezenih pesama</string>
     <string name="onsong_import_folder_info">Preporučena opcija je uvoz u posebnu fasciklu OnSong. Uvek možete kasnije da premestite pesme u druge fascikle.</string>
@@ -676,6 +690,7 @@
     <string name="password">Lozinku</string>
     <string name="pause">Pauza</string>
     <string name="paypal_description">Pošaljite mi donaciju ako smatrate da je aplikacija korisna</string>
+    <string name="pdf_file_info">OpenSongApp datoteka pretvorena u PDF dokument</string>
     <string name="pdf_horizontal">Horizontalno prikazivanje PDF stranica</string>
     <string name="pdf_horizontal_info">Kada je autoscale podešen na pun, a uređaj u položenom položaju PDF stranice će biti prikazane jedna pored druge (razmera po visini)</string>
     <string name="pdf_preview_not_allowed">Direktno pregledanje PDF datoteka nije podržano u mnogim mobilnim Veb pregledačima, ali možete da otvorite datoteku pomoću dugmeta ispod.</string>
@@ -788,6 +803,7 @@
     <string name="scaling">Skaliranje</string>
     <string name="scaling_info">Podešavanja automatskog skaliranja i skaliranje sekcija</string>
     <string name="screenshot">Snimak ekrana</string>
+    <string name="screenshot_info">Snimak ekrana kako se pesma pojavljuje na vašem uređaju (na osnovu teme aplikacije)</string>
     <string name="scripture">Skripta</string>
     <string name="scroll">Svitak</string>
     <string name="scroll_amount">Pomični iznos</string>
@@ -807,15 +823,22 @@
     <string name="select_page">Odabrati stranu</string>
     <string name="set">Set lista</string>
     <string name="set_add">Dodaj u skup</string>
+    <string name="set_bundle_justchords">JustChords set paket</string>
+    <string name="set_bundle_opensongapp">OpenSongApp skup paket</string>
+    <string name="set_bundle_opensongapp_import">Uvoz skup paket (.ossb)</string>
+    <string name="set_bundle_opensongapp_info">Ako delite skup sa drugim korisnicima OpenSongApp-a, ovo je preferirani metod.  Ona sadrži set listu i sve potrebne datoteke, ne zahtevaju nikakve dodatne opcije ispod</string>
     <string name="set_current">Trenutna set lista</string>
     <string name="set_delete_info">Izbrišite stare komplete</string>
     <string name="set_help">Prevlačite pesme da bi promenili redosled na set listi</string>
+    <string name="set_import">Uvoz setliste</string>
     <string name="set_inline">Inline set</string>
     <string name="set_inline_info">Prikažite set listu na ekranu pored prozora sa pesmom</string>
     <string name="set_inline_showcase">Ovo je umetnuti skup koji omogućava prikaz liste za postavljanje tokom izvođenja.  Postavke možete da promenite u podešavanjima / Ekran / Umetnuti skup.</string>
     <string name="set_is_empty">Nema stavki u setu</string>
     <string name="set_item_info">Možete da promenite ime fascikle/datoteke pesme učitane iz skupa, a možete i da promenite ključ za prikaz pesme (ovo izvršava privremeni transpon pesme na uređaju ako je to potrebno)</string>
     <string name="set_item_removed">Stavka uklonjena iz skupa</string>
+    <string name="set_list">Setlista</string>
+    <string name="set_list_separate">Podesite datoteke liste</string>
     <string name="set_load_first">Otvaranje učitanog skupa na prvoj stavci</string>
     <string name="set_load_first_info">Uvek otvaraj stavku prvog skupa.  Ako je isključen, set će pokušati da se otvori za trenutno učitanu pesmu ako je u setu.</string>
     <string name="set_load_info">Učitajte prethodno sačuvani set</string>
@@ -829,6 +852,7 @@
     <string name="set_new_info">Ukloni sve pesme iz trenutnog skupa</string>
     <string name="set_packaged_opensongapp">Upakovana OpenSongApp set fajl</string>
     <string name="set_packaged_opensongapp_info">Ovo stvara prilagođenu zip datoteku koja sadrži set fajl i sve OpenSong, PDF ili slikovne datoteke koje se pozivaju u setu.  Ovo se može deliti sa drugim korisnicima OpenSongApp-a</string>
+    <string name="set_packages">Kompletan set paketa</string>
     <string name="set_rebuild">Ponovo napravi skup</string>
     <string name="set_rebuild_info">Ponovo napravite skup od poslednje uspešne promene (koristite ako sumnjate da postoji problem sa vašim setom)</string>
     <string name="set_save_info">Sačuvajte trenutni set za buduću upotrebu</string>
@@ -872,6 +896,7 @@
     <string name="song_duration">Dužina pesme</string>
     <string name="song_features">Karakteristike pesme</string>
     <string name="song_features_warning">Ove vrednosti se najbolje podešavaju korišćenjem posebnih opcija za pesmu u meniju podešavanja. Prvo sačuvajte pesmu. Međutim, ovde možete ručno urediti vrednosti.</string>
+    <string name="song_files_separate">Fajlovi pesama</string>
     <string name="song_menu_checkboxes">Prikazivanje ček boksa u meniju pesama</string>
     <string name="song_menu_subtitle_size">Veličina titla stavke menija pesme</string>
     <string name="song_menu_title_size">Veličina naslova stavke menija pesme</string>
@@ -947,6 +972,7 @@
     <string name="text_extract">Izvucite tekst iz datoteke (OCR)</string>
     <string name="text_extract_check">OpenSongApp će pokušati da automatski pronađe sadržaj pesme, međutim, možete ručno da proverite klikom na ovo dugme.</string>
     <string name="text_extract_website">Tekst pesme pronađen na ovoj stranici. Kliknite ovde da biste izdvojili.</string>
+    <string name="text_file_info">Datoteka koja se može otvoriti i pregledati od strane većine aplikacija</string>
     <string name="text_size">Veličina teksta</string>
     <string name="theme">Tema</string>
     <string name="theme_choose">Promeniti temu</string>
@@ -956,6 +982,7 @@
     <string name="theme_edit">Uredite ili promenite trenutnu temu</string>
     <string name="theme_exists">Ta tema već postoji</string>
     <string name="theme_light">Svetla tema</string>
+    <string name="theme_pdf_image">Tema za PDF / Slika</string>
     <string name="time">Vreme</string>
     <string name="time_format">24-satna</string>
     <string name="time_mins">Minuta</string>

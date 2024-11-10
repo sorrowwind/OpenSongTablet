@@ -36,6 +36,7 @@
     <string name="alphabetical_level2">Dvouznakový abecední rejstřík</string>
     <string name="alphabetical_level2_info">Kliknutím na položku v abecedním rejstříku přepnete mezi jedno a dvouznakovým abecedním rejstříkem</string>
     <string name="alphabetical_sort">Seřaďte položky v abecedním pořadí</string>
+    <string name="app_specific_file">Soubor specifický pro OpenSongApp</string>
     <string name="appearance_change">Upravuje vzhled</string>
     <string name="apply_changes">Aplikuj změny</string>
     <string name="are_you_sure">"Jste si jist?"</string>
@@ -182,6 +183,7 @@
     <string name="chordinator">Používá kód extrakce akordů z Chordinator Augmented od Paul Evans.  oužito se svolením</string>
     <string name="chordinator_info">Tato metoda se pokusí najít listy akordů automaticky, ale je neúspěšná, můžete ručně extrahovat obsah pomocí metody výběru a kopírování popsané níže</string>
     <string name="chordline_scale">"Měřítka akordů"</string>
+    <string name="chordpro_file_info">Soubor, který lze importovat do mnoha aplikací zpěvníků</string>
     <string name="chords">Akord</string>
     <string name="chords_found">Všechny akordy nalezené v textu písně</string>
     <string name="chorus">Refrén</string>
@@ -291,6 +293,7 @@
     <string name="delete_folder_info">Smazat podadresář skladby</string>
     <string name="delete_folder_warning">Pokud odstraníte tento podadresář, budou odstraněny také všechny skladby nebo složky, které obsahuje. Tuto změnu nelze vrátit zpět!</string>
     <string name="delete_song_warning">Tuto akci nelze vrátit zpět. Ujistěte se, že jste vytvořili zálohu pro každý případ!</string>
+    <string name="desktop_specific_file">Soubor specifický pro desktopovou verzi OpenSong</string>
     <string name="device">Zařízení</string>
     <string name="display">Zobrazit</string>
     <string name="display_settings">Změna nastavení zobrazení (to, co vidíte na obrazovce)</string>
@@ -326,11 +329,13 @@
     <string name="export_chordpro">"ChordPro song (.cho)"</string>
     <string name="export_convert_song">Skladby ve formátu OpenSong lze také převést do následujících formátů</string>
     <string name="export_current_format">Skladby v aktuálním formátu</string>
+    <string name="export_current_format_info">Kopie skladby v aktuálním formátu (OpenSong, PDF nebo obrázek)</string>
     <string name="export_current_set">Sdílejte aktuální sadu</string>
     <string name="export_current_song">"Podělte se o aktuální skladbu"</string>
     <string name="export_desktop">"Soubor plochy (bez přípony souboru)"</string>
     <string name="export_image">Obrázek (.png)</string>
     <string name="export_include_set_songs">Zahrňte skladby identifikované v sadě</string>
+    <string name="export_include_set_songs_info">To umožňuje zahrnout skladby do možností Export a Tisk</string>
     <string name="export_onsong">"OnSong píseň (.ong)"</string>
     <string name="export_ost">"OpenSongApp song (.ost)"</string>
     <string name="export_set">"Sada OpenSongApp (.osts)"</string>
@@ -430,6 +435,7 @@
     <string name="image">"Obraz"</string>
     <string name="image_adjust">Úprava obrazu (oříznutí a otočení)</string>
     <string name="image_change">Pro změnu klikněte na obrázek</string>
+    <string name="image_file_info">Soubor OpenSongApp převeden na soubor obrázku</string>
     <string name="image_slide">"Image slideshow"</string>
     <string name="immersive_mode">Imerzivní režim</string>
     <string name="immersive_mode_info">Skryjte navigační a stavové řádky, abyste mohli více využívat svůj displej</string>
@@ -446,6 +452,10 @@
     <string name="imported">Dovezený</string>
     <string name="imported_values">Importované hodnoty</string>
     <string name="inc_autoscroll_speed">"Zvyšte rychlost Autoscroll Speed"</string>
+    <string name="included_songs">Zahrnuté písně</string>
+    <string name="included_songs_already_have">Tuto položku již máte ve své databázi</string>
+    <string name="included_songs_import">Import vybraných skladeb</string>
+    <string name="included_songs_warning">Import položek, které již ve vaší databázi existují, způsobí, že vaše verze bude nahrazena importovanou verzí.  Tyto skladby jsou označeny výstražnou zprávou a nejsou ve výchozím nastavení vybrány</string>
     <string name="index_songs">Rejstřík skladeb</string>
     <string name="index_songs_end">"Všechny skladby byly plně indexovány"</string>
     <string name="index_songs_error">"Došlo k chybě při budování své vyhledávací databáze"</string>
@@ -473,6 +483,8 @@
     <string name="invert_PDF_info">Většina dokumentů PDF má světlé pozadí a tmavý text. Invertováním barev vytvoříte tmavé pozadí a světlý text podobný tmavému nebo nočnímu motivu.</string>
     <string name="is_not_set">"Není stanoveno"</string>
     <string name="item">"Položka"</string>
+    <string name="justchords">Soubor JustChords (.justchords)</string>
+    <string name="justchords_file_info">Formát souboru specifický pro JustChords na iOS</string>
     <string name="keep_multiline">Udržujte multiline kompaktní</string>
     <string name="keep_multiline_info">Zobrazte skladby obsahující kombinované sloky tak, jak se objevují v okně úprav skladby.</string>
     <string name="key">"Klíč"</string>
@@ -539,6 +551,7 @@
     <string name="menu_song_info">Použijte toto tlačítko pro zobrazení a správu skladeb</string>
     <string name="menu_song_order">Jak by měly být skladby uvedeny v nabídce?</string>
     <string name="merged_text_file">Sloučený textový soubor</string>
+    <string name="merged_text_file_info">Jediný textový soubor se všemi položkami sloučenými.  Užitečné pro import do dokumentu při výrobě papírového zpěvníku</string>
     <string name="metronome">"Metronom"</string>
     <string name="metronome_autostart">Automatické spuštění metronomu</string>
     <string name="metronome_autostart_info">Při změně skladeb mějte spuštěný metronom</string>
@@ -629,6 +642,7 @@
     <string name="okay">OK</string>
     <string name="on">Zapnuto</string>
     <string name="online">Online</string>
+    <string name="onsong_file_info">Soubor, který lze importovat do OnSong na zařízeních iOS</string>
     <string name="onsong_import">"Umožňuje importovat OnSong zálohování souborů"</string>
     <string name="onsong_import_folder">Vyberte složku pro uložení importovaných skladeb</string>
     <string name="onsong_import_folder_info">Doporučenou možností je import do samostatné složky OnSong. Skladby můžete kdykoli později přesunout do jiných složek.</string>
@@ -676,6 +690,7 @@
     <string name="password">Heslo</string>
     <string name="pause">Pauza</string>
     <string name="paypal_description">Pošlete mi dar, pokud shledáte aplikaci užitečnou</string>
+    <string name="pdf_file_info">Soubor OpenSongApp převedený na dokument PDF</string>
     <string name="pdf_horizontal">Zobrazení stránek PDF vodorovně</string>
     <string name="pdf_horizontal_info">Když je automatické škálování nastavené na plnou a zařízení je v orientaci na šířku, stránky PDF se zobrazí vedle sebe (měřítko podle výšky)</string>
     <string name="pdf_preview_not_allowed">Přímý náhled souborů PDF není podporován v mnoha mobilních webových prohlížečích, ale soubor můžete otevřít pomocí tlačítka níže.</string>
@@ -788,6 +803,7 @@
     <string name="scaling">Měřítko</string>
     <string name="scaling_info">Nastavení automatického měřítka a měřítka sekcí</string>
     <string name="screenshot">Snímek obrazovky</string>
+    <string name="screenshot_info">Snímek obrazovky, jak skladba vypadá na vašem zařízení (na základě motivu vaší aplikace)</string>
     <string name="scripture">"Písmo svaté"</string>
     <string name="scroll">Svitek</string>
     <string name="scroll_amount">"Množství posunu"</string>
@@ -807,15 +823,22 @@
     <string name="select_page">"Zvolte stránku"</string>
     <string name="set">Sbírka</string>
     <string name="set_add">Přidat do sady</string>
+    <string name="set_bundle_justchords">Balíček sady JustChords</string>
+    <string name="set_bundle_opensongapp">Balíček sady OpenSongApp</string>
+    <string name="set_bundle_opensongapp_import">Importovat balíček sady (.ossb)</string>
+    <string name="set_bundle_opensongapp_info">Pokud sdílíte sadu s ostatními uživateli OpenSongApp, je to preferovaná metoda.  Obsahuje seznam sad a všechny požadované soubory, níže nepotřebujete žádné další možnosti</string>
     <string name="set_current">"Aktuální set"</string>
     <string name="set_delete_info">Smažte staré sady</string>
     <string name="set_help">"Přetažením písně , a tak změnit pořadí vašeho přístroje"</string>
+    <string name="set_import">Import setlistu</string>
     <string name="set_inline">Inline sada</string>
     <string name="set_inline_info">Zobrazit setlist na obrazovce vedle okna skladby</string>
     <string name="set_inline_showcase">Toto je vložená sada, která umožňuje view setlist během hraní.  Nastavení můžete změnit v Nastavení / Zobrazení / Inline sada.</string>
     <string name="set_is_empty">Ve vaší sadě nejsou žádné položky</string>
     <string name="set_item_info">Můžete změnit složku/název souboru skladby načtené ze sady a můžete také změnit klávesu pro zobrazení skladby (v případě potřeby provede dočasnou transpozici skladby do vašeho zařízení)</string>
     <string name="set_item_removed">Položka odstraněna ze sady</string>
+    <string name="set_list">Setlist</string>
+    <string name="set_list_separate">Nastavit soubory seznamu</string>
     <string name="set_load_first">Otevřete načtenou sadu u první položky</string>
     <string name="set_load_first_info">Vždy otevřete první nastavenou položku.  Pokud je vypnutá, sada se pokusí otevřít na aktuálně načtené skladbě, pokud je v sadě.</string>
     <string name="set_load_info">Načtěte dříve uloženou sadu</string>
@@ -829,6 +852,7 @@
     <string name="set_new_info">Odebrat všechny skladby z aktuální sady</string>
     <string name="set_packaged_opensongapp">Zabalený soubor sady OpenSongApp</string>
     <string name="set_packaged_opensongapp_info">Tím se vytvoří vlastní soubor zip, který obsahuje soubor sady a všechny soubory OpenSong, PDF nebo obrázky uvedené v sadě.  To lze sdílet s ostatními uživateli OpenSongApp</string>
+    <string name="set_packages">Kompletní sady sad</string>
     <string name="set_rebuild">Přestavovat sadu</string>
     <string name="set_rebuild_info">Znovu sestavte sadu z poslední úspěšné změny (použijte, pokud máte podezření, že je s vaší sadou problém)</string>
     <string name="set_save_info">Uložte aktuální sadu pro budoucí použití</string>
@@ -872,6 +896,7 @@
     <string name="song_duration">Doba song</string>
     <string name="song_features">Vlastnosti písně</string>
     <string name="song_features_warning">Tyto hodnoty lze nejlépe nastavit pomocí možností vyhrazených funkcí skladby v nabídce nastavení. Nejprve skladbu uložte. Zde však můžete ručně upravit hodnoty.</string>
+    <string name="song_files_separate">Soubory písní</string>
     <string name="song_menu_checkboxes">"Zobrazit zaškrtávací políčka v nabídce skladby"</string>
     <string name="song_menu_subtitle_size">Velikost titulků položky nabídky skladby</string>
     <string name="song_menu_title_size">Velikost názvu položky nabídky skladby</string>
@@ -947,6 +972,7 @@
     <string name="text_extract">Extrahovat text ze souboru (OCR)</string>
     <string name="text_extract_check">OpenSongApp se pokusí najít obsah skladby automaticky, kliknutím na toto tlačítko to však můžete zkontrolovat ručně.</string>
     <string name="text_extract_website">Text písně nalezený na této stránce. Klikněte sem pro extrahování.</string>
+    <string name="text_file_info">Soubor, který lze otevřít a zobrazit ve většině aplikací</string>
     <string name="text_size">Velikost textu</string>
     <string name="theme">"Téma"</string>
     <string name="theme_choose">"Změnit vzhled"</string>
@@ -956,6 +982,7 @@
     <string name="theme_edit">Upravit nebo změnit aktuální téma</string>
     <string name="theme_exists">To téma už existuje.</string>
     <string name="theme_light">"Světlo téma"</string>
+    <string name="theme_pdf_image">Téma pro PDF/Image</string>
     <string name="time">Doba</string>
     <string name="time_format">"24 hodin"</string>
     <string name="time_mins">Minut</string>

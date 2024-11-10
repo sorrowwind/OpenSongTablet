@@ -36,6 +36,7 @@
     <string name="alphabetical_level2">两个字符的字母索引</string>
     <string name="alphabetical_level2_info">单击字母索引中的项目将在一个和两个字符的字母索引之间切换</string>
     <string name="alphabetical_sort">按字母顺序放置项目</string>
+    <string name="app_specific_file">特定于 OpenSongApp 的文件</string>
     <string name="appearance_change">调整外观</string>
     <string name="apply_changes">应用更改</string>
     <string name="are_you_sure">"是否确定?"</string>
@@ -182,6 +183,7 @@
     <string name="chordinator">使用来自Paul Evans的Chordinator Augmented 的和弦提取代码。 经许可使用</string>
     <string name="chordinator_info">此方法将尝试自动查找和弦谱，但不成功，您可以使用下面描述的选择和复制方法手动提取内容</string>
     <string name="chordline_scale">"比例和弦"</string>
+    <string name="chordpro_file_info">可以导入到众多歌本应用程序中的文件</string>
     <string name="chords">和弦</string>
     <string name="chords_found">歌词中找到的所有和弦</string>
     <string name="chorus">副歌 </string>
@@ -291,6 +293,7 @@
     <string name="delete_folder_info">删除歌曲子目录</string>
     <string name="delete_folder_warning">如果删除此子目录，这还将删除它包含的所有歌曲或文件夹。 您无法撤消此更改！</string>
     <string name="delete_song_warning">您无法撤消此操作。 请确保您已创建备份以防万一！</string>
+    <string name="desktop_specific_file">特定于桌面版 OpenSong 的文件</string>
     <string name="device">装置</string>
     <string name="display">"显示"</string>
     <string name="display_settings">更改显示设置（您在屏幕上看到的内容）</string>
@@ -326,11 +329,13 @@
     <string name="export_chordpro">"ChordPro歌曲（.cho）"</string>
     <string name="export_convert_song">OpenSong 格式的歌曲也可以转换成以下格式</string>
     <string name="export_current_format">当前格式的歌曲</string>
+    <string name="export_current_format_info">当前格式的歌曲副本（OpenSong、PDF 或图像）</string>
     <string name="export_current_set">共享当前集</string>
     <string name="export_current_song">"分享当前歌曲"</string>
     <string name="export_desktop">"桌面文件（无文件扩展名）"</string>
     <string name="export_image">图片（.png）</string>
     <string name="export_include_set_songs">包括在集合中识别的歌曲</string>
+    <string name="export_include_set_songs_info">这允许将歌曲包含在导出和打印选项中</string>
     <string name="export_onsong">"安松歌（.onsong）"</string>
     <string name="export_ost">"OpenSongApp歌曲（.ost）"</string>
     <string name="export_set">"OpenSongApp集（.osts）"</string>
@@ -430,6 +435,7 @@
     <string name="image">"像"</string>
     <string name="image_adjust">调整图像（裁剪和旋转）</string>
     <string name="image_change">点击图片进行更改</string>
+    <string name="image_file_info">OpenSongApp 文件转换为图像文件</string>
     <string name="image_slide">"图像幻灯片"</string>
     <string name="immersive_mode">沉浸式模式</string>
     <string name="immersive_mode_info">隐藏导航栏和状态栏以使用更多显示</string>
@@ -446,6 +452,10 @@
     <string name="imported">洋</string>
     <string name="imported_values">导入的值</string>
     <string name="inc_autoscroll_speed">"增加自动滚动速度"</string>
+    <string name="included_songs">收录歌曲</string>
+    <string name="included_songs_already_have">您的数据库中已经有该项目</string>
+    <string name="included_songs_import">导入选定的歌曲</string>
+    <string name="included_songs_warning">导入数据库中已存在的项目将导致您的版本被导入的版本替换。  这些歌曲带有警告消息，默认情况下不会选择</string>
     <string name="index_songs">索引歌曲</string>
     <string name="index_songs_end">"所有的歌曲被完全索引"</string>
     <string name="index_songs_error">"有一个错误构建搜索数据库"</string>
@@ -473,6 +483,8 @@
     <string name="invert_PDF_info">大多数 PDF 文档具有浅色背景和深色文本。反转颜色将使它具有类似于深色或夜间主题的深色背景和浅色文本。</string>
     <string name="is_not_set">"未设置"</string>
     <string name="item">"项目"</string>
+    <string name="justchords">JustChords 文件 (.justchords)</string>
+    <string name="justchords_file_info">iOS 上 JustChords 特有的文件格式</string>
     <string name="keep_multiline">保持多线紧凑</string>
     <string name="keep_multiline_info">在歌曲编辑窗口中显示包含组合诗句的歌曲。</string>
     <string name="key">"图注"</string>
@@ -539,6 +551,7 @@
     <string name="menu_song_info">使用此按钮查看和管理您的歌曲</string>
     <string name="menu_song_order">歌曲应该如何在菜单中列出？</string>
     <string name="merged_text_file">合并的文本文件</string>
+    <string name="merged_text_file_info">合并所有项目的单个文本文件。  在制作纸质歌集时可用于导入到文档中</string>
     <string name="metronome">"节拍器"</string>
     <string name="metronome_autostart">自动启动节拍器</string>
     <string name="metronome_autostart_info">改变歌曲时保持节拍器运行</string>
@@ -629,6 +642,7 @@
     <string name="okay">行</string>
     <string name="on">"打开"</string>
     <string name="online">在线的</string>
+    <string name="onsong_file_info">可以导入到 iOS 设备上的 OnSong 中的文件</string>
     <string name="onsong_import">"稳城导入备份文件"</string>
     <string name="onsong_import_folder">选择一个文件夹来保存导入的歌曲</string>
     <string name="onsong_import_folder_info">推荐的选项是导入单独的 OnSong 文件夹。 您以后可以随时将歌曲移动到其他文件夹中。</string>
@@ -676,6 +690,7 @@
     <string name="password">密码</string>
     <string name="pause">暂停</string>
     <string name="paypal_description">如果您觉得该应用有用，请给我捐款</string>
+    <string name="pdf_file_info">OpenSongApp 文件转换为 PDF 文档</string>
     <string name="pdf_horizontal">水平显示 PDF 页面</string>
     <string name="pdf_horizontal_info">当自动缩放设置为完整且设备处于横向时，PDF 页面将并排显示（按高度缩放）</string>
     <string name="pdf_preview_not_allowed">许多移动网络浏览器不支持直接预览 PDF 文件，但您可以使用下面的按钮打开文件。</string>
@@ -788,6 +803,7 @@
     <string name="scaling">缩放</string>
     <string name="scaling_info">自动缩放设置和截面缩放</string>
     <string name="screenshot">截图</string>
+    <string name="screenshot_info">歌曲在您的设备上的显示方式的屏幕截图（基于您的应用主题）</string>
     <string name="scripture">"圣经"</string>
     <string name="scroll">滚动</string>
     <string name="scroll_amount">"滚动量"</string>
@@ -807,15 +823,22 @@
     <string name="select_page">"选择页面"</string>
     <string name="set">"集"</string>
     <string name="set_add">添加到设置</string>
+    <string name="set_bundle_justchords">JustChords 套装捆绑包</string>
+    <string name="set_bundle_opensongapp">OpenSongApp 套装捆绑包</string>
+    <string name="set_bundle_opensongapp_import">导入集包 (.ossb)</string>
+    <string name="set_bundle_opensongapp_info">如果您与其他 OpenSongApp 用户共享一组，这是首选方法。  它包含设置列表和所需的所有文件，您不需要以下任何其他选项</string>
     <string name="set_current">"当前设置"</string>
     <string name="set_delete_info">删除旧集</string>
     <string name="set_help">"拖动歌曲各地更改设置的顺序"</string>
+    <string name="set_import">导入歌单</string>
     <string name="set_inline">内联集</string>
     <string name="set_inline_info">在歌曲窗口旁边的屏幕上显示设置列表</string>
     <string name="set_inline_showcase">这是内嵌式设置，允许您在表演时查看歌单。 您可以在设置/显示/内联设置中更改设置。</string>
     <string name="set_is_empty">您的套装中没有物品</string>
     <string name="set_item_info">您可以更改从集合加载的歌曲的文件夹/文件名，也可以更改歌曲显示的键（如果需要，这会在您的设备上临时转置歌曲）</string>
     <string name="set_item_removed">从集合中删除的项目</string>
+    <string name="set_list">歌单</string>
+    <string name="set_list_separate">设置列表文件</string>
     <string name="set_load_first">在第一项打开加载的集</string>
     <string name="set_load_first_info">始终打开第一个设置项。 如果关闭，该集合将尝试在当前加载的歌曲（如果该歌曲在集合中）处打开。</string>
     <string name="set_load_info">加载以前保存的集合</string>
@@ -829,6 +852,7 @@
     <string name="set_new_info">从当前集合中删除所有歌曲</string>
     <string name="set_packaged_opensongapp">打包的OpenSongApp设置文件</string>
     <string name="set_packaged_opensongapp_info">这将创建一个自定义 zip 文件，其中包含集合文件以及集合中引用的所有 OpenSong、PDF 或图像文件。  这可以与其他 OpenSongApp 用户共享</string>
+    <string name="set_packages">全套套装</string>
     <string name="set_rebuild">重建集</string>
     <string name="set_rebuild_info">从上次成功更改中重建集合（如果您怀疑集合有问题，请使用）</string>
     <string name="set_save_info">保存当前集以备将来使用</string>
@@ -872,6 +896,7 @@
     <string name="song_duration">歌曲持续时间</string>
     <string name="song_features">歌曲特色</string>
     <string name="song_features_warning">这些值最好使用设置菜单中的专用歌曲功能选项进行设置。 先保存歌曲。 但是，您可以在此处手动编辑值。</string>
+    <string name="song_files_separate">歌曲文件</string>
     <string name="song_menu_checkboxes">"在歌曲菜单中显示设置复选框"</string>
     <string name="song_menu_subtitle_size">歌曲菜单项字幕大小</string>
     <string name="song_menu_title_size">歌曲菜单项标题大小</string>
@@ -947,6 +972,7 @@
     <string name="text_extract">从文件中提取文本 (OCR)</string>
     <string name="text_extract_check">OpenSongApp 将尝试自动查找歌曲内容，但是，您可以通过单击此按钮手动检查。</string>
     <string name="text_extract_website">在此页面上找到的歌曲文本。 点击这里提取。</string>
+    <string name="text_file_info">大多数应用程序都可以打开和查看的文件</string>
     <string name="text_size">字体大小</string>
     <string name="theme">"背景主题"</string>
     <string name="theme_choose">"切换主题"</string>
@@ -956,6 +982,7 @@
     <string name="theme_edit">编辑或更改当前主题</string>
     <string name="theme_exists">该主题已经存在。</string>
     <string name="theme_light">"光主题"</string>
+    <string name="theme_pdf_image">PDF/图像主题</string>
     <string name="time">"时刻"</string>
     <string name="time_format">"24小时"</string>
     <string name="time_mins">分钟</string>
