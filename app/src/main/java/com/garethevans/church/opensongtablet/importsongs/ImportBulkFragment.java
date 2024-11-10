@@ -209,17 +209,19 @@ public class ImportBulkFragment extends Fragment {
                     boolean imageorpdf = mainActivityInterface.getStorageAccess().isSpecificFileExtension("imageorpdf", filename);
                     boolean onsong = mainActivityInterface.getStorageAccess().isSpecificFileExtension("onsong", filename);
                     boolean word = mainActivityInterface.getStorageAccess().isSpecificFileExtension("docx", filename);
-                    boolean justchords = mainActivityInterface.getStorageAccess().isSpecificFileExtension("justchords",filename);
+                    boolean justchords = mainActivityInterface.getStorageAccess().isSpecificFileExtension("justchords", filename);
+                    boolean maybeopensong = !filename.contains(".") && mainActivityInterface.getStorageAccess().getFileSizeFromUri(fileUri)<200;
                     boolean goodsong = true;
                     String newFilename = null;
                     if (filename.contains(".")) {
                         newFilename = filename.substring(0, filename.lastIndexOf("."));
                     }
 
-                    if (text || chordpro || onsong || justchords) {
+                    if (text || chordpro || onsong || justchords || maybeopensong) {
                         inputStream = mainActivityInterface.getStorageAccess().getInputStream(fileUri);
                         content = mainActivityInterface.getStorageAccess().readTextFileToString(inputStream);
                         newSong.setFiletype("XML");
+                        maybeopensong = content!=null && content.contains("</song>");
                     }
 
                     if (text) {
@@ -258,17 +260,29 @@ public class ImportBulkFragment extends Fragment {
                         updateProgress(x + 1, total, filename, success_string);
                         JustChordsObject justChordsObject = mainActivityInterface.getConvertJustChords().getJustChordsObjectFromUri(fileUri);
                         if (justChordsObject != null && justChordsObject.getSongs() != null) {
-                            if (justChordsObject.getSongs().length==1) {
+                            if (justChordsObject.getSongs().length == 1) {
                                 // It's a single song
                                 importJustChordsFile(justChordsObject.getSongs()[0]);
 
-                            } else if (justChordsObject.getSongs().length>1) {
+                            } else if (justChordsObject.getSongs().length > 1) {
                                 // It's a set, so import one at a time
-                                for (JustChordsSongObject justChordsSongObject: justChordsObject.getSongs()) {
+                                for (JustChordsSongObject justChordsSongObject : justChordsObject.getSongs()) {
                                     importJustChordsFile(justChordsSongObject);
                                 }
                             }
                         }
+                    } else if (maybeopensong) {
+                        updateProgress(x + 1, total, filename, success_string);
+                        mainActivityInterface.setImportUri(fileUri);
+                        mainActivityInterface.setImportFilename(mainActivityInterface.getStorageAccess().getFileNameFromUri(fileUri));
+                        newSong.setFilename("importUri");
+                        newSong.setEncoding(fileUri.toString());
+                        newSong.setFiletype("XML");
+                        newSong.setFolder(imported_string);
+                        newSong = mainActivityInterface.getLoadSong().doLoadSongFile(newSong,false);
+                        newSong.setFilename(filename);
+                        newSong.setEncoding("UTF-8");
+
                     } else {
                         updateProgress(x, total, filename, unknown_string);
                         goodsong = false;
@@ -300,7 +314,7 @@ public class ImportBulkFragment extends Fragment {
                                 mainActivityInterface.getSQLiteHelper().updateSong(newSong);
                                 mainActivityInterface.getNonOpenSongSQLiteHelper().updateSong(newSong);
                             }
-                        } else if (text || chordpro || onsong || word) {
+                        } else if (text || chordpro || onsong || word || maybeopensong) {
                             String songXML = mainActivityInterface.getProcessSong().getXML(newSong);
                             OutputStream outputStream = mainActivityInterface.getStorageAccess().getOutputStream(newUri);
                             success = mainActivityInterface.getStorageAccess().writeFileFromString(songXML, outputStream);

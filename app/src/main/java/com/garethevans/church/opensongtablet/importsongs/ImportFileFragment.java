@@ -255,8 +255,15 @@ public class ImportFileFragment extends Fragment {
             } else {
                 mainActivityInterface.getLoadSong().setImportingFile(true);
                 try {
-                    newSong.setFolder("**Variation/_cache");
+                    newSong.setFolder(mainActivityInterface.getMainfoldername());
+                    newSong.setFilename("importUri");
+                    newSong.setFiletype("XML");
+                    if (mainActivityInterface.getImportUri()!=null) {
+                        newSong.setEncoding(mainActivityInterface.getImportUri().toString());
+                    }
                     newSong = mainActivityInterface.getLoadSong().doLoadSongFile(newSong, false);
+                    newSong.setFilename(newSong.getTitle());
+                    Log.d(TAG, "newSong.getLyrics():" + newSong.getLyrics());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

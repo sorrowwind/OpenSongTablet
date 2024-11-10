@@ -126,9 +126,21 @@ public class LoadSong {
             thisSong.setFiletype(getFileTypeByExtension(thisSong.getFilename()));
         }
 
-        // Get the uri for the song - we know it exists as we found it!
-        uri = mainActivityInterface.getStorageAccess().getUriForItem(
-                where, thisSong.getFolder(), thisSong.getFilename());
+        Log.d(TAG,"thisSong.getFilename():"+thisSong.getFilename());
+        Log.d(TAG,"thisSoing.getFolder():"+thisSong.getFolder());
+        if (thisSong.getFilename().equals("importUri")) {
+            Log.d(TAG,"importFilename:"+mainActivityInterface.getImportFilename());
+            uri = mainActivityInterface.getImportUri();
+            if (uri==null) {
+                uri = Uri.parse(thisSong.getEncoding());
+            }
+            Log.d(TAG,"uri of song:"+uri);
+
+        } else {
+            // Get the uri for the song - we know it exists as we found it!
+            uri = mainActivityInterface.getStorageAccess().getUriForItem(
+                    where, thisSong.getFolder(), thisSong.getFilename());
+        }
 
         if (mainActivityInterface.getStorageAccess().uriExists(uri)) {
             // If this is an image or a PDF (or DOC or ZIP), we don't load a song object from the file
@@ -146,8 +158,13 @@ public class LoadSong {
 
                 } else if (thisSong.getFiletype().equals("XML")) {
                     // 2. We have an XML file (likely)
-                    utf = getUTF(thisSong.getFolder(),
-                            thisSong.getFilename(), thisSong.getFiletype());
+                    if (thisSong.getFilename().equals("importUri")) {
+                        utf = "UTF-8";
+                        thisSong.setFilename(mainActivityInterface.getImportFilename());
+                    } else {
+                        utf = getUTF(thisSong.getFolder(),
+                                thisSong.getFilename(), thisSong.getFiletype());
+                    }
                     thisSong = readFileAsXML(thisSong, where, uri, utf);
                 }
 

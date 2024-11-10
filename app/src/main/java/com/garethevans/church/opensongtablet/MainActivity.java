@@ -2864,6 +2864,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                 // Set, song, pdf or image files are initially sent to the import file
                 dealingWithIntent = deeplink_import_file;
             } else {
+                Log.d(TAG,"might have no extension:"+importUri+"    "+importFilename);
                 // Might be an opensong file (with no extension)
                 // If the file size is small enough (<200kB), read it as text and look for </song> and </lyrics> or </set> and </slide_groups>
                 boolean isOpenSong = false;
@@ -2871,8 +2872,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                 String content = "";
                 try {
                     InputStream inputStream = getContentResolver().openInputStream(importUri);
+                    Log.d(TAG,"inputStream:"+inputStream+"  fileSize:"+getStorageAccess().getFileSizeFromUri(importUri));
                     if (!importFilename.contains(".") && getStorageAccess().getFileSizeFromUri(importUri) < 200) {
                         content = getStorageAccess().readTextFileToString(inputStream);
+                        Log.d(TAG,"content:"+content);
                     }
                     if (content != null && content.contains("</song>") && content.contains("</lyrics>")) {
                         isOpenSong = true;
@@ -2887,6 +2890,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                     }
                     if (isOpenSong || isOpenSongSet) {
                         dealingWithIntent = deeplink_import_file;
+                        Log.d(TAG,"importUri:"+importUri);
                     } else {
                         // Can't handle the file, so delete it
                         File tempFileFolder = getStorageAccess().getAppSpecificFile("Import","","");
@@ -3705,6 +3709,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
 
     @Override
     public void setImportUri(Uri importUri) {
+        Log.d(TAG,"settingImportUri:"+importUri);
         this.importUri = importUri;
     }
 
@@ -4471,6 +4476,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
         }
 
         Log.d(TAG,"bootUpCompleted:"+bootUpCompleted);
+        Log.d(TAG,"importUri:"+importUri);
         if (bootUpCompleted) {
             // Just check the actionbar and navigation work
             // Set up the action bar
