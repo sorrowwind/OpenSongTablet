@@ -48,6 +48,10 @@ public class JustChordsSongObject {
     }
     public void setTimeSignature(String timeSignature) {
         // Identical to OpenSong timesig - might be escaped e.g. 4\/4
+        // Must be set non-empty.  Default to 4/4
+        if (timeSignature==null || timeSignature.isEmpty()) {
+            timeSignature = "4/4";
+        }
         this.timeSignature = timeSignature;
     }
     public void setCcli(String ccli) {
@@ -88,7 +92,8 @@ public class JustChordsSongObject {
         return emptyOrValue(copyright);
     }
     public String getTimeSignature() {
-        return emptyOrValue(timeSignature);
+        // Must be set non-empty.  Default to 4/4
+        return emptyOrValue(timeSignature).isEmpty() ? "4/4" : timeSignature;
     }
     public String getCcli() {
         return emptyOrValue(ccli);

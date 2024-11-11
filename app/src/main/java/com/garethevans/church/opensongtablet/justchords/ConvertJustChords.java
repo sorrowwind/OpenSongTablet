@@ -104,7 +104,7 @@ public class ConvertJustChords {
         justChordsSongObject.setTempo(thisSong.getTempo());
         justChordsSongObject.setNotes(thisSong.getNotes());
         justChordsSongObject.setCopyright(thisSong.getCopyright());
-        justChordsSongObject.setTimeSignature(thisSong.getTimesig());
+        justChordsSongObject.setTimeSignature(thisSong.getTimesig()==null||thisSong.getTimesig().isEmpty() ? "4/4":thisSong.getTimesig());
         justChordsSongObject.setCcli(thisSong.getCcli());
         justChordsSongObject.setId(songuuid);
 
