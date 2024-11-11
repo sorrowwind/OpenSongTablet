@@ -1,6 +1,7 @@
 package com.garethevans.church.opensongtablet.webserver;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
@@ -31,7 +32,6 @@ public class WebServerFragment extends Fragment {
             network_error_string="", nearby_string="", location_string="";
     private ActivityResultLauncher<String[]> hotspotPermission;
     private ActivityResultLauncher<String[]> webserverPermission;
-
 
     @Override
     public void onResume() {
@@ -239,6 +239,24 @@ public class WebServerFragment extends Fragment {
                 myView.localHotspot.setVisibility(View.GONE);
                 myView.runHotspot.setVisibility(View.GONE);
             }
+        });
+        myView.hotspotInfo.setOnLongClickListener((View.OnLongClickListener) view -> {
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TEXT, myView.hotspotInfo.getText().toString());
+            intent.setType("text/plain");
+            Intent shareIntent = Intent.createChooser(intent, null);
+            startActivity(shareIntent);
+            return true;
+        });
+        myView.ipAddress.setOnLongClickListener((View.OnLongClickListener) view -> {
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TEXT, myView.ipAddress.getText().toString());
+            intent.setType("text/plain");
+            Intent shareIntent = Intent.createChooser(intent, null);
+            startActivity(shareIntent);
+            return true;
         });
     }
 
